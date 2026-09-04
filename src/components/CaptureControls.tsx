@@ -103,6 +103,10 @@ export const CaptureControls: React.FC<CaptureControlsProps> = ({
               </span>
             </div>
 
+            <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-2.5 text-[11px] text-amber-300 leading-relaxed">
+              💡 <strong>Tip:</strong> To avoid recursive mirror tunnels, share a separate application window or browser tab instead of your entire screen.
+            </div>
+
             <button
               onClick={onStopDisplayCapture}
               className="w-full py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-all border border-slate-700"
@@ -182,11 +186,30 @@ export const CaptureControls: React.FC<CaptureControlsProps> = ({
               </div>
             </div>
 
-            {/* Size Slider */}
+            {/* Size Selector */}
             <div className="bg-slate-900/60 p-3 rounded-xl border border-slate-800 space-y-2">
               <div className="flex justify-between text-xs text-slate-400">
                 <span>Avatar Size</span>
                 <span className="font-mono text-blue-400">{pipConfig.size}px</span>
+              </div>
+              <div className="grid grid-cols-3 gap-1.5">
+                {[
+                  { label: 'Small (140px)', val: 140 },
+                  { label: 'Medium (200px)', val: 200 },
+                  { label: 'Large (280px)', val: 280 },
+                ].map((s) => (
+                  <button
+                    key={s.val}
+                    onClick={() => onUpdatePipConfig({ size: s.val })}
+                    className={`py-1 text-[10px] rounded border transition-all ${
+                      pipConfig.size === s.val
+                        ? 'bg-blue-600 text-white border-blue-500 font-semibold'
+                        : 'bg-slate-800/60 border-slate-700 text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    {s.label}
+                  </button>
+                ))}
               </div>
               <input
                 type="range"

@@ -1,17 +1,20 @@
-// StudioCanvas — Three.js Viewport Container & 2D Motion Overlays
+// StudioCanvas — Viewport HUD Overlay, Kinetic Motion & PiP Webcam
 import React, { useEffect, useRef, useState } from 'react';
 import { ThreeSceneManager } from '@/core/scene/ThreeSceneManager';
-import { CuePoint, PipConfig, CalloutOverlay } from '@/types';
-import { MousePointer, Move, Sparkles } from 'lucide-react';
+import { CuePoint, PipConfig, CalloutOverlay, StageMode } from '@/types';
+import { MousePointer, Move, Sparkles, AlertTriangle, Monitor, Laptop } from 'lucide-react';
 
 interface StudioCanvasProps {
   threeScene: ThreeSceneManager | null;
   activeCue: CuePoint;
   webcamStream: MediaStream | null;
   pipConfig: PipConfig;
+  stageMode?: StageMode;
+  hasDisplayStream?: boolean;
   callouts?: CalloutOverlay[];
   currentTime?: number;
   onUpdatePipConfig: (config: Partial<PipConfig>) => void;
+  onToggleStageMode?: (mode: StageMode) => void;
   webcamVideoRef?: React.RefObject<HTMLVideoElement>;
 }
 
@@ -20,9 +23,12 @@ export const StudioCanvas: React.FC<StudioCanvasProps> = ({
   activeCue,
   webcamStream,
   pipConfig,
+  stageMode = '3d-stage',
+  hasDisplayStream = false,
   callouts = [],
   currentTime = 0,
   onUpdatePipConfig,
+  onToggleStageMode,
   webcamVideoRef: externalVideoRef,
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -98,8 +104,48 @@ export const StudioCanvas: React.FC<StudioCanvasProps> = ({
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-full flex-1 bg-gradient-to-b from-[#07090e] via-[#0b0f19] to-[#07090e] overflow-hidden select-none"
+      className="absolute inset-0 z-10 pointer-events-none overflow-hidden select-none"
     >
+      {/* Top Floating Controls Bar */}
+      <div className="absolute top-4 right-4 z-30 pointer-events-auto flex items-center space-x-2">
+        {onToggleStageMode && (
+          <div className="bg-slate-900/90 backdrop-blur-md p-1 rounded-xl border border-slate-700/80 flex items-center shadow-lg">
+            <button
+              onClick={() => onToggleStageMode('3d-stage')}
+              className={`flex items-center space-x-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
+                stageMode === '3d-stage'
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Laptop className="w-3.5 h-3.5" />
+              <span>3D Stage</span>
+            </button>
+            <button
+              onClick={() => onToggleStageMode('2d-direct')}
+              className={`flex items-center space-x-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
+                stageMode === '2d-direct'
+                  ? 'bg-indigo-600 text-white shadow-sm'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Monitor className="w-3.5 h-3.5" />
+              <span>2D Direct View</span>
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Top Center Anti-Tunnel Helper Banner */}
+      {hasDisplayStream && (
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 pointer-events-auto max-w-lg">
+          <div className="bg-amber-950/80 backdrop-blur-md border border-amber-500/50 text-amber-200 px-3.5 py-1.5 rounded-full text-[11px] font-medium flex items-center space-x-2 shadow-xl animate-fade-in">
+            <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0" />
+            <span>Avoid recursive mirror tunnels: Share an external window or tab.</span>
+          </div>
+        </div>
+      )}
+
       {/* 2D Motion Choreography Kinetic Text Overlay */}
       <div className="absolute top-8 left-8 z-20 pointer-events-none max-w-xl transition-all duration-700 ease-out">
         {activeCue.badgeText && (
@@ -130,6 +176,10 @@ export const StudioCanvas: React.FC<StudioCanvasProps> = ({
           className={`absolute z-30 p-4 rounded-2xl glass-panel border max-w-xs transition-all pointer-events-none ${
             callout.colorTheme === 'emerald'
               ? 'border-emerald-500/50 shadow-emerald-500/10'
+              : callout.colorTheme === 'indigo'
+              ? 'border-indigo-500/50 shadow-indigo-500/10'
+              : callout.colorTheme === 'rose'
+              ? 'border-rose-500/50 shadow-rose-500/10'
               : 'border-blue-500/50 shadow-blue-500/10'
           } ${callout.animation === 'bounce' ? 'animate-bounce' : 'animate-in fade-in duration-300'}`}
         >
@@ -172,7 +222,7 @@ export const StudioCanvas: React.FC<StudioCanvasProps> = ({
             height: `${pipConfig.size}px`,
             transform: 'translate(-50%, -50%)',
           }}
-          className={`absolute z-30 cursor-grab active:cursor-grabbing overflow-hidden border-2 border-blue-400/80 shadow-[0_0_25px_rgba(59,130,246,0.5)] group transition-transform hover:scale-105 ${getShapeClass()} ${
+          className={`absolute z-40 pointer-events-auto cursor-grab active:cursor-grabbing overflow-hidden border-2 border-blue-400/80 shadow-[0_0_25px_rgba(59,130,246,0.5)] group transition-transform hover:scale-105 ${getShapeClass()} ${
             isDraggingPip ? 'ring-4 ring-blue-500/50' : ''
           }`}
           title="Drag webcam to reposition on canvas"

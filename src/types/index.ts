@@ -2,6 +2,8 @@
 
 export type DeviceType = 'macbook' | 'iphone' | 'browser' | 'windows-desktop' | 'pixel-android' | 'none';
 
+export type StageMode = '3d-stage' | '2d-direct';
+
 export type DeviceFinish = 'space-black' | 'silver' | 'titanium-natural' | 'midnight' | 'deep-purple';
 
 export interface DeviceFinishConfig {

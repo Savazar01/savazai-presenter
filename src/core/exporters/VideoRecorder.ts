@@ -268,44 +268,59 @@ export class VideoRecorder {
       }
     };
 
-    recorder.start();
-    this.timeline.pause();
+    try {
+      this.timeline.pause();
+      const originalTime = this.timeline.getCurrentTime();
 
-    for (let frame = 0; frame <= totalFrames; frame++) {
-      const time = startTime + frame * frameInterval;
-      this.timeline.seek(time);
-      this.threeScene.renderDirect();
-      this.renderCompositeFrame(pipConfig, callouts, time);
+      for (let frame = 0; frame <= totalFrames; frame++) {
+        const time = startTime + frame * frameInterval;
+        this.timeline.seek(time);
+        this.threeScene.renderDirect();
+        this.renderCompositeFrame(pipConfig, callouts, time);
 
-      const pct = Math.round((frame / totalFrames) * 90);
+        const pct = Math.round((frame / totalFrames) * 90);
+        onProgress?.({
+          stage: 'rendering',
+          progress: pct,
+          message: `Compositing frame ${frame} of ${totalFrames} (${time.toFixed(2)}s)...`,
+        });
+
+        await new Promise((r) => setTimeout(r, 16));
+      }
+
+      this.timeline.seek(originalTime);
+
       onProgress?.({
-        stage: 'rendering',
-        progress: pct,
-        message: `Compositing frame ${frame} of ${totalFrames} (${time.toFixed(2)}s)...`,
+        stage: 'encoding',
+        progress: 95,
+        message: 'Finalizing video stream and container...',
       });
 
-      await new Promise((r) => setTimeout(r, 16));
+      return new Promise((resolve) => {
+        recorder.onstop = () => {
+          const finalBlob = new Blob(chunks, { type: supportedType || 'video/webm' });
+          onProgress?.({
+            stage: 'complete',
+            progress: 100,
+            message: 'Video export complete!',
+          });
+          resolve(finalBlob);
+        };
+
+        recorder.stop();
+      });
+    } catch (err) {
+      console.error('Offline video export failure:', err);
+      try {
+        recorder.stop();
+      } catch (_) {}
+      onProgress?.({
+        stage: 'error',
+        progress: 0,
+        message: `Video export error: ${err instanceof Error ? err.message : 'Render pipeline error'}`,
+      });
+      throw err;
     }
-
-    onProgress?.({
-      stage: 'encoding',
-      progress: 95,
-      message: 'Finalizing video stream and container...',
-    });
-
-    return new Promise((resolve) => {
-      recorder.onstop = () => {
-        const finalBlob = new Blob(chunks, { type: supportedType });
-        onProgress?.({
-          stage: 'complete',
-          progress: 100,
-          message: 'Video export complete!',
-        });
-        resolve(finalBlob);
-      };
-
-      recorder.stop();
-    });
   }
 
   private getSupportedMimeType(preferred: string): string {

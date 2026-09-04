@@ -11,6 +11,7 @@ import {
   SlideData,
   CalloutOverlay,
   TrimRange,
+  StageMode,
 } from '@/types';
 import { ThreeSceneManager } from '@/core/scene/ThreeSceneManager';
 import { TimelineController, DEFAULT_CUE_POINTS, DEFAULT_SLIDES } from '@/core/motion/TimelineController';
@@ -35,6 +36,7 @@ export function App() {
 
   // Studio UI & Mode State
   const [isEditorMode, setIsEditorMode] = useState(false);
+  const [stageMode, setStageMode] = useState<StageMode>('3d-stage');
   const [currentDevice, setCurrentDevice] = useState<DeviceType>('macbook');
   const [deviceFinish, setDeviceFinish] = useState<DeviceFinish>('space-black');
   const [cameraPreset, setCameraPreset] = useState<CameraPreset>('front');
@@ -101,8 +103,9 @@ export function App() {
   const [isPresentationMode, setIsPresentationMode] = useState(false);
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
 
-  // Hidden video element for display stream or uploaded video texture feed
+  // Hidden video elements for texture and webcam feed
   const displayVideoRef = useRef<HTMLVideoElement | null>(null);
+  const webcamVideoRef = useRef<HTMLVideoElement | null>(null);
 
   // 1. Initialize Engines on mount
   useEffect(() => {
@@ -208,12 +211,29 @@ export function App() {
 
   const handleStartWebcamCapture = async () => {
     if (!captureEngine) return;
-    await captureEngine.startWebcamCapture();
+    try {
+      const stream = await captureEngine.startWebcamCapture();
+      if (webcamVideoRef.current) {
+        webcamVideoRef.current.srcObject = stream;
+        await webcamVideoRef.current.play().catch(() => {});
+        if (videoRecorder) {
+          videoRecorder.setWebcamElement(webcamVideoRef.current);
+        }
+      }
+    } catch (e) {
+      console.error('Webcam start failed:', e);
+    }
   };
 
   const handleStopWebcamCapture = () => {
     if (!captureEngine) return;
     captureEngine.stopWebcamCapture();
+    if (webcamVideoRef.current) {
+      webcamVideoRef.current.srcObject = null;
+    }
+    if (videoRecorder) {
+      videoRecorder.setWebcamElement(null);
+    }
   };
 
   const handleStartMicCapture = async () => {
@@ -316,6 +336,9 @@ export function App() {
     if (!videoRecorder) return;
 
     if (!isRecording) {
+      if (webcamVideoRef.current) {
+        videoRecorder.setWebcamElement(webcamVideoRef.current);
+      }
       videoRecorder.startLiveRecording(pipConfig);
       setIsRecording(true);
     } else {
@@ -376,16 +399,47 @@ export function App() {
           onSelectCameraPreset={handleSelectCameraPreset}
         />
 
-        {/* Center: Three.js Viewport & 2D Motion Overlays */}
-        <div id="three-viewport" className="flex-1 relative overflow-hidden flex">
+        {/* Center: Three.js Viewport & 2D Motion Overlays Layer */}
+        <div className="flex-1 relative overflow-hidden flex flex-col bg-[#07090e]">
+          <div id="three-viewport" className="absolute inset-0 z-0 w-full h-full" />
+
+          {stageMode === '2d-direct' && (
+            <div className="absolute inset-0 z-[5] flex items-center justify-center p-8 pointer-events-none">
+              <div className="max-w-4xl max-h-[75vh] w-full aspect-video rounded-2xl overflow-hidden border-2 border-slate-700/80 shadow-2xl bg-black/90 pointer-events-auto flex items-center justify-center">
+                {displayVideoRef.current && (
+                  <video
+                    ref={(el) => {
+                      if (el && displayVideoRef.current) {
+                        el.srcObject = displayVideoRef.current.srcObject;
+                        if (displayVideoRef.current.src) el.src = displayVideoRef.current.src;
+                        el.play().catch(() => {});
+                      }
+                    }}
+                    autoPlay
+                    playsInline
+                    muted
+                    className="w-full h-full object-contain"
+                  />
+                )}
+              </div>
+            </div>
+          )}
+
           <StudioCanvas
             threeScene={threeScene}
             activeCue={activeCue}
             webcamStream={captureEngine?.getWebcamStream() || null}
             pipConfig={pipConfig}
+            stageMode={stageMode}
+            hasDisplayStream={streamState.hasDisplayStream}
             callouts={callouts}
             currentTime={currentTime}
             onUpdatePipConfig={(c) => setPipConfig((prev) => ({ ...prev, ...c }))}
+            onToggleStageMode={(mode) => {
+              setStageMode(mode);
+              if (threeScene) threeScene.setStageMode(mode);
+            }}
+            webcamVideoRef={webcamVideoRef as any}
           />
         </div>
 
@@ -397,11 +451,17 @@ export function App() {
             trimRange={trimRange}
             callouts={callouts}
             audioLevels={audioLevels}
+            currentDevice={currentDevice}
+            deviceFinish={deviceFinish}
+            cameraPreset={cameraPreset}
             onVideoUpload={handleVideoUpload}
             onUpdateTrimRange={setTrimRange}
             onAddCallout={handleAddCallout}
             onRemoveCallout={handleRemoveCallout}
             onUpdateAudioLevels={handleUpdateAudioLevels}
+            onSelectDevice={handleSelectDevice}
+            onSelectFinish={handleSelectFinish}
+            onSelectCameraPreset={handleSelectCameraPreset}
             onSeek={handleSeek}
           />
         ) : (

@@ -198,7 +198,7 @@
       "source_file": "package.json",
       "source_location": "L24",
       "id": "savazai_presenter_package_devdependencies",
-      "community": 8,
+      "community": 5,
       "norm_label": "devdependencies"
     },
     {
@@ -207,7 +207,7 @@
       "source_file": "package.json",
       "source_location": "L25",
       "id": "savazai_presenter_package_devdependencies_types_animejs",
-      "community": 8,
+      "community": 5,
       "norm_label": "@types/animejs"
     },
     {
@@ -216,7 +216,7 @@
       "source_file": "package.json",
       "source_location": "L26",
       "id": "savazai_presenter_package_devdependencies_types_jszip",
-      "community": 8,
+      "community": 5,
       "norm_label": "@types/jszip"
     },
     {
@@ -225,7 +225,7 @@
       "source_file": "package.json",
       "source_location": "L27",
       "id": "savazai_presenter_package_devdependencies_types_node",
-      "community": 8,
+      "community": 5,
       "norm_label": "@types/node"
     },
     {
@@ -234,7 +234,7 @@
       "source_file": "package.json",
       "source_location": "L28",
       "id": "savazai_presenter_package_devdependencies_types_react",
-      "community": 8,
+      "community": 5,
       "norm_label": "@types/react"
     },
     {
@@ -243,7 +243,7 @@
       "source_file": "package.json",
       "source_location": "L29",
       "id": "savazai_presenter_package_devdependencies_types_react_dom",
-      "community": 8,
+      "community": 5,
       "norm_label": "@types/react-dom"
     },
     {
@@ -252,7 +252,7 @@
       "source_file": "package.json",
       "source_location": "L30",
       "id": "savazai_presenter_package_devdependencies_types_three",
-      "community": 8,
+      "community": 5,
       "norm_label": "@types/three"
     },
     {
@@ -261,7 +261,7 @@
       "source_file": "package.json",
       "source_location": "L31",
       "id": "savazai_presenter_package_devdependencies_vitejs_plugin_react",
-      "community": 8,
+      "community": 5,
       "norm_label": "@vitejs/plugin-react"
     },
     {
@@ -270,7 +270,7 @@
       "source_file": "package.json",
       "source_location": "L32",
       "id": "savazai_presenter_package_devdependencies_autoprefixer",
-      "community": 8,
+      "community": 5,
       "norm_label": "autoprefixer"
     },
     {
@@ -279,7 +279,7 @@
       "source_file": "package.json",
       "source_location": "L33",
       "id": "savazai_presenter_package_devdependencies_postcss",
-      "community": 8,
+      "community": 5,
       "norm_label": "postcss"
     },
     {
@@ -288,7 +288,7 @@
       "source_file": "package.json",
       "source_location": "L34",
       "id": "savazai_presenter_package_devdependencies_sirv_cli",
-      "community": 8,
+      "community": 5,
       "norm_label": "sirv-cli"
     },
     {
@@ -297,7 +297,7 @@
       "source_file": "package.json",
       "source_location": "L35",
       "id": "savazai_presenter_package_devdependencies_tailwindcss",
-      "community": 8,
+      "community": 5,
       "norm_label": "tailwindcss"
     },
     {
@@ -306,7 +306,7 @@
       "source_file": "package.json",
       "source_location": "L36",
       "id": "savazai_presenter_package_devdependencies_typescript",
-      "community": 8,
+      "community": 5,
       "norm_label": "typescript"
     },
     {
@@ -315,7 +315,7 @@
       "source_file": "package.json",
       "source_location": "L37",
       "id": "savazai_presenter_package_devdependencies_vite",
-      "community": 8,
+      "community": 5,
       "norm_label": "vite"
     },
     {
@@ -637,7 +637,7 @@
       "label": "App()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L29",
+      "source_location": "L30",
       "id": "src_app_app",
       "community": 0,
       "norm_label": "app()"
@@ -684,7 +684,7 @@
       "source_file": "src/components/CaptureControls.tsx",
       "source_location": "L1",
       "id": "src_components_capturecontrols_tsx",
-      "community": 1,
+      "community": 0,
       "norm_label": "capturecontrols.tsx"
     },
     {
@@ -702,7 +702,7 @@
       "source_file": "src/components/CaptureControls.tsx",
       "source_location": "L35",
       "id": "components_capturecontrols_capturecontrols",
-      "community": 1,
+      "community": 0,
       "norm_label": "capturecontrols()"
     },
     {
@@ -711,7 +711,7 @@
       "source_file": "src/components/DeviceControls.tsx",
       "source_location": "L1",
       "id": "src_components_devicecontrols_tsx",
-      "community": 4,
+      "community": 0,
       "norm_label": "devicecontrols.tsx"
     },
     {
@@ -720,7 +720,7 @@
       "source_file": "src/components/DeviceControls.tsx",
       "source_location": "L15",
       "id": "components_devicecontrols_devicecontrolsprops",
-      "community": 4,
+      "community": 0,
       "norm_label": "devicecontrolsprops"
     },
     {
@@ -729,7 +729,7 @@
       "source_file": "src/components/DeviceControls.tsx",
       "source_location": "L24",
       "id": "components_devicecontrols_devicecontrols",
-      "community": 4,
+      "community": 0,
       "norm_label": "devicecontrols()"
     },
     {
@@ -819,7 +819,7 @@
       "source_file": "src/components/StudioCanvas.tsx",
       "source_location": "L1",
       "id": "src_components_studiocanvas_tsx",
-      "community": 2,
+      "community": 0,
       "norm_label": "studiocanvas.tsx"
     },
     {
@@ -828,16 +828,16 @@
       "source_file": "src/components/StudioCanvas.tsx",
       "source_location": "L7",
       "id": "components_studiocanvas_studiocanvasprops",
-      "community": 2,
+      "community": 0,
       "norm_label": "studiocanvasprops"
     },
     {
       "label": "StudioCanvas()",
       "file_type": "code",
       "source_file": "src/components/StudioCanvas.tsx",
-      "source_location": "L18",
+      "source_location": "L21",
       "id": "components_studiocanvas_studiocanvas",
-      "community": 2,
+      "community": 0,
       "norm_label": "studiocanvas()"
     },
     {
@@ -880,7 +880,7 @@
       "label": "VideoEditorPanelProps",
       "file_type": "code",
       "source_file": "src/components/VideoEditorPanel.tsx",
-      "source_location": "L18",
+      "source_location": "L24",
       "id": "components_videoeditorpanel_videoeditorpanelprops",
       "community": 0,
       "norm_label": "videoeditorpanelprops"
@@ -889,7 +889,7 @@
       "label": "VideoEditorPanel()",
       "file_type": "code",
       "source_file": "src/components/VideoEditorPanel.tsx",
-      "source_location": "L32",
+      "source_location": "L44",
       "id": "components_videoeditorpanel_videoeditorpanel",
       "community": 0,
       "norm_label": "videoeditorpanel()"
@@ -900,7 +900,7 @@
       "source_file": "src/core/capture/CaptureEngine.ts",
       "source_location": "L1",
       "id": "src_core_capture_captureengine_ts",
-      "community": 1,
+      "community": 0,
       "norm_label": "captureengine.ts"
     },
     {
@@ -1152,7 +1152,7 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L7",
       "id": "exporters_videorecorder_videorecorder",
-      "community": 2,
+      "community": 8,
       "norm_label": "videorecorder"
     },
     {
@@ -1161,7 +1161,7 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L21",
       "id": "exporters_videorecorder_videorecorder_constructor",
-      "community": 2,
+      "community": 8,
       "norm_label": ".constructor()"
     },
     {
@@ -1170,7 +1170,7 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L32",
       "id": "exporters_videorecorder_videorecorder_setwebcamelement",
-      "community": 2,
+      "community": 8,
       "norm_label": ".setwebcamelement()"
     },
     {
@@ -1179,7 +1179,7 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L36",
       "id": "exporters_videorecorder_videorecorder_getisrecording",
-      "community": 2,
+      "community": 8,
       "norm_label": ".getisrecording()"
     },
     {
@@ -1188,7 +1188,7 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L43",
       "id": "exporters_videorecorder_videorecorder_rendercompositeframe",
-      "community": 2,
+      "community": 8,
       "norm_label": ".rendercompositeframe()"
     },
     {
@@ -1197,7 +1197,7 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L169",
       "id": "exporters_videorecorder_videorecorder_startliverecording",
-      "community": 2,
+      "community": 8,
       "norm_label": ".startliverecording()"
     },
     {
@@ -1206,7 +1206,7 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L213",
       "id": "exporters_videorecorder_videorecorder_stopliverecording",
-      "community": 2,
+      "community": 8,
       "norm_label": ".stopliverecording()"
     },
     {
@@ -1215,16 +1215,16 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L236",
       "id": "exporters_videorecorder_videorecorder_exporttimelinevideo",
-      "community": 2,
+      "community": 8,
       "norm_label": ".exporttimelinevideo()"
     },
     {
       "label": ".getSupportedMimeType()",
       "file_type": "code",
       "source_file": "src/core/exporters/VideoRecorder.ts",
-      "source_location": "L311",
+      "source_location": "L326",
       "id": "exporters_videorecorder_videorecorder_getsupportedmimetype",
-      "community": 2,
+      "community": 8,
       "norm_label": ".getsupportedmimetype()"
     },
     {
@@ -1237,10 +1237,28 @@
       "norm_label": "timelinecontroller.ts"
     },
     {
+      "label": "cubicBezier()",
+      "file_type": "code",
+      "source_file": "src/core/motion/TimelineController.ts",
+      "source_location": "L9",
+      "id": "motion_timelinecontroller_cubicbezier",
+      "community": 0,
+      "norm_label": "cubicbezier()"
+    },
+    {
+      "label": "defaultEase",
+      "file_type": "code",
+      "source_file": "src/core/motion/TimelineController.ts",
+      "source_location": "L72",
+      "id": "motion_timelinecontroller_defaultease",
+      "community": 0,
+      "norm_label": "defaultease"
+    },
+    {
       "label": "DEFAULT_CUE_POINTS",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L6",
+      "source_location": "L74",
       "id": "motion_timelinecontroller_default_cue_points",
       "community": 0,
       "norm_label": "default_cue_points"
@@ -1249,7 +1267,7 @@
       "label": "DEFAULT_SLIDES",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L75",
+      "source_location": "L143",
       "id": "motion_timelinecontroller_default_slides",
       "community": 0,
       "norm_label": "default_slides"
@@ -1258,16 +1276,16 @@
       "label": "TimelineController",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L134",
+      "source_location": "L202",
       "id": "motion_timelinecontroller_timelinecontroller",
-      "community": 0,
+      "community": 4,
       "norm_label": "timelinecontroller"
     },
     {
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L148",
+      "source_location": "L216",
       "id": "motion_timelinecontroller_timelinecontroller_constructor",
       "community": 2,
       "norm_label": ".constructor()"
@@ -1276,7 +1294,7 @@
       "label": ".getCuePoints()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L158",
+      "source_location": "L226",
       "id": "motion_timelinecontroller_timelinecontroller_getcuepoints",
       "community": 0,
       "norm_label": ".getcuepoints()"
@@ -1285,7 +1303,7 @@
       "label": ".getSlides()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L162",
+      "source_location": "L230",
       "id": "motion_timelinecontroller_timelinecontroller_getslides",
       "community": 0,
       "norm_label": ".getslides()"
@@ -1294,153 +1312,153 @@
       "label": ".getTotalDuration()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L166",
+      "source_location": "L234",
       "id": "motion_timelinecontroller_timelinecontroller_gettotalduration",
-      "community": 0,
+      "community": 4,
       "norm_label": ".gettotalduration()"
     },
     {
       "label": ".getCurrentTime()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L170",
+      "source_location": "L238",
       "id": "motion_timelinecontroller_timelinecontroller_getcurrenttime",
-      "community": 0,
+      "community": 4,
       "norm_label": ".getcurrenttime()"
     },
     {
       "label": ".getActiveCueIndex()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L174",
+      "source_location": "L242",
       "id": "motion_timelinecontroller_timelinecontroller_getactivecueindex",
-      "community": 0,
+      "community": 4,
       "norm_label": ".getactivecueindex()"
     },
     {
       "label": ".getActiveSlideIndex()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L183",
+      "source_location": "L251",
       "id": "motion_timelinecontroller_timelinecontroller_getactiveslideindex",
-      "community": 0,
+      "community": 4,
       "norm_label": ".getactiveslideindex()"
     },
     {
       "label": ".play()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L188",
+      "source_location": "L256",
       "id": "motion_timelinecontroller_timelinecontroller_play",
-      "community": 0,
+      "community": 4,
       "norm_label": ".play()"
     },
     {
       "label": ".pause()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L195",
+      "source_location": "L263",
       "id": "motion_timelinecontroller_timelinecontroller_pause",
-      "community": 0,
+      "community": 4,
       "norm_label": ".pause()"
     },
     {
       "label": ".togglePlay()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L203",
+      "source_location": "L271",
       "id": "motion_timelinecontroller_timelinecontroller_toggleplay",
-      "community": 0,
+      "community": 4,
       "norm_label": ".toggleplay()"
     },
     {
       "label": ".setPlaybackRate()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L212",
+      "source_location": "L280",
       "id": "motion_timelinecontroller_timelinecontroller_setplaybackrate",
-      "community": 0,
+      "community": 4,
       "norm_label": ".setplaybackrate()"
     },
     {
       "label": ".seek()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L216",
+      "source_location": "L284",
       "id": "motion_timelinecontroller_timelinecontroller_seek",
-      "community": 0,
+      "community": 4,
       "norm_label": ".seek()"
     },
     {
       "label": ".seekProgress()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L222",
+      "source_location": "L290",
       "id": "motion_timelinecontroller_timelinecontroller_seekprogress",
-      "community": 0,
+      "community": 4,
       "norm_label": ".seekprogress()"
     },
     {
       "label": ".stepNextCue()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L226",
+      "source_location": "L294",
       "id": "motion_timelinecontroller_timelinecontroller_stepnextcue",
-      "community": 0,
+      "community": 4,
       "norm_label": ".stepnextcue()"
     },
     {
       "label": ".stepPrevCue()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L235",
+      "source_location": "L303",
       "id": "motion_timelinecontroller_timelinecontroller_stepprevcue",
-      "community": 0,
+      "community": 4,
       "norm_label": ".stepprevcue()"
     },
     {
       "label": ".jumpToSlide()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L244",
+      "source_location": "L312",
       "id": "motion_timelinecontroller_timelinecontroller_jumptoslide",
-      "community": 0,
+      "community": 4,
       "norm_label": ".jumptoslide()"
     },
     {
       "label": ".applyMotionAtTime()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L254",
+      "source_location": "L322",
       "id": "motion_timelinecontroller_timelinecontroller_applymotionattime",
-      "community": 0,
+      "community": 4,
       "norm_label": ".applymotionattime()"
     },
     {
       "label": ".loop()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L300",
+      "source_location": "L372",
       "id": "motion_timelinecontroller_timelinecontroller_loop",
-      "community": 0,
+      "community": 4,
       "norm_label": ".loop()"
     },
     {
       "label": ".notifyUpdate()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L319",
+      "source_location": "L391",
       "id": "motion_timelinecontroller_timelinecontroller_notifyupdate",
-      "community": 0,
+      "community": 4,
       "norm_label": ".notifyupdate()"
     },
     {
       "label": ".dispose()",
       "file_type": "code",
       "source_file": "src/core/motion/TimelineController.ts",
-      "source_location": "L332",
+      "source_location": "L404",
       "id": "motion_timelinecontroller_timelinecontroller_dispose",
-      "community": 0,
+      "community": 4,
       "norm_label": ".dispose()"
     },
     {
@@ -1449,7 +1467,7 @@
       "source_file": "src/core/scene/ThreeSceneManager.ts",
       "source_location": "L1",
       "id": "src_core_scene_threescenemanager_ts",
-      "community": 4,
+      "community": 0,
       "norm_label": "threescenemanager.ts"
     },
     {
@@ -1458,7 +1476,7 @@
       "source_file": "src/core/scene/ThreeSceneManager.ts",
       "source_location": "L5",
       "id": "scene_threescenemanager_device_finishes",
-      "community": 4,
+      "community": 0,
       "norm_label": "device_finishes"
     },
     {
@@ -1539,7 +1557,7 @@
       "source_file": "src/core/scene/ThreeSceneManager.ts",
       "source_location": "L271",
       "id": "scene_threescenemanager_threescenemanager_updatepipconfig",
-      "community": 2,
+      "community": 0,
       "norm_label": ".updatepipconfig()"
     },
     {
@@ -1588,19 +1606,19 @@
       "norm_label": ".setdevicetransform()"
     },
     {
-      "label": ".renderWebcamInCanvas()",
+      "label": ".setStageMode()",
       "file_type": "code",
       "source_file": "src/core/scene/ThreeSceneManager.ts",
-      "source_location": "L646",
-      "id": "scene_threescenemanager_threescenemanager_renderwebcamincanvas",
+      "source_location": "L643",
+      "id": "scene_threescenemanager_threescenemanager_setstagemode",
       "community": 2,
-      "norm_label": ".renderwebcamincanvas()"
+      "norm_label": ".setstagemode()"
     },
     {
       "label": ".getCanvas()",
       "file_type": "code",
       "source_file": "src/core/scene/ThreeSceneManager.ts",
-      "source_location": "L668",
+      "source_location": "L662",
       "id": "scene_threescenemanager_threescenemanager_getcanvas",
       "community": 2,
       "norm_label": ".getcanvas()"
@@ -1609,7 +1627,7 @@
       "label": ".getRenderer()",
       "file_type": "code",
       "source_file": "src/core/scene/ThreeSceneManager.ts",
-      "source_location": "L672",
+      "source_location": "L666",
       "id": "scene_threescenemanager_threescenemanager_getrenderer",
       "community": 2,
       "norm_label": ".getrenderer()"
@@ -1618,7 +1636,7 @@
       "label": ".getScene()",
       "file_type": "code",
       "source_file": "src/core/scene/ThreeSceneManager.ts",
-      "source_location": "L676",
+      "source_location": "L670",
       "id": "scene_threescenemanager_threescenemanager_getscene",
       "community": 2,
       "norm_label": ".getscene()"
@@ -1627,7 +1645,7 @@
       "label": ".getCamera()",
       "file_type": "code",
       "source_file": "src/core/scene/ThreeSceneManager.ts",
-      "source_location": "L680",
+      "source_location": "L674",
       "id": "scene_threescenemanager_threescenemanager_getcamera",
       "community": 2,
       "norm_label": ".getcamera()"
@@ -1636,7 +1654,7 @@
       "label": ".setupEventListeners()",
       "file_type": "code",
       "source_file": "src/core/scene/ThreeSceneManager.ts",
-      "source_location": "L684",
+      "source_location": "L678",
       "id": "scene_threescenemanager_threescenemanager_setupeventlisteners",
       "community": 2,
       "norm_label": ".setupeventlisteners()"
@@ -1645,7 +1663,7 @@
       "label": ".onWindowResize()",
       "file_type": "code",
       "source_file": "src/core/scene/ThreeSceneManager.ts",
-      "source_location": "L710",
+      "source_location": "L704",
       "id": "scene_threescenemanager_threescenemanager_onwindowresize",
       "community": 2,
       "norm_label": ".onwindowresize()"
@@ -1654,7 +1672,7 @@
       "label": ".startRenderLoop()",
       "file_type": "code",
       "source_file": "src/core/scene/ThreeSceneManager.ts",
-      "source_location": "L720",
+      "source_location": "L714",
       "id": "scene_threescenemanager_threescenemanager_startrenderloop",
       "community": 2,
       "norm_label": ".startrenderloop()"
@@ -1663,7 +1681,7 @@
       "label": ".renderDirect()",
       "file_type": "code",
       "source_file": "src/core/scene/ThreeSceneManager.ts",
-      "source_location": "L741",
+      "source_location": "L734",
       "id": "scene_threescenemanager_threescenemanager_renderdirect",
       "community": 2,
       "norm_label": ".renderdirect()"
@@ -1672,7 +1690,7 @@
       "label": ".dispose()",
       "file_type": "code",
       "source_file": "src/core/scene/ThreeSceneManager.ts",
-      "source_location": "L745",
+      "source_location": "L738",
       "id": "scene_threescenemanager_threescenemanager_dispose",
       "community": 2,
       "norm_label": ".dispose()"
@@ -1683,7 +1701,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L1",
       "id": "src_types_index_ts",
-      "community": 4,
+      "community": 0,
       "norm_label": "index.ts"
     },
     {
@@ -1692,77 +1710,86 @@
       "source_file": "src/types/index.ts",
       "source_location": "L3",
       "id": "types_index_devicetype",
-      "community": 4,
+      "community": 0,
       "norm_label": "devicetype"
+    },
+    {
+      "label": "StageMode",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L5",
+      "id": "types_index_stagemode",
+      "community": 0,
+      "norm_label": "stagemode"
     },
     {
       "label": "DeviceFinish",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L5",
+      "source_location": "L7",
       "id": "types_index_devicefinish",
-      "community": 4,
+      "community": 0,
       "norm_label": "devicefinish"
     },
     {
       "label": "DeviceFinishConfig",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L7",
+      "source_location": "L9",
       "id": "types_index_devicefinishconfig",
-      "community": 4,
+      "community": 0,
       "norm_label": "devicefinishconfig"
     },
     {
       "label": "CameraPreset",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L16",
+      "source_location": "L18",
       "id": "types_index_camerapreset",
-      "community": 4,
+      "community": 0,
       "norm_label": "camerapreset"
     },
     {
       "label": "Transform3D",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L18",
+      "source_location": "L20",
       "id": "types_index_transform3d",
-      "community": 4,
+      "community": 0,
       "norm_label": "transform3d"
     },
     {
       "label": "PipPlacementPreset",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L24",
+      "source_location": "L26",
       "id": "types_index_pipplacementpreset",
-      "community": 1,
+      "community": 0,
       "norm_label": "pipplacementpreset"
     },
     {
       "label": "PipShape",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L25",
+      "source_location": "L27",
       "id": "types_index_pipshape",
-      "community": 1,
+      "community": 0,
       "norm_label": "pipshape"
     },
     {
       "label": "PipConfig",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L27",
+      "source_location": "L29",
       "id": "types_index_pipconfig",
-      "community": 2,
+      "community": 0,
       "norm_label": "pipconfig"
     },
     {
       "label": "CalloutOverlay",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L39",
+      "source_location": "L41",
       "id": "types_index_calloutoverlay",
       "community": 0,
       "norm_label": "calloutoverlay"
@@ -1771,7 +1798,7 @@
       "label": "TrimRange",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L53",
+      "source_location": "L55",
       "id": "types_index_trimrange",
       "community": 0,
       "norm_label": "trimrange"
@@ -1780,7 +1807,7 @@
       "label": "CuePoint",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L58",
+      "source_location": "L60",
       "id": "types_index_cuepoint",
       "community": 0,
       "norm_label": "cuepoint"
@@ -1789,7 +1816,7 @@
       "label": "SlideData",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L72",
+      "source_location": "L74",
       "id": "types_index_slidedata",
       "community": 0,
       "norm_label": "slidedata"
@@ -1798,7 +1825,7 @@
       "label": "StreamState",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L83",
+      "source_location": "L85",
       "id": "types_index_streamstate",
       "community": 1,
       "norm_label": "streamstate"
@@ -1807,25 +1834,25 @@
       "label": "AudioLevels",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L97",
+      "source_location": "L99",
       "id": "types_index_audiolevels",
-      "community": 1,
+      "community": 0,
       "norm_label": "audiolevels"
     },
     {
       "label": "StudioState",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L106",
+      "source_location": "L108",
       "id": "types_index_studiostate",
-      "community": 4,
+      "community": 0,
       "norm_label": "studiostate"
     },
     {
       "label": "ExportProgress",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L126",
+      "source_location": "L128",
       "id": "types_index_exportprogress",
       "community": 0,
       "norm_label": "exportprogress"
@@ -1834,9 +1861,9 @@
       "label": "ExportFormat",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L132",
+      "source_location": "L134",
       "id": "types_index_exportformat",
-      "community": 4,
+      "community": 0,
       "norm_label": "exportformat"
     },
     {
@@ -2371,13 +2398,13 @@
       "norm_label": "a. additional 3d device formats (`src/core/scene/threescenemanager.ts`)"
     },
     {
-      "label": "B. In-Canvas WebGL Webcam Compositing (`src/core/scene/ThreeSceneManager.ts` & `src/core/capture/CaptureEngine.ts`)",
+      "label": "B. In-Canvas WebGL Webcam Compositing (`src/core/exporters/VideoRecorder.ts` & `src/components/CaptureControls.tsx`)",
       "file_type": "document",
       "source_file": "DevPlans/004_studio_editor_enhancements.md",
       "source_location": "L16",
-      "id": "devplans_004_studio_editor_enhancements_b_in_canvas_webgl_webcam_compositing_src_core_scene_threescenemanager_ts_src_core_capture_captureengine_ts",
+      "id": "devplans_004_studio_editor_enhancements_b_in_canvas_webgl_webcam_compositing_src_core_exporters_videorecorder_ts_src_components_capturecontrols_tsx",
       "community": 18,
-      "norm_label": "b. in-canvas webgl webcam compositing (`src/core/scene/threescenemanager.ts` & `src/core/capture/captureengine.ts`)"
+      "norm_label": "b. in-canvas webgl webcam compositing (`src/core/exporters/videorecorder.ts` & `src/components/capturecontrols.tsx`)"
     },
     {
       "label": "C. Studio Video Editor & Asset Uploader (`src/components/VideoEditorPanel.tsx` & `src/App.tsx`)",
@@ -2504,6 +2531,24 @@
       "id": "devplans_005_walkthrough_docker_verification_codeblock_4",
       "community": 17,
       "norm_label": "code:markdown (## 6. mandatory task completion & deployment protocol)"
+    },
+    {
+      "label": ".renderWebcamInCanvas()",
+      "file_type": "code",
+      "source_file": "src/core/scene/ThreeSceneManager.ts",
+      "source_location": "L646",
+      "community": 2,
+      "norm_label": ".renderwebcamincanvas()",
+      "id": "scene_threescenemanager_threescenemanager_renderwebcamincanvas"
+    },
+    {
+      "label": "B. In-Canvas WebGL Webcam Compositing (`src/core/scene/ThreeSceneManager.ts` & `src/core/capture/CaptureEngine.ts`)",
+      "file_type": "document",
+      "source_file": "DevPlans/004_studio_editor_enhancements.md",
+      "source_location": "L16",
+      "community": 18,
+      "norm_label": "b. in-canvas webgl webcam compositing (`src/core/scene/threescenemanager.ts` & `src/core/capture/captureengine.ts`)",
+      "id": "devplans_004_studio_editor_enhancements_b_in_canvas_webgl_webcam_compositing_src_core_scene_threescenemanager_ts_src_core_capture_captureengine_ts"
     },
     {
       "label": ".getCurrentDeviceType()",
@@ -3261,9 +3306,20 @@
       "source_file": "src/App.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_tsx",
-      "target": "types_index_calloutoverlay",
-      "confidence_score": 1.0
+      "target": "types_index_calloutoverlay"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app_tsx",
+      "target": "types_index_trimrange"
     },
     {
       "relation": "imports",
@@ -3273,7 +3329,7 @@
       "source_location": "L3",
       "weight": 1.0,
       "source": "src_app_tsx",
-      "target": "types_index_trimrange",
+      "target": "types_index_stagemode",
       "confidence_score": 1.0
     },
     {
@@ -3503,9 +3559,9 @@
       "source_file": "src/App.tsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_tsx",
-      "target": "src_components_videoeditorpanel_tsx",
-      "confidence_score": 1.0
+      "target": "src_components_videoeditorpanel_tsx"
     },
     {
       "relation": "imports",
@@ -3514,9 +3570,9 @@
       "source_file": "src/App.tsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_tsx",
-      "target": "components_videoeditorpanel_videoeditorpanel",
-      "confidence_score": 1.0
+      "target": "components_videoeditorpanel_videoeditorpanel"
     },
     {
       "relation": "imports_from",
@@ -3753,9 +3809,9 @@
       "source_file": "src/components/CaptureControls.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_capturecontrols_tsx",
-      "target": "types_index_pipplacementpreset",
-      "confidence_score": 1.0
+      "target": "types_index_pipplacementpreset"
     },
     {
       "relation": "imports",
@@ -3764,9 +3820,9 @@
       "source_file": "src/components/CaptureControls.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_capturecontrols_tsx",
-      "target": "types_index_pipshape",
-      "confidence_score": 1.0
+      "target": "types_index_pipshape"
     },
     {
       "relation": "imports_from",
@@ -4035,9 +4091,9 @@
       "source_file": "src/components/ExportModal.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_exportmodal_tsx",
-      "target": "types_index_pipconfig",
-      "confidence_score": 1.0
+      "target": "types_index_pipconfig"
     },
     {
       "relation": "imports",
@@ -4046,9 +4102,9 @@
       "source_file": "src/components/ExportModal.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_exportmodal_tsx",
-      "target": "types_index_calloutoverlay",
-      "confidence_score": 1.0
+      "target": "types_index_calloutoverlay"
     },
     {
       "relation": "imports",
@@ -4057,9 +4113,9 @@
       "source_file": "src/components/ExportModal.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_exportmodal_tsx",
-      "target": "types_index_trimrange",
-      "confidence_score": 1.0
+      "target": "types_index_trimrange"
     },
     {
       "relation": "imports_from",
@@ -4220,9 +4276,9 @@
       "source_file": "src/components/ExportModal.tsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_exportmodal_exportmodalprops",
-      "target": "types_index_pipconfig",
-      "confidence_score": 1.0
+      "target": "types_index_pipconfig"
     },
     {
       "relation": "references",
@@ -4231,9 +4287,9 @@
       "source_file": "src/components/ExportModal.tsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_exportmodal_exportmodalprops",
-      "target": "types_index_calloutoverlay",
-      "confidence_score": 1.0
+      "target": "types_index_calloutoverlay"
     },
     {
       "relation": "references",
@@ -4242,9 +4298,9 @@
       "source_file": "src/components/ExportModal.tsx",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_exportmodal_exportmodalprops",
-      "target": "types_index_trimrange",
-      "confidence_score": 1.0
+      "target": "types_index_trimrange"
     },
     {
       "relation": "references",
@@ -4546,8 +4602,19 @@
       "source_file": "src/components/StudioCanvas.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_studiocanvas_tsx",
-      "target": "types_index_calloutoverlay",
+      "target": "types_index_calloutoverlay"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/StudioCanvas.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_components_studiocanvas_tsx",
+      "target": "types_index_stagemode",
       "confidence_score": 1.0
     },
     {
@@ -4611,8 +4678,19 @@
       "source_location": "L12",
       "weight": 1.0,
       "source": "components_studiocanvas_studiocanvasprops",
-      "target": "types_index_calloutoverlay",
+      "target": "types_index_stagemode",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/StudioCanvas.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_studiocanvas_studiocanvasprops",
+      "target": "types_index_calloutoverlay"
     },
     {
       "relation": "imports_from",
@@ -4643,9 +4721,9 @@
       "source_file": "src/components/TimelineBar.tsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_timelinebar_tsx",
-      "target": "types_index_trimrange",
-      "confidence_score": 1.0
+      "target": "types_index_trimrange"
     },
     {
       "relation": "imports",
@@ -4654,9 +4732,9 @@
       "source_file": "src/components/TimelineBar.tsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_timelinebar_tsx",
-      "target": "types_index_calloutoverlay",
-      "confidence_score": 1.0
+      "target": "types_index_calloutoverlay"
     },
     {
       "relation": "contains",
@@ -4696,9 +4774,9 @@
       "source_file": "src/components/TimelineBar.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_timelinebar_timelinebarprops",
-      "target": "types_index_trimrange",
-      "confidence_score": 1.0
+      "target": "types_index_trimrange"
     },
     {
       "relation": "references",
@@ -4707,9 +4785,9 @@
       "source_file": "src/components/TimelineBar.tsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_timelinebar_timelinebarprops",
-      "target": "types_index_calloutoverlay",
-      "confidence_score": 1.0
+      "target": "types_index_calloutoverlay"
     },
     {
       "relation": "imports_from",
@@ -4718,9 +4796,9 @@
       "source_file": "src/components/VideoEditorPanel.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_videoeditorpanel_tsx",
-      "target": "src_types_index_ts",
-      "confidence_score": 1.0
+      "target": "src_types_index_ts"
     },
     {
       "relation": "imports",
@@ -4729,9 +4807,9 @@
       "source_file": "src/components/VideoEditorPanel.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_videoeditorpanel_tsx",
-      "target": "types_index_calloutoverlay",
-      "confidence_score": 1.0
+      "target": "types_index_calloutoverlay"
     },
     {
       "relation": "imports",
@@ -4740,9 +4818,9 @@
       "source_file": "src/components/VideoEditorPanel.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_videoeditorpanel_tsx",
-      "target": "types_index_trimrange",
-      "confidence_score": 1.0
+      "target": "types_index_trimrange"
     },
     {
       "relation": "imports",
@@ -4751,8 +4829,63 @@
       "source_file": "src/components/VideoEditorPanel.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_videoeditorpanel_tsx",
-      "target": "types_index_audiolevels",
+      "target": "types_index_audiolevels"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/VideoEditorPanel.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_components_videoeditorpanel_tsx",
+      "target": "types_index_devicetype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/VideoEditorPanel.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_components_videoeditorpanel_tsx",
+      "target": "types_index_devicefinish",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/VideoEditorPanel.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_components_videoeditorpanel_tsx",
+      "target": "types_index_camerapreset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/VideoEditorPanel.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "src_components_videoeditorpanel_tsx",
+      "target": "src_core_scene_threescenemanager_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/VideoEditorPanel.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "src_components_videoeditorpanel_tsx",
+      "target": "scene_threescenemanager_device_finishes",
       "confidence_score": 1.0
     },
     {
@@ -4761,9 +4894,9 @@
       "source_file": "src/components/VideoEditorPanel.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_videoeditorpanel_tsx",
-      "target": "components_videoeditorpanel_videoeditorpanelprops",
-      "confidence_score": 1.0
+      "target": "components_videoeditorpanel_videoeditorpanelprops"
     },
     {
       "relation": "contains",
@@ -4771,9 +4904,9 @@
       "source_file": "src/components/VideoEditorPanel.tsx",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_videoeditorpanel_tsx",
-      "target": "components_videoeditorpanel_videoeditorpanel",
-      "confidence_score": 1.0
+      "target": "components_videoeditorpanel_videoeditorpanel"
     },
     {
       "relation": "references",
@@ -4782,9 +4915,9 @@
       "source_file": "src/components/VideoEditorPanel.tsx",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_videoeditorpanel_videoeditorpanelprops",
-      "target": "types_index_trimrange",
-      "confidence_score": 1.0
+      "target": "types_index_trimrange"
     },
     {
       "relation": "references",
@@ -4793,9 +4926,9 @@
       "source_file": "src/components/VideoEditorPanel.tsx",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_videoeditorpanel_videoeditorpanelprops",
-      "target": "types_index_calloutoverlay",
-      "confidence_score": 1.0
+      "target": "types_index_calloutoverlay"
     },
     {
       "relation": "references",
@@ -4804,8 +4937,41 @@
       "source_file": "src/components/VideoEditorPanel.tsx",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_videoeditorpanel_videoeditorpanelprops",
-      "target": "types_index_audiolevels",
+      "target": "types_index_audiolevels"
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/VideoEditorPanel.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "components_videoeditorpanel_videoeditorpanelprops",
+      "target": "types_index_devicetype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/VideoEditorPanel.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "components_videoeditorpanel_videoeditorpanelprops",
+      "target": "types_index_devicefinish",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/VideoEditorPanel.tsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "components_videoeditorpanel_videoeditorpanelprops",
+      "target": "types_index_camerapreset",
       "confidence_score": 1.0
     },
     {
@@ -5461,9 +5627,9 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_core_exporters_videorecorder_ts",
-      "target": "types_index_pipconfig",
-      "confidence_score": 1.0
+      "target": "types_index_pipconfig"
     },
     {
       "relation": "imports",
@@ -5472,9 +5638,9 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_core_exporters_videorecorder_ts",
-      "target": "types_index_calloutoverlay",
-      "confidence_score": 1.0
+      "target": "types_index_calloutoverlay"
     },
     {
       "relation": "imports",
@@ -5483,9 +5649,9 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_core_exporters_videorecorder_ts",
-      "target": "types_index_trimrange",
-      "confidence_score": 1.0
+      "target": "types_index_trimrange"
     },
     {
       "relation": "imports_from",
@@ -5557,9 +5723,9 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "exporters_videorecorder_videorecorder",
-      "target": "exporters_videorecorder_videorecorder_setwebcamelement",
-      "confidence_score": 1.0
+      "target": "exporters_videorecorder_videorecorder_setwebcamelement"
     },
     {
       "relation": "method",
@@ -5577,9 +5743,9 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "exporters_videorecorder_videorecorder",
-      "target": "exporters_videorecorder_videorecorder_rendercompositeframe",
-      "confidence_score": 1.0
+      "target": "exporters_videorecorder_videorecorder_rendercompositeframe"
     },
     {
       "relation": "method",
@@ -5672,9 +5838,9 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L278",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "exporters_videorecorder_videorecorder_exporttimelinevideo",
-      "target": "exporters_videorecorder_videorecorder_rendercompositeframe",
-      "confidence_score": 1.0
+      "target": "exporters_videorecorder_videorecorder_rendercompositeframe"
     },
     {
       "relation": "references",
@@ -5683,9 +5849,9 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "exporters_videorecorder_videorecorder_rendercompositeframe",
-      "target": "types_index_pipconfig",
-      "confidence_score": 1.0
+      "target": "types_index_pipconfig"
     },
     {
       "relation": "references",
@@ -5694,9 +5860,9 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "exporters_videorecorder_videorecorder_rendercompositeframe",
-      "target": "types_index_calloutoverlay",
-      "confidence_score": 1.0
+      "target": "types_index_calloutoverlay"
     },
     {
       "relation": "calls",
@@ -5716,9 +5882,9 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L169",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "exporters_videorecorder_videorecorder_startliverecording",
-      "target": "types_index_pipconfig",
-      "confidence_score": 1.0
+      "target": "types_index_pipconfig"
     },
     {
       "relation": "calls",
@@ -5738,9 +5904,9 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L236",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "exporters_videorecorder_videorecorder_exporttimelinevideo",
-      "target": "types_index_pipconfig",
-      "confidence_score": 1.0
+      "target": "types_index_pipconfig"
     },
     {
       "relation": "references",
@@ -5749,9 +5915,9 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L236",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "exporters_videorecorder_videorecorder_exporttimelinevideo",
-      "target": "types_index_calloutoverlay",
-      "confidence_score": 1.0
+      "target": "types_index_calloutoverlay"
     },
     {
       "relation": "references",
@@ -5760,9 +5926,9 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L236",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "exporters_videorecorder_videorecorder_exporttimelinevideo",
-      "target": "types_index_trimrange",
-      "confidence_score": 1.0
+      "target": "types_index_trimrange"
     },
     {
       "relation": "references",
@@ -5834,6 +6000,26 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/core/motion/TimelineController.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_core_motion_timelinecontroller_ts",
+      "target": "motion_timelinecontroller_cubicbezier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/core/motion/TimelineController.ts",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "src_core_motion_timelinecontroller_ts",
+      "target": "motion_timelinecontroller_defaultease",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/core/motion/TimelineController.ts",
       "source_location": "L6",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -5859,6 +6045,17 @@
       "confidence_score": 1.0,
       "source": "src_core_motion_timelinecontroller_ts",
       "target": "motion_timelinecontroller_timelinecontroller"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/core/motion/TimelineController.ts",
+      "source_location": "L343",
+      "weight": 1.0,
+      "source": "motion_timelinecontroller_timelinecontroller_applymotionattime",
+      "target": "motion_timelinecontroller_defaultease",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -6375,9 +6572,9 @@
       "source_file": "src/core/scene/ThreeSceneManager.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_core_scene_threescenemanager_ts",
-      "target": "types_index_pipconfig",
-      "confidence_score": 1.0
+      "target": "types_index_pipconfig"
     },
     {
       "relation": "contains",
@@ -6465,9 +6662,9 @@
       "source_file": "src/core/scene/ThreeSceneManager.ts",
       "source_location": "L264",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scene_threescenemanager_threescenemanager",
-      "target": "scene_threescenemanager_threescenemanager_setwebcamelement",
-      "confidence_score": 1.0
+      "target": "scene_threescenemanager_threescenemanager_setwebcamelement"
     },
     {
       "relation": "method",
@@ -6475,9 +6672,9 @@
       "source_file": "src/core/scene/ThreeSceneManager.ts",
       "source_location": "L271",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scene_threescenemanager_threescenemanager",
-      "target": "scene_threescenemanager_threescenemanager_updatepipconfig",
-      "confidence_score": 1.0
+      "target": "scene_threescenemanager_threescenemanager_updatepipconfig"
     },
     {
       "relation": "method",
@@ -6533,10 +6730,10 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/core/scene/ThreeSceneManager.ts",
-      "source_location": "L646",
+      "source_location": "L643",
       "weight": 1.0,
       "source": "scene_threescenemanager_threescenemanager",
-      "target": "scene_threescenemanager_threescenemanager_renderwebcamincanvas",
+      "target": "scene_threescenemanager_threescenemanager_setstagemode",
       "confidence_score": 1.0
     },
     {
@@ -6636,9 +6833,9 @@
       "source_file": "src/core/scene/ThreeSceneManager.ts",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scene_threescenemanager_threescenemanager",
-      "target": "types_index_devicetype",
-      "confidence_score": 1.0
+      "target": "types_index_devicetype"
     },
     {
       "relation": "references",
@@ -6658,9 +6855,19 @@
       "source_file": "src/core/scene/ThreeSceneManager.ts",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scene_threescenemanager_threescenemanager",
-      "target": "types_index_pipconfig",
-      "confidence_score": 1.0
+      "target": "types_index_pipconfig"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/core/scene/ThreeSceneManager.ts",
+      "source_location": "L646",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scene_threescenemanager_threescenemanager",
+      "target": "scene_threescenemanager_threescenemanager_renderwebcamincanvas"
     },
     {
       "relation": "method",
@@ -6767,9 +6974,9 @@
       "source_file": "src/core/scene/ThreeSceneManager.ts",
       "source_location": "L271",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scene_threescenemanager_threescenemanager_updatepipconfig",
-      "target": "types_index_pipconfig",
-      "confidence_score": 1.0
+      "target": "types_index_pipconfig"
     },
     {
       "relation": "calls",
@@ -6816,6 +7023,17 @@
       "target": "scene_threescenemanager_threescenemanager_getcurrentdevicetype"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/core/scene/ThreeSceneManager.ts",
+      "source_location": "L658",
+      "weight": 1.0,
+      "source": "scene_threescenemanager_threescenemanager_setstagemode",
+      "target": "scene_threescenemanager_threescenemanager_setcamerapreset",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
@@ -6835,6 +7053,16 @@
       "confidence_score": 1.0,
       "source": "src_types_index_ts",
       "target": "types_index_devicetype"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_types_index_ts",
+      "target": "types_index_stagemode",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6882,9 +7110,9 @@
       "source_file": "src/types/index.ts",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_types_index_ts",
-      "target": "types_index_pipplacementpreset",
-      "confidence_score": 1.0
+      "target": "types_index_pipplacementpreset"
     },
     {
       "relation": "contains",
@@ -6892,9 +7120,9 @@
       "source_file": "src/types/index.ts",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_types_index_ts",
-      "target": "types_index_pipshape",
-      "confidence_score": 1.0
+      "target": "types_index_pipshape"
     },
     {
       "relation": "contains",
@@ -6912,9 +7140,9 @@
       "source_file": "src/types/index.ts",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_types_index_ts",
-      "target": "types_index_calloutoverlay",
-      "confidence_score": 1.0
+      "target": "types_index_calloutoverlay"
     },
     {
       "relation": "contains",
@@ -6922,9 +7150,9 @@
       "source_file": "src/types/index.ts",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_types_index_ts",
-      "target": "types_index_trimrange",
-      "confidence_score": 1.0
+      "target": "types_index_trimrange"
     },
     {
       "relation": "contains",
@@ -7183,9 +7411,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_claude_claude_md_agent_system_pointer_operational_guide",
-      "target": "savazai_presenter_claude_mandatory_task_completion_deployment_protocol",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_claude_mandatory_task_completion_deployment_protocol"
     },
     {
       "relation": "contains",
@@ -7513,9 +7741,9 @@
       "source_file": "DevPlans/004_studio_editor_enhancements.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_004_studio_editor_enhancements_md",
-      "target": "devplans_004_studio_editor_enhancements_004_studio_editor_enhancements_verification",
-      "confidence_score": 1.0
+      "target": "devplans_004_studio_editor_enhancements_004_studio_editor_enhancements_verification"
     },
     {
       "relation": "contains",
@@ -7523,9 +7751,9 @@
       "source_file": "DevPlans/004_studio_editor_enhancements.md",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_004_studio_editor_enhancements_004_studio_editor_enhancements_verification",
-      "target": "devplans_004_studio_editor_enhancements_1_architectural_scope_objectives",
-      "confidence_score": 1.0
+      "target": "devplans_004_studio_editor_enhancements_1_architectural_scope_objectives"
     },
     {
       "relation": "contains",
@@ -7533,9 +7761,9 @@
       "source_file": "DevPlans/004_studio_editor_enhancements.md",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_004_studio_editor_enhancements_004_studio_editor_enhancements_verification",
-      "target": "devplans_004_studio_editor_enhancements_2_verification_protocol",
-      "confidence_score": 1.0
+      "target": "devplans_004_studio_editor_enhancements_2_verification_protocol"
     },
     {
       "relation": "contains",
@@ -7543,9 +7771,9 @@
       "source_file": "DevPlans/004_studio_editor_enhancements.md",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_004_studio_editor_enhancements_1_architectural_scope_objectives",
-      "target": "devplans_004_studio_editor_enhancements_a_additional_3d_device_formats_src_core_scene_threescenemanager_ts",
-      "confidence_score": 1.0
+      "target": "devplans_004_studio_editor_enhancements_a_additional_3d_device_formats_src_core_scene_threescenemanager_ts"
     },
     {
       "relation": "contains",
@@ -7554,7 +7782,7 @@
       "source_location": "L16",
       "weight": 1.0,
       "source": "devplans_004_studio_editor_enhancements_1_architectural_scope_objectives",
-      "target": "devplans_004_studio_editor_enhancements_b_in_canvas_webgl_webcam_compositing_src_core_scene_threescenemanager_ts_src_core_capture_captureengine_ts",
+      "target": "devplans_004_studio_editor_enhancements_b_in_canvas_webgl_webcam_compositing_src_core_exporters_videorecorder_ts_src_components_capturecontrols_tsx",
       "confidence_score": 1.0
     },
     {
@@ -7563,9 +7791,19 @@
       "source_file": "DevPlans/004_studio_editor_enhancements.md",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_004_studio_editor_enhancements_1_architectural_scope_objectives",
-      "target": "devplans_004_studio_editor_enhancements_c_studio_video_editor_asset_uploader_src_components_videoeditorpanel_tsx_src_app_tsx",
-      "confidence_score": 1.0
+      "target": "devplans_004_studio_editor_enhancements_c_studio_video_editor_asset_uploader_src_components_videoeditorpanel_tsx_src_app_tsx"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DevPlans/004_studio_editor_enhancements.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "devplans_004_studio_editor_enhancements_1_architectural_scope_objectives",
+      "target": "devplans_004_studio_editor_enhancements_b_in_canvas_webgl_webcam_compositing_src_core_scene_threescenemanager_ts_src_core_capture_captureengine_ts"
     },
     {
       "relation": "contains",
@@ -7573,9 +7811,9 @@
       "source_file": "DevPlans/005_walkthrough_docker_verification.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_005_walkthrough_docker_verification_md",
-      "target": "devplans_005_walkthrough_docker_verification_005_walkthrough_verification_docker_desktop_live_run_knowledge_graph_sync",
-      "confidence_score": 1.0
+      "target": "devplans_005_walkthrough_docker_verification_005_walkthrough_verification_docker_desktop_live_run_knowledge_graph_sync"
     },
     {
       "relation": "contains",
@@ -7583,9 +7821,9 @@
       "source_file": "DevPlans/005_walkthrough_docker_verification.md",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_005_walkthrough_docker_verification_005_walkthrough_verification_docker_desktop_live_run_knowledge_graph_sync",
-      "target": "devplans_005_walkthrough_docker_verification_1_executive_summary_verification_gates_passed",
-      "confidence_score": 1.0
+      "target": "devplans_005_walkthrough_docker_verification_1_executive_summary_verification_gates_passed"
     },
     {
       "relation": "contains",
@@ -7593,9 +7831,9 @@
       "source_file": "DevPlans/005_walkthrough_docker_verification.md",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_005_walkthrough_docker_verification_005_walkthrough_verification_docker_desktop_live_run_knowledge_graph_sync",
-      "target": "devplans_005_walkthrough_docker_verification_2_exact_console_execution_logs",
-      "confidence_score": 1.0
+      "target": "devplans_005_walkthrough_docker_verification_2_exact_console_execution_logs"
     },
     {
       "relation": "contains",
@@ -7603,9 +7841,9 @@
       "source_file": "DevPlans/005_walkthrough_docker_verification.md",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_005_walkthrough_docker_verification_005_walkthrough_verification_docker_desktop_live_run_knowledge_graph_sync",
-      "target": "devplans_005_walkthrough_docker_verification_3_updated_governance_in_agents_md",
-      "confidence_score": 1.0
+      "target": "devplans_005_walkthrough_docker_verification_3_updated_governance_in_agents_md"
     },
     {
       "relation": "contains",
@@ -7613,9 +7851,9 @@
       "source_file": "DevPlans/005_walkthrough_docker_verification.md",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_005_walkthrough_docker_verification_2_exact_console_execution_logs",
-      "target": "devplans_005_walkthrough_docker_verification_a_docker_deployment_container_status",
-      "confidence_score": 1.0
+      "target": "devplans_005_walkthrough_docker_verification_a_docker_deployment_container_status"
     },
     {
       "relation": "contains",
@@ -7623,9 +7861,9 @@
       "source_file": "DevPlans/005_walkthrough_docker_verification.md",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_005_walkthrough_docker_verification_2_exact_console_execution_logs",
-      "target": "devplans_005_walkthrough_docker_verification_b_http_probe_on_port_9090",
-      "confidence_score": 1.0
+      "target": "devplans_005_walkthrough_docker_verification_b_http_probe_on_port_9090"
     },
     {
       "relation": "contains",
@@ -7633,9 +7871,9 @@
       "source_file": "DevPlans/005_walkthrough_docker_verification.md",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_005_walkthrough_docker_verification_2_exact_console_execution_logs",
-      "target": "devplans_005_walkthrough_docker_verification_c_graphify_knowledge_graph_update",
-      "confidence_score": 1.0
+      "target": "devplans_005_walkthrough_docker_verification_c_graphify_knowledge_graph_update"
     },
     {
       "relation": "contains",
@@ -7643,9 +7881,9 @@
       "source_file": "DevPlans/005_walkthrough_docker_verification.md",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_005_walkthrough_docker_verification_a_docker_deployment_container_status",
-      "target": "devplans_005_walkthrough_docker_verification_codeblock_1",
-      "confidence_score": 1.0
+      "target": "devplans_005_walkthrough_docker_verification_codeblock_1"
     },
     {
       "relation": "contains",
@@ -7653,9 +7891,9 @@
       "source_file": "DevPlans/005_walkthrough_docker_verification.md",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_005_walkthrough_docker_verification_b_http_probe_on_port_9090",
-      "target": "devplans_005_walkthrough_docker_verification_codeblock_2",
-      "confidence_score": 1.0
+      "target": "devplans_005_walkthrough_docker_verification_codeblock_2"
     },
     {
       "relation": "contains",
@@ -7663,9 +7901,9 @@
       "source_file": "DevPlans/005_walkthrough_docker_verification.md",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_005_walkthrough_docker_verification_c_graphify_knowledge_graph_update",
-      "target": "devplans_005_walkthrough_docker_verification_codeblock_3",
-      "confidence_score": 1.0
+      "target": "devplans_005_walkthrough_docker_verification_codeblock_3"
     },
     {
       "relation": "contains",
@@ -7673,11 +7911,11 @@
       "source_file": "DevPlans/005_walkthrough_docker_verification.md",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_005_walkthrough_docker_verification_3_updated_governance_in_agents_md",
-      "target": "devplans_005_walkthrough_docker_verification_codeblock_4",
-      "confidence_score": 1.0
+      "target": "devplans_005_walkthrough_docker_verification_codeblock_4"
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e4125537cf2b1ed7f93b12d4685d6b0e118ae8a0"
+  "built_at_commit": "c66d1758c9c5b37ea5eb5b25dc1ad768b7c8a5ed"
 }

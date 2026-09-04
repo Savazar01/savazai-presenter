@@ -640,29 +640,23 @@ export class ThreeSceneManager {
     }
   }
 
-  /**
-   * Directly composites the PiP webcam avatar onto the canvas output
-   */
-  private renderWebcamInCanvas(): void {
-    if (!this.pipConfig.enabled || !this.webcamVideoElement) return;
-    const video = this.webcamVideoElement;
-    if (video.readyState < 2) return; // HAVE_CURRENT_DATA
-
-    const canvas = this.renderer.domElement;
-    const ctx = canvas.getContext('2d') || (this.renderer.getContext() as unknown as CanvasRenderingContext2D);
-    if (!ctx) return;
-
-    // Save state
-    const width = canvas.width;
-    const height = canvas.height;
-
-    const pipSize = (this.pipConfig.size / 1000) * Math.min(width, height) * 1.5;
-    const posX = (this.pipConfig.x / 100) * width;
-    const posY = (this.pipConfig.y / 100) * height;
-
-    // WebGL Canvas Overlay Pass via 2D Canvas context rendering
-    // Since WebGL preserveDrawingBuffer is true, we draw via 2D overlay if possible
-    // or standard video frame blitting
+  public setStageMode(mode: '3d-stage' | '2d-direct'): void {
+    if (mode === '2d-direct') {
+      this.targetCameraPos.set(0, 0, 13.5);
+      this.targetCameraLookAt.set(0, 0, 0);
+      this.targetDeviceRot.set(0, 0, 0);
+      if (this.camera) {
+        this.camera.position.set(0, 0, 13.5);
+        this.camera.lookAt(0, 0, 0);
+        this.camera.fov = 45;
+        this.camera.updateProjectionMatrix();
+      }
+      if (this.activeDeviceMesh) {
+        this.activeDeviceMesh.rotation.set(0, 0, 0);
+      }
+    } else {
+      this.setCameraPreset('front');
+    }
   }
 
   public getCanvas(): HTMLCanvasElement {
@@ -732,7 +726,6 @@ export class ThreeSceneManager {
       }
 
       this.renderer.render(this.scene, this.camera);
-      this.renderWebcamInCanvas();
     };
 
     render();
