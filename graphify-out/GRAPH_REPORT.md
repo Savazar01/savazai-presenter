@@ -1,16 +1,16 @@
 # Graph Report - Savazai-presenter  (2026-09-04)
 
 ## Corpus Check
-- 31 files · ~20,737 words
+- 32 files · ~21,237 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 285 nodes · 509 edges · 19 communities (16 shown, 3 thin omitted)
+- 290 nodes · 513 edges · 20 communities (19 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c66d1758`
+- Built from commit: `ccc681c5`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -31,6 +31,7 @@
 - [[_COMMUNITY_Community 13|Community 13]]
 - [[_COMMUNITY_Community 17|Community 17]]
 - [[_COMMUNITY_Community 18|Community 18]]
+- [[_COMMUNITY_Community 19|Community 19]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `ThreeSceneManager` - 43 edges
@@ -51,24 +52,28 @@
   src/components/CaptureControls.tsx → src/types/index.ts
 - `CaptureControlsProps` --references--> `PipConfig`  [EXTRACTED]
   src/components/CaptureControls.tsx → src/types/index.ts
-- `ExportModalProps` --references--> `ThreeSceneManager`  [EXTRACTED]
-  src/components/ExportModal.tsx → src/core/scene/ThreeSceneManager.ts
-- `ExportModalProps` --references--> `TimelineController`  [EXTRACTED]
-  src/components/ExportModal.tsx → src/core/motion/TimelineController.ts
+- `ExportModalProps` --references--> `SlideData`  [EXTRACTED]
+  src/components/ExportModal.tsx → src/types/index.ts
+- `ExportModalProps` --references--> `CuePoint`  [EXTRACTED]
+  src/components/ExportModal.tsx → src/types/index.ts
 
-## Communities (19 total, 3 thin omitted)
+## Communities (20 total, 1 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.11
-Nodes (38): CaptureControls(), DeviceControls(), DeviceControlsProps, ExportModal(), ExportModalProps, PresentationMode(), PresentationModeProps, StudioCanvas() (+30 more)
+Cohesion: 0.13
+Nodes (30): DeviceControls(), DeviceControlsProps, ExportModal(), StudioCanvas(), StudioCanvasProps, TimelineBar(), TimelineBarProps, VideoEditorPanel() (+22 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.13
-Nodes (7): CaptureEngine, AudioVisualizer(), AudioVisualizerProps, CaptureControlsProps, Header(), HeaderProps, StreamState
+Cohesion: 0.11
+Nodes (10): CaptureEngine, AudioVisualizer(), AudioVisualizerProps, CaptureControls(), CaptureControlsProps, Header(), HeaderProps, PipPlacementPreset (+2 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.09
 Nodes (21): compilerOptions, allowImportingTsExtensions, baseUrl, isolatedModules, jsx, lib, module, moduleResolution (+13 more)
+
+### Community 4 - "Community 4"
+Cohesion: 0.17
+Nodes (4): PresentationMode(), PresentationModeProps, TimelineController, SlideData
 
 ### Community 5 - "Community 5"
 Cohesion: 0.06
@@ -81,6 +86,10 @@ Nodes (15): 003 - Walkthrough & Verification: MotionStudio Visual Showcase Platf
 ### Community 7 - "Community 7"
 Cohesion: 0.13
 Nodes (14): 1. Project Overview & Identity, 2. Mandatory Rules & Governance, 3.1 Shadcn UI & Component Architecture, 3.2 Playwright & E2E Testing Verification, 3.3 Graphify Knowledge & State Structuring, 3.4 Cloudflare Security & Defensive Client-Side Patterns, 3. Technology Stack & Ecosystem Skills, 4. Multi-Surface Publishing Specifications (+6 more)
+
+### Community 8 - "Community 8"
+Cohesion: 0.33
+Nodes (3): ExportModalProps, VideoRecorder, PipConfig
 
 ### Community 9 - "Community 9"
 Cohesion: 0.20
@@ -110,25 +119,29 @@ Nodes (11): 005 - Walkthrough & Verification: Docker Desktop Live Run & Knowledg
 Cohesion: 0.25
 Nodes (7): 004 - Studio Editor Enhancements & Verification, 1. Architectural Scope & Objectives, 2. Verification Protocol, A. Additional 3D Device Formats (`src/core/scene/ThreeSceneManager.ts`), B. In-Canvas WebGL Webcam Compositing (`src/core/exporters/VideoRecorder.ts` & `src/components/CaptureControls.tsx`), B. In-Canvas WebGL Webcam Compositing (`src/core/scene/ThreeSceneManager.ts` & `src/core/capture/CaptureEngine.ts`), C. Studio Video Editor & Asset Uploader (`src/components/VideoEditorPanel.tsx` & `src/App.tsx`)
 
+### Community 19 - "Community 19"
+Cohesion: 0.40
+Nodes (4): 005 - MotionStudio Production & UX Remediation Walkthrough, 1. Executive Summary & Root Cause Analysis, 2. Mandatory Protocol Verification Matrix, 3. Git Commit Verification
+
 ## Knowledge Gaps
-- **101 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+96 more)
+- **104 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+99 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `ThreeSceneManager` connect `Community 2` to `Community 0`, `Community 8`, `Community 4`?**
-  _High betweenness centrality (0.079) - this node is a cross-community bridge._
-- **Why does `CaptureEngine` connect `Community 1` to `Community 0`, `Community 8`?**
-  _High betweenness centrality (0.066) - this node is a cross-community bridge._
+  _High betweenness centrality (0.076) - this node is a cross-community bridge._
+- **Why does `CaptureEngine` connect `Community 1` to `Community 0`, `Community 8`, `Community 2`?**
+  _High betweenness centrality (0.064) - this node is a cross-community bridge._
 - **Why does `TimelineController` connect `Community 4` to `Community 0`, `Community 8`, `Community 2`?**
-  _High betweenness centrality (0.061) - this node is a cross-community bridge._
+  _High betweenness centrality (0.059) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `version` to the rest of the system?**
-  _101 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _104 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.10647307924984876 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.13140096618357489 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.12561576354679804 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11174242424242424 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.11076923076923077 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10052910052910052 - nodes in this community are weakly interconnected._
