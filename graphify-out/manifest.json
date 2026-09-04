@@ -1,0 +1,152 @@
+{
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\package.json": {
+    "mtime": 1788492912.7341979,
+    "ast_hash": "0799e63fee2bc77e4067a09778580b99",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\postcss.config.js": {
+    "mtime": 1788492925.5801399,
+    "ast_hash": "c735540bb63936a123bc867d950c9f69",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\tailwind.config.js": {
+    "mtime": 1788492923.4855385,
+    "ast_hash": "4cc61a1df7a985e8a7057d3e642358af",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\tsconfig.json": {
+    "mtime": 1788492918.922313,
+    "ast_hash": "c323818bf8f34ef3efabd8fe5fe3d985",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\tsconfig.node.json": {
+    "mtime": 1788492920.808797,
+    "ast_hash": "df562a73dce2f53f022bc93ee20099c2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\vite.config.ts": {
+    "mtime": 1788492915.839814,
+    "ast_hash": "38630c7d6f2169fc71ade58d0a833607",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\App.tsx": {
+    "mtime": 1788493108.3584676,
+    "ast_hash": "c7dde70eb6a82fae81655d2e0c0eef19",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\main.tsx": {
+    "mtime": 1788493111.2416728,
+    "ast_hash": "067ecbb315852427e0375490421eeb9c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\AudioVisualizer.tsx": {
+    "mtime": 1788493044.0149205,
+    "ast_hash": "5ab90e7e08d596fece1f211c3cae478b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\CaptureControls.tsx": {
+    "mtime": 1788493081.3980496,
+    "ast_hash": "aebd5c252c31420134ed88b8ce0ade4c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\DeviceControls.tsx": {
+    "mtime": 1788493072.3822627,
+    "ast_hash": "435995c9dfda343523b5c4e643a24107",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\ExportModal.tsx": {
+    "mtime": 1788493099.2806575,
+    "ast_hash": "c975d978511beb4f61d95b1a19f86481",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\Header.tsx": {
+    "mtime": 1788493050.192249,
+    "ast_hash": "b9ffe8c673f9235686187277387022df",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\PresentationMode.tsx": {
+    "mtime": 1788493089.3426168,
+    "ast_hash": "08f578077e13e60b3ef5fd9cc629f5ed",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\StudioCanvas.tsx": {
+    "mtime": 1788493057.495694,
+    "ast_hash": "55351047f54b1f6f57c71490ffeb2863",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\TimelineBar.tsx": {
+    "mtime": 1788493065.567746,
+    "ast_hash": "f56ad864d1eec7ebcb7e8ded9e8a3188",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\core\\capture\\CaptureEngine.ts": {
+    "mtime": 1788493133.5885012,
+    "ast_hash": "4bb74a21867b9e5dd8516050e07dce54",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\core\\exporters\\DocumentExporters.ts": {
+    "mtime": 1788493025.0194893,
+    "ast_hash": "cde7bdf8eb0a28bd4da059df0a0e9d92",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\core\\exporters\\VideoRecorder.ts": {
+    "mtime": 1788493032.6041076,
+    "ast_hash": "c0dac638b6bb81bbb3be31a8509a6e4c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\core\\motion\\TimelineController.ts": {
+    "mtime": 1788493007.1204815,
+    "ast_hash": "17481ab845eed853615457ee9b310645",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\core\\scene\\ThreeSceneManager.ts": {
+    "mtime": 1788492994.1085782,
+    "ast_hash": "777b03f8994756fe440b7cb5346d54c5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\types\\index.ts": {
+    "mtime": 1788492964.306817,
+    "ast_hash": "2b09b31eaf1bf7424a6e42d090f255ab",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\AGENTS.md": {
+    "mtime": 1788493798.520075,
+    "ast_hash": "ff14ab2becc49dc339c35eb4db220cb1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\CLAUDE.md": {
+    "mtime": 1788492908.9567878,
+    "ast_hash": "05ffc392d40b7ed3986dca6dca206415",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\docker-compose.yml": {
+    "mtime": 1788492934.5688958,
+    "ast_hash": "4902745b60d2e8a7df006e7a1c0939bc",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\index.html": {
+    "mtime": 1788492927.8724332,
+    "ast_hash": "7a9d9a0a6d528843ec1ef67bab437ae7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\001_initial_prompt_motionstudio.md": {
+    "mtime": 1788492894.4490635,
+    "ast_hash": "9fc0b73fed82c586ef4630aff93b5faf",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\002_implementation_plan_motionstudio.md": {
+    "mtime": 1788492899.619852,
+    "ast_hash": "6ddd056f194b21f544f19d6c249624b7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\003_walkthrough_motionstudio.md": {
+    "mtime": 1788493179.4432263,
+    "ast_hash": "ea06d9f7a3957069b24eb6086d1f4457",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\004_prompt_docker_live_verification.md": {
+    "mtime": 1788493789.726614,
+    "ast_hash": "75dc5a52c9c6317011a4d125668c58fe",
+    "semantic_hash": ""
+  }
+}

@@ -65,3 +65,17 @@ No deletion or overwrite of historical plan files is allowed.
 - `npm run build` — Type checks and builds production bundle to `/dist`
 - `npm run preview` — Previews production build on `http://0.0.0.0:9090`
 - `docker compose up --build` — Builds and runs the container on `http://localhost:9090`
+
+---
+
+## 6. Mandatory Task Completion & Deployment Protocol
+Every prompt, code modification, feature addition, or refactor MUST strictly complete the following 6-step loop before presenting the walkthrough:
+1. **TypeScript Validation**: `npx tsc --noEmit` must return exit code 0.
+2. **Production Bundle Check**: `npm run build` must compile cleanly.
+3. **Automated Docker Deployment**: Automatically run `docker compose up --build -d` to rebuild the container and deploy to Docker Desktop.
+4. **Port 9090 Verification**: Programmatically verify that `http://localhost:9090` returns HTTP 200 OK using curl or an automated health probe.
+5. **Knowledge Graph Sync**: Always run `graphify update .` to keep repository architecture and dependency graphs synchronized.
+6. **Chronological DevPlans Logging**: Document all actions, logs, and verification outputs inside `/DevPlans/` following the established prefix numbering convention.
+
+> [!IMPORTANT]
+> A task is **STRICTLY INCOMPLETE** if the Docker container is not active in Docker Desktop and serving on port 9090.
