@@ -1,0 +1,12 @@
+services:
+  motionstudio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: motionstudio-app
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    environment:
+      - NODE_ENV=production
+      - PORT=9090
