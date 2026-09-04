@@ -12,7 +12,7 @@ import {
   Loader2,
   Sparkles,
 } from 'lucide-react';
-import { ExportFormat, ExportProgress, SlideData, CuePoint } from '@/types';
+import { ExportFormat, ExportProgress, SlideData, CuePoint, PipConfig, CalloutOverlay, TrimRange } from '@/types';
 import { ThreeSceneManager } from '@/core/scene/ThreeSceneManager';
 import { TimelineController } from '@/core/motion/TimelineController';
 import { VideoRecorder } from '@/core/exporters/VideoRecorder';
@@ -22,6 +22,9 @@ interface ExportModalProps {
   isOpen: boolean;
   slides: SlideData[];
   cuePoints: CuePoint[];
+  pipConfig: PipConfig;
+  callouts?: CalloutOverlay[];
+  trimRange?: TrimRange;
   threeScene: ThreeSceneManager | null;
   timeline: TimelineController | null;
   videoRecorder: VideoRecorder | null;
@@ -32,6 +35,9 @@ export const ExportModal: React.FC<ExportModalProps> = ({
   isOpen,
   slides,
   cuePoints,
+  pipConfig,
+  callouts = [],
+  trimRange,
   threeScene,
   timeline,
   videoRecorder,
@@ -55,7 +61,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
       if (activeTab === 'video-webm' || activeTab === 'video-mp4') {
         if (!videoRecorder) return;
         const mime = activeTab === 'video-mp4' ? 'video/mp4' : 'video/webm;codecs=vp9';
-        const blob = await videoRecorder.exportTimelineVideo(60, mime, setProgress);
+        const blob = await videoRecorder.exportTimelineVideo(pipConfig, callouts, trimRange, 60, mime, setProgress);
         const ext = activeTab === 'video-mp4' ? 'mp4' : 'webm';
         triggerFileDownload(blob, `MotionStudio_Showcase_${Date.now()}.${ext}`);
       } else if (activeTab === 'pdf-deck') {
@@ -73,7 +79,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
         triggerFileDownload(blob, `MotionStudio_Showcase_${Date.now()}.epub`);
       } else if (activeTab === 'deck-json') {
         setProgress({ stage: 'preparing', progress: 50, message: 'Serializing slide deck metadata...' });
-        const data = JSON.stringify({ slides, cuePoints, timestamp: new Date().toISOString() }, null, 2);
+        const data = JSON.stringify({ slides, cuePoints, callouts, trimRange, timestamp: new Date().toISOString() }, null, 2);
         const blob = new Blob([data], { type: 'application/json' });
         triggerFileDownload(blob, `MotionStudio_Project_${Date.now()}.json`);
         setProgress({ stage: 'complete', progress: 100, message: 'JSON backup generated successfully!' });
@@ -167,9 +173,9 @@ export const ExportModal: React.FC<ExportModalProps> = ({
         <div className="p-6 space-y-5">
           {(activeTab === 'video-webm' || activeTab === 'video-mp4') && (
             <div className="space-y-4">
-              <div className="text-sm font-semibold text-white">Deterministic 60 FPS Video Export</div>
+              <div className="text-sm font-semibold text-white">Deterministic 60 FPS Video Composite Export</div>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Renders each timeline frame synchronously into WebCodecs/MediaRecorder. Captures Three.js WebGL viewport, lighting, and typography with zero dropped frames.
+                Synchronously composites 3D device staging, live/uploaded video, PiP webcam avatar, and animated text callouts directly into WebCodecs/MediaRecorder with zero dropped frames.
               </p>
               <div className="flex space-x-3">
                 <button
@@ -224,7 +230,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
             <div className="space-y-3">
               <div className="text-sm font-semibold text-white">Raw Project Slides & Cue Point Manifest</div>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Export all slide contents, timing cue points, camera coordinates, and device presets to a portable JSON file.
+                Export all slide contents, timing cue points, camera coordinates, callouts, and device presets to a portable JSON file.
               </p>
             </div>
           )}

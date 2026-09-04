@@ -1,4 +1,4 @@
-// TimelineBar — Scrubbable Master Timeline & Cue Choreography Bar
+// TimelineBar — Scrubbable Master Timeline, Trim Region & Cue Choreography Bar
 import React, { useRef } from 'react';
 import {
   Play,
@@ -9,8 +9,9 @@ import {
   Clock,
   Bookmark,
   FastForward,
+  Layers,
 } from 'lucide-react';
-import { CuePoint } from '@/types';
+import { CuePoint, TrimRange, CalloutOverlay } from '@/types';
 
 interface TimelineBarProps {
   currentTime: number;
@@ -19,6 +20,8 @@ interface TimelineBarProps {
   playbackRate: number;
   activeCueIndex: number;
   cuePoints: CuePoint[];
+  trimRange?: TrimRange;
+  callouts?: CalloutOverlay[];
   onTogglePlay: () => void;
   onSeek: (time: number) => void;
   onStepPrev: () => void;
@@ -33,6 +36,8 @@ export const TimelineBar: React.FC<TimelineBarProps> = ({
   playbackRate,
   activeCueIndex,
   cuePoints,
+  trimRange,
+  callouts = [],
   onTogglePlay,
   onSeek,
   onStepPrev,
@@ -57,6 +62,8 @@ export const TimelineBar: React.FC<TimelineBarProps> = ({
   };
 
   const progressPercent = totalDuration > 0 ? (currentTime / totalDuration) * 100 : 0;
+  const trimStartPercent = trimRange && totalDuration > 0 ? (trimRange.start / totalDuration) * 100 : 0;
+  const trimEndPercent = trimRange && totalDuration > 0 ? (trimRange.end / totalDuration) * 100 : 100;
 
   return (
     <div className="h-20 px-6 glass-panel border-t border-slate-800/80 flex flex-col justify-center space-y-2 z-40 relative">
@@ -65,9 +72,9 @@ export const TimelineBar: React.FC<TimelineBarProps> = ({
         {/* Playback Transport Buttons */}
         <div className="flex items-center space-x-2">
           <button
-            onClick={() => onSeek(0)}
+            onClick={() => onSeek(trimRange ? trimRange.start : 0)}
             className="p-1.5 rounded-lg glass-button text-slate-400 hover:text-white"
-            title="Reset to Beginning"
+            title="Reset to Start"
           >
             <RotateCcw className="w-3.5 h-3.5" />
           </button>
@@ -138,13 +145,37 @@ export const TimelineBar: React.FC<TimelineBarProps> = ({
       <div
         ref={trackRef}
         onClick={handleTrackClick}
-        className="relative w-full h-4 bg-slate-900/90 rounded-full cursor-pointer group border border-slate-800/80 flex items-center"
+        className="relative w-full h-4 bg-slate-900/90 rounded-full cursor-pointer group border border-slate-800/80 flex items-center overflow-hidden"
       >
+        {/* Trim Active Zone Highlight */}
+        {trimRange && (
+          <div
+            className="absolute top-0 bottom-0 bg-emerald-500/15 border-x border-emerald-500/40 pointer-events-none"
+            style={{
+              left: `${trimStartPercent}%`,
+              width: `${Math.max(0, trimEndPercent - trimStartPercent)}%`,
+            }}
+          />
+        )}
+
         {/* Elapsed Progress Bar */}
         <div
-          className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full"
+          className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full pointer-events-none"
           style={{ width: `${progressPercent}%` }}
         />
+
+        {/* Callout Marker Indicators */}
+        {callouts.map((callout) => {
+          const cStart = (callout.startTime / totalDuration) * 100;
+          return (
+            <div
+              key={callout.id}
+              style={{ left: `${cStart}%` }}
+              className="absolute top-0 bottom-0 w-1 bg-indigo-400/80 pointer-events-none z-10"
+              title={`Callout: ${callout.title}`}
+            />
+          );
+        })}
 
         {/* Cue Point Markers */}
         {cuePoints.map((cue, index) => {

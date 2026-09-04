@@ -1,6 +1,6 @@
 // MotionStudio Core Type Definitions
 
-export type DeviceType = 'macbook' | 'iphone' | 'browser' | 'none';
+export type DeviceType = 'macbook' | 'iphone' | 'browser' | 'windows-desktop' | 'pixel-android' | 'none';
 
 export type DeviceFinish = 'space-black' | 'silver' | 'titanium-natural' | 'midnight' | 'deep-purple';
 
@@ -19,6 +19,40 @@ export interface Transform3D {
   position: { x: number; y: number; z: number };
   rotation: { x: number; y: number; z: number };
   fov?: number;
+}
+
+export type PipPlacementPreset = 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left' | 'center' | 'custom';
+export type PipShape = 'circle' | 'rounded-rect' | 'square';
+
+export interface PipConfig {
+  enabled: boolean;
+  x: number; // percentage (0-100)
+  y: number; // percentage (0-100)
+  size: number; // pixels
+  shape: PipShape;
+  borderWidth: number;
+  borderColor: string;
+  shadow: boolean;
+  placementPreset: PipPlacementPreset;
+}
+
+export interface CalloutOverlay {
+  id: string;
+  startTime: number;
+  endTime: number;
+  x: number; // 0 - 100%
+  y: number; // 0 - 100%
+  title: string;
+  description?: string;
+  badge?: string;
+  arrowDirection?: 'up' | 'down' | 'left' | 'right' | 'none';
+  animation: 'fade' | 'bounce' | 'typewriter';
+  colorTheme: 'blue' | 'indigo' | 'emerald' | 'rose' | 'amber';
+}
+
+export interface TrimRange {
+  start: number; // in seconds
+  end: number; // in seconds
 }
 
 export interface CuePoint {
@@ -56,25 +90,17 @@ export interface StreamState {
   micAudioTrack?: MediaStreamTrack;
   streamResolution?: { width: number; height: number };
   streamFps?: number;
+  isCustomMediaLoaded?: boolean;
+  customMediaName?: string;
 }
 
 export interface AudioLevels {
   displayVolume: number;
   micVolume: number;
+  backgroundMusicVolume?: number;
   masterVolume: number;
   displayMuted: boolean;
   micMuted: boolean;
-}
-
-export interface PipConfig {
-  enabled: boolean;
-  x: number; // percentage (0-100)
-  y: number; // percentage (0-100)
-  size: number; // pixels
-  shape: 'circle' | 'rounded-rect';
-  borderWidth: number;
-  borderColor: string;
-  shadow: boolean;
 }
 
 export interface StudioState {
@@ -84,6 +110,8 @@ export interface StudioState {
   pipConfig: PipConfig;
   currentTime: number;
   totalDuration: number;
+  trimRange: TrimRange;
+  callouts: CalloutOverlay[];
   isPlaying: boolean;
   playbackRate: number;
   activeCueIndex: number;
@@ -91,6 +119,7 @@ export interface StudioState {
   isRecording: boolean;
   isPresentationMode: boolean;
   isExportModalOpen: boolean;
+  isEditorMode: boolean;
   audioLevels: AudioLevels;
 }
 

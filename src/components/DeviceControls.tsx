@@ -4,9 +4,9 @@ import {
   Laptop,
   Smartphone,
   Globe,
+  Monitor,
   Compass,
   Sparkles,
-  Sliders,
   RotateCw,
 } from 'lucide-react';
 import { DeviceType, DeviceFinish, CameraPreset } from '@/types';
@@ -30,9 +30,11 @@ export const DeviceControls: React.FC<DeviceControlsProps> = ({
   onSelectCameraPreset,
 }) => {
   const devices: { id: DeviceType; label: string; icon: React.ReactNode }[] = [
-    { id: 'macbook', label: 'MacBook Pro', icon: <Laptop className="w-4 h-4" /> },
-    { id: 'iphone', label: 'iPhone 16 Pro', icon: <Smartphone className="w-4 h-4" /> },
-    { id: 'browser', label: 'Glass Browser', icon: <Globe className="w-4 h-4" /> },
+    { id: 'macbook', label: 'MacBook Pro M3', icon: <Laptop className="w-4 h-4" /> },
+    { id: 'windows-desktop', label: 'Windows PC Desktop', icon: <Monitor className="w-4 h-4 text-sky-400" /> },
+    { id: 'iphone', label: 'iPhone 16 Pro', icon: <Smartphone className="w-4 h-4 text-indigo-400" /> },
+    { id: 'pixel-android', label: 'Google Pixel / Android', icon: <Smartphone className="w-4 h-4 text-emerald-400" /> },
+    { id: 'browser', label: 'Glass Browser Frame', icon: <Globe className="w-4 h-4 text-amber-400" /> },
   ];
 
   const presets: { id: CameraPreset; label: string }[] = [

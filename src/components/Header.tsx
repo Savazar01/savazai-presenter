@@ -1,4 +1,4 @@
-// Header Component — Top Navigation & Studio Control Bar
+// Header Component — Top Navigation, Mode Switcher & Studio Control Bar
 import React from 'react';
 import {
   Layers,
@@ -10,7 +10,8 @@ import {
   Monitor,
   Camera,
   Mic,
-  Volume2,
+  Sliders,
+  Edit3,
 } from 'lucide-react';
 import { StreamState } from '@/types';
 import { AudioVisualizer } from './AudioVisualizer';
@@ -19,8 +20,10 @@ import { CaptureEngine } from '@/core/capture/CaptureEngine';
 interface HeaderProps {
   streamState: StreamState;
   isRecording: boolean;
+  isEditorMode: boolean;
   captureEngine: CaptureEngine | null;
   onToggleLiveRecording: () => void;
+  onToggleEditorMode: () => void;
   onOpenPresentation: () => void;
   onOpenExportModal: () => void;
 }
@@ -28,35 +31,66 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({
   streamState,
   isRecording,
+  isEditorMode,
   captureEngine,
   onToggleLiveRecording,
+  onToggleEditorMode,
   onOpenPresentation,
   onOpenExportModal,
 }) => {
   return (
     <header className="h-16 px-6 glass-panel border-b border-slate-800/80 flex items-center justify-between z-40 relative">
-      {/* Brand & Identity */}
-      <div className="flex items-center space-x-3">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-500/25">
-          <Layers className="w-5 h-5 text-white" />
-        </div>
-        <div>
-          <div className="flex items-center space-x-2">
-            <h1 className="text-lg font-bold text-white tracking-tight">MotionStudio</h1>
-            <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">
-              v1.0 Local-First
-            </span>
+      {/* Brand & Mode Switcher */}
+      <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-500/25">
+            <Layers className="w-5 h-5 text-white" />
           </div>
-          <p className="text-xs text-slate-400 font-mono">3D Spatial Staging & Multi-Surface Publishing</p>
+          <div>
+            <div className="flex items-center space-x-2">
+              <h1 className="text-lg font-bold text-white tracking-tight">MotionStudio</h1>
+              <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">
+                v1.1 Studio
+              </span>
+            </div>
+            <p className="text-xs text-slate-400 font-mono">3D Spatial Staging & Video Editor</p>
+          </div>
+        </div>
+
+        {/* Mode Toggle Buttons */}
+        <div className="hidden md:flex items-center bg-slate-900/90 p-1 rounded-xl border border-slate-800">
+          <button
+            onClick={() => isEditorMode && onToggleEditorMode()}
+            className={`flex items-center space-x-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
+              !isEditorMode
+                ? 'bg-blue-600 text-white shadow-sm'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Monitor className="w-3.5 h-3.5" />
+            <span>Studio Live</span>
+          </button>
+
+          <button
+            onClick={() => !isEditorMode && onToggleEditorMode()}
+            className={`flex items-center space-x-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
+              isEditorMode
+                ? 'bg-indigo-600 text-white shadow-sm'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Edit3 className="w-3.5 h-3.5" />
+            <span>Video Editor</span>
+          </button>
         </div>
       </div>
 
       {/* Live Stream Status & Audio Waveform */}
       <div className="hidden lg:flex items-center space-x-4 bg-slate-900/70 px-4 py-1.5 rounded-xl border border-slate-800">
         <div className="flex items-center space-x-2 text-xs">
-          <Monitor className={`w-3.5 h-3.5 ${streamState.hasDisplayStream ? 'text-emerald-400' : 'text-slate-500'}`} />
-          <span className={streamState.hasDisplayStream ? 'text-emerald-300 font-medium' : 'text-slate-400'}>
-            {streamState.hasDisplayStream ? '4K Screen Live' : 'Screen Inactive'}
+          <Monitor className={`w-3.5 h-3.5 ${streamState.hasDisplayStream || streamState.isCustomMediaLoaded ? 'text-emerald-400' : 'text-slate-500'}`} />
+          <span className={streamState.hasDisplayStream || streamState.isCustomMediaLoaded ? 'text-emerald-300 font-medium' : 'text-slate-400'}>
+            {streamState.isCustomMediaLoaded ? 'Custom Video Loaded' : streamState.hasDisplayStream ? '4K Screen Live' : 'No Input Feed'}
           </span>
         </div>
 
@@ -65,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center space-x-2 text-xs">
           <Camera className={`w-3.5 h-3.5 ${streamState.hasWebcamStream ? 'text-emerald-400' : 'text-slate-500'}`} />
           <span className={streamState.hasWebcamStream ? 'text-emerald-300 font-medium' : 'text-slate-400'}>
-            {streamState.hasWebcamStream ? 'PiP Webcam Active' : 'Webcam Off'}
+            {streamState.hasWebcamStream ? 'Webcam Mixed' : 'Webcam Off'}
           </span>
         </div>
 
@@ -75,7 +109,7 @@ export const Header: React.FC<HeaderProps> = ({
           <Mic className={`w-3.5 h-3.5 ${streamState.hasMicStream ? 'text-emerald-400' : 'text-slate-500'}`} />
           <AudioVisualizer
             captureEngine={captureEngine}
-            isActive={streamState.hasMicStream || streamState.hasDisplayStream}
+            isActive={streamState.hasMicStream || streamState.hasDisplayStream || !!streamState.isCustomMediaLoaded}
             width={84}
             height={22}
             mode="bars"

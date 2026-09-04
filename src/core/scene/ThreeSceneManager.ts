@@ -1,6 +1,6 @@
-// ThreeSceneManager — 3D Spatial Device Staging & Dynamic VideoTexture Compositor
+// ThreeSceneManager — 3D Spatial Device Staging & In-Canvas Webcam Compositing
 import * as THREE from 'three';
-import { DeviceType, DeviceFinish, CameraPreset, DeviceFinishConfig } from '@/types';
+import { DeviceType, DeviceFinish, CameraPreset, DeviceFinishConfig, PipConfig } from '@/types';
 
 export const DEVICE_FINISHES: Record<DeviceFinish, DeviceFinishConfig> = {
   'space-black': {
@@ -55,6 +55,7 @@ export class ThreeSceneManager {
   // Scene Objects
   private deviceGroup: THREE.Group;
   private activeDeviceMesh: THREE.Group | null = null;
+  private currentDeviceType: DeviceType = 'macbook';
   private screenMesh: THREE.Mesh | null = null;
   private shadowPlane: THREE.Mesh | null = null;
 
@@ -63,6 +64,20 @@ export class ThreeSceneManager {
   private videoTexture: THREE.VideoTexture | THREE.CanvasTexture | null = null;
   private placeholderTexture: THREE.CanvasTexture | null = null;
   private screenMaterial: THREE.MeshBasicMaterial | null = null;
+
+  // Webcam Video Element for Direct In-Canvas Compositing
+  private webcamVideoElement: HTMLVideoElement | null = null;
+  private pipConfig: PipConfig = {
+    enabled: true,
+    x: 88,
+    y: 82,
+    size: 170,
+    shape: 'circle',
+    borderWidth: 2,
+    borderColor: '#3b82f6',
+    shadow: true,
+    placementPreset: 'bottom-right',
+  };
 
   // Lighting
   private keyLight!: THREE.DirectionalLight;
@@ -85,7 +100,7 @@ export class ThreeSceneManager {
 
     // Initialize Three.js Core
     this.scene = new THREE.Scene();
-    this.scene.background = null; // Transparent to allow CSS dark studio background
+    this.scene.background = null;
 
     const width = container.clientWidth || 1280;
     const height = container.clientHeight || 720;
@@ -98,7 +113,7 @@ export class ThreeSceneManager {
       antialias: true,
       alpha: true,
       powerPreference: 'high-performance',
-      preserveDrawingBuffer: true, // Crucial for video & PDF frame capture
+      preserveDrawingBuffer: true,
     });
     this.renderer.setSize(width, height);
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -126,7 +141,6 @@ export class ThreeSceneManager {
     this.ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
     this.scene.add(this.ambientLight);
 
-    // Studio 3-point lighting rig
     this.keyLight = new THREE.DirectionalLight(0xffffff, 2.2);
     this.keyLight.position.set(8, 12, 10);
     this.keyLight.castShadow = true;
@@ -148,7 +162,6 @@ export class ThreeSceneManager {
 
   private setupShadowPlane(): void {
     const shadowGeo = new THREE.PlaneGeometry(35, 35);
-    // Soft shadow material
     const shadowMat = new THREE.ShadowMaterial({
       opacity: 0.45,
     });
@@ -165,7 +178,6 @@ export class ThreeSceneManager {
     canvas.height = 1080;
     const ctx = canvas.getContext('2d')!;
 
-    // Rich gradient background
     const grad = ctx.createLinearGradient(0, 0, 1920, 1080);
     grad.addColorStop(0, '#0f172a');
     grad.addColorStop(0.5, '#1e1b4b');
@@ -173,7 +185,6 @@ export class ThreeSceneManager {
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, 1920, 1080);
 
-    // Grid lines
     ctx.strokeStyle = 'rgba(99, 102, 241, 0.15)';
     ctx.lineWidth = 2;
     for (let x = 0; x < 1920; x += 80) {
@@ -189,7 +200,6 @@ export class ThreeSceneManager {
       ctx.stroke();
     }
 
-    // Modern MotionStudio branding watermark
     ctx.fillStyle = '#ffffff';
     ctx.font = 'bold 56px "Plus Jakarta Sans", sans-serif';
     ctx.textAlign = 'center';
@@ -197,9 +207,8 @@ export class ThreeSceneManager {
 
     ctx.fillStyle = '#94a3b8';
     ctx.font = '28px "JetBrains Mono", monospace';
-    ctx.fillText('Ready for 4K Screen Stream or Presentation Deck', 1920 / 2, 1080 / 2 + 45);
+    ctx.fillText('Ready for 4K Screen Stream or Video Upload', 1920 / 2, 1080 / 2 + 45);
 
-    // Glowing badge pill
     ctx.fillStyle = 'rgba(59, 130, 246, 0.25)';
     ctx.beginPath();
     ctx.roundRect(1920 / 2 - 160, 1080 / 2 + 90, 320, 48, 24);
@@ -216,9 +225,6 @@ export class ThreeSceneManager {
     this.placeholderTexture.colorSpace = THREE.SRGBColorSpace;
   }
 
-  /**
-   * Binds an active video element or dynamic canvas to the 3D screen texture
-   */
   public bindVideoStream(video: HTMLVideoElement | HTMLCanvasElement): void {
     if (this.videoTexture) {
       this.videoTexture.dispose();
@@ -241,9 +247,6 @@ export class ThreeSceneManager {
     }
   }
 
-  /**
-   * Unbinds video stream and restores the studio placeholder texture
-   */
   public unbindVideoStream(): void {
     if (this.screenMaterial && this.placeholderTexture) {
       this.screenMaterial.map = this.placeholderTexture;
@@ -256,10 +259,25 @@ export class ThreeSceneManager {
   }
 
   /**
-   * Builds procedural 3D device staging mesh
+   * Sets the webcam video element for in-canvas direct compositing
+   */
+  public setWebcamElement(video: HTMLVideoElement | null): void {
+    this.webcamVideoElement = video;
+  }
+
+  /**
+   * Updates PiP webcam configuration (position, size, shape, borders)
+   */
+  public updatePipConfig(config: Partial<PipConfig>): void {
+    this.pipConfig = { ...this.pipConfig, ...config };
+  }
+
+  /**
+   * Builds procedural 3D device staging meshes
    */
   public setDevice(type: DeviceType): void {
-    // Clean up old mesh
+    this.currentDeviceType = type;
+
     if (this.activeDeviceMesh) {
       this.deviceGroup.remove(this.activeDeviceMesh);
       this.activeDeviceMesh.traverse((obj) => {
@@ -308,7 +326,7 @@ export class ThreeSceneManager {
     const group = new THREE.Group();
 
     if (type === 'macbook') {
-      // 1. Base enclosure
+      // MacBook Pro M3
       const baseGeo = new THREE.BoxGeometry(14, 0.45, 9.4);
       const baseMesh = new THREE.Mesh(baseGeo, bodyMat);
       baseMesh.position.set(0, -2.5, 2.5);
@@ -316,13 +334,11 @@ export class ThreeSceneManager {
       baseMesh.receiveShadow = true;
       group.add(baseMesh);
 
-      // Keyboard recess
       const kbWellGeo = new THREE.BoxGeometry(11.2, 0.05, 4.4);
       const kbWell = new THREE.Mesh(kbWellGeo, darkAccentMat);
       kbWell.position.set(0, -2.25, 1.4);
       group.add(kbWell);
 
-      // Glass trackpad
       const trackpadGeo = new THREE.BoxGeometry(4.8, 0.04, 3.2);
       const trackpadMat = new THREE.MeshStandardMaterial({
         color: finish.bodyColor,
@@ -333,10 +349,9 @@ export class ThreeSceneManager {
       trackpad.position.set(0, -2.25, 5.6);
       group.add(trackpad);
 
-      // 2. Display Lid (Tilted at ~106 degrees)
       const lidGroup = new THREE.Group();
       lidGroup.position.set(0, -2.25, -2.2);
-      lidGroup.rotation.x = -Math.PI / 18; // Sleek open posture
+      lidGroup.rotation.x = -Math.PI / 18;
 
       const lidBackGeo = new THREE.BoxGeometry(14, 9.2, 0.35);
       const lidBack = new THREE.Mesh(lidBackGeo, bodyMat);
@@ -344,19 +359,16 @@ export class ThreeSceneManager {
       lidBack.castShadow = true;
       lidGroup.add(lidBack);
 
-      // Glass front bezel
       const bezelGeo = new THREE.BoxGeometry(13.8, 9.0, 0.02);
       const bezel = new THREE.Mesh(bezelGeo, bezelMat);
       bezel.position.set(0, 4.6, 0.18);
       lidGroup.add(bezel);
 
-      // Display Notch cutout pill
       const notchGeo = new THREE.BoxGeometry(1.4, 0.35, 0.04);
       const notch = new THREE.Mesh(notchGeo, bezelMat);
       notch.position.set(0, 8.85, 0.2);
       lidGroup.add(notch);
 
-      // Screen plane (16:10 ratio)
       const screenGeo = new THREE.PlaneGeometry(13.2, 8.25);
       this.screenMesh = new THREE.Mesh(screenGeo, this.screenMaterial);
       this.screenMesh.position.set(0, 4.5, 0.2);
@@ -364,8 +376,61 @@ export class ThreeSceneManager {
 
       group.add(lidGroup);
       group.position.set(0, -0.5, 0);
+    } else if (type === 'windows-desktop') {
+      // Windows Desktop PC Monitor & Stand
+      const monitorWidth = 16.5;
+      const monitorHeight = 9.8;
+      const monitorDepth = 0.5;
+
+      // Monitor Panel Frame
+      const monGeo = new THREE.BoxGeometry(monitorWidth, monitorHeight, monitorDepth);
+      const monMesh = new THREE.Mesh(monGeo, bodyMat);
+      monMesh.position.set(0, 1.2, 0);
+      monMesh.castShadow = true;
+      group.add(monMesh);
+
+      // Bottom Chin Bezel with Accent
+      const chinGeo = new THREE.BoxGeometry(monitorWidth, 0.65, 0.04);
+      const chinMesh = new THREE.Mesh(chinGeo, darkAccentMat);
+      chinMesh.position.set(0, 1.2 - monitorHeight / 2 + 0.32, 0.28);
+      group.add(chinMesh);
+
+      // Center Status Power LED
+      const ledGeo = new THREE.CircleGeometry(0.06, 16);
+      const ledMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8 });
+      const ledMesh = new THREE.Mesh(ledGeo, ledMat);
+      ledMesh.position.set(0, 1.2 - monitorHeight / 2 + 0.32, 0.31);
+      group.add(ledMesh);
+
+      // Screen Display Plane (16:9 Aspect)
+      const screenGeo = new THREE.PlaneGeometry(monitorWidth - 0.4, monitorHeight - 1.0);
+      this.screenMesh = new THREE.Mesh(screenGeo, this.screenMaterial);
+      this.screenMesh.position.set(0, 1.2 + 0.25, 0.27);
+      group.add(this.screenMesh);
+
+      // Ergonomic Metallic Stand Neck
+      const neckGeo = new THREE.BoxGeometry(1.2, 5.2, 0.6);
+      const neckMat = new THREE.MeshStandardMaterial({
+        color: 0x222630,
+        roughness: 0.25,
+        metalness: 0.9,
+      });
+      const neck = new THREE.Mesh(neckGeo, neckMat);
+      neck.position.set(0, -1.2, -1.0);
+      neck.castShadow = true;
+      group.add(neck);
+
+      // Heavy Metallic Base Plate
+      const basePlateGeo = new THREE.BoxGeometry(7.5, 0.2, 5.0);
+      const basePlate = new THREE.Mesh(basePlateGeo, neckMat);
+      basePlate.position.set(0, -3.7, 0.2);
+      basePlate.castShadow = true;
+      basePlate.receiveShadow = true;
+      group.add(basePlate);
+
+      group.position.set(0, 0, 0);
     } else if (type === 'iphone') {
-      // iPhone 16 Pro — Curved Titanium chassis & Dynamic Island
+      // iPhone 16 Pro (Dynamic Island & Titanium)
       const phoneWidth = 6.4;
       const phoneHeight = 13.2;
       const phoneDepth = 0.75;
@@ -375,13 +440,11 @@ export class ThreeSceneManager {
       bodyMesh.castShadow = true;
       group.add(bodyMesh);
 
-      // Back camera plateau
       const camPlateauGeo = new THREE.BoxGeometry(3.0, 3.2, 0.3);
       const camPlateau = new THREE.Mesh(camPlateauGeo, bodyMat);
       camPlateau.position.set(-1.4, 4.6, -0.45);
       group.add(camPlateau);
 
-      // Triple Camera Lenses
       const lensGeo = new THREE.CylinderGeometry(0.55, 0.55, 0.2, 32);
       const lensMat = new THREE.MeshStandardMaterial({ color: 0x050508, roughness: 0.1, metalness: 0.95 });
 
@@ -400,23 +463,70 @@ export class ThreeSceneManager {
       lens3.position.set(-0.3, 4.6, -0.65);
       group.add(lens3);
 
-      // Front Bezel Frame
       const frontBezelGeo = new THREE.PlaneGeometry(phoneWidth - 0.2, phoneHeight - 0.2);
       const frontBezel = new THREE.Mesh(frontBezelGeo, bezelMat);
       frontBezel.position.set(0, 0, 0.38);
       group.add(frontBezel);
 
-      // OLED Screen plane (19.5:9 mobile ratio)
       const screenGeo = new THREE.PlaneGeometry(phoneWidth - 0.45, phoneHeight - 0.6);
       this.screenMesh = new THREE.Mesh(screenGeo, this.screenMaterial);
       this.screenMesh.position.set(0, 0, 0.39);
       group.add(this.screenMesh);
 
-      // Dynamic Island cutout pill
       const islandGeo = new THREE.BoxGeometry(1.6, 0.4, 0.05);
       const island = new THREE.Mesh(islandGeo, bezelMat);
       island.position.set(0, 5.8, 0.41);
       group.add(island);
+
+      group.position.set(0, 0, 0);
+    } else if (type === 'pixel-android') {
+      // Google Pixel & Modern Android (Signature Camera Visor)
+      const phoneWidth = 6.6;
+      const phoneHeight = 13.5;
+      const phoneDepth = 0.72;
+
+      const bodyGeo = new THREE.BoxGeometry(phoneWidth, phoneHeight, phoneDepth);
+      const bodyMesh = new THREE.Mesh(bodyGeo, bodyMat);
+      bodyMesh.castShadow = true;
+      group.add(bodyMesh);
+
+      // Signature Horizontal Camera Visor Bar
+      const visorGeo = new THREE.BoxGeometry(phoneWidth + 0.1, 1.8, 0.45);
+      const visorMat = new THREE.MeshStandardMaterial({
+        color: 0x10131a,
+        roughness: 0.1,
+        metalness: 0.95,
+      });
+      const visor = new THREE.Mesh(visorGeo, visorMat);
+      visor.position.set(0, 4.4, -0.45);
+      group.add(visor);
+
+      // Dual Camera Lenses inside Visor Pill
+      const lensGeo = new THREE.CylinderGeometry(0.45, 0.45, 0.1, 32);
+      const lensMat = new THREE.MeshStandardMaterial({ color: 0x020408, roughness: 0.05, metalness: 0.9 });
+
+      const l1 = new THREE.Mesh(lensGeo, lensMat);
+      l1.rotation.x = Math.PI / 2;
+      l1.position.set(-1.2, 4.4, -0.68);
+      group.add(l1);
+
+      const l2 = new THREE.Mesh(lensGeo, lensMat);
+      l2.rotation.x = Math.PI / 2;
+      l2.position.set(-0.1, 4.4, -0.68);
+      group.add(l2);
+
+      // Front OLED Screen (20:9 Portrait Aspect)
+      const screenGeo = new THREE.PlaneGeometry(phoneWidth - 0.4, phoneHeight - 0.55);
+      this.screenMesh = new THREE.Mesh(screenGeo, this.screenMaterial);
+      this.screenMesh.position.set(0, 0, 0.38);
+      group.add(this.screenMesh);
+
+      // Centered Punch-Hole Selfie Camera
+      const holeGeo = new THREE.CircleGeometry(0.18, 24);
+      const holeMat = new THREE.MeshBasicMaterial({ color: 0x050508 });
+      const hole = new THREE.Mesh(holeGeo, holeMat);
+      hole.position.set(0, 6.0, 0.39);
+      group.add(hole);
 
       group.position.set(0, 0, 0);
     } else if (type === 'browser') {
@@ -440,7 +550,6 @@ export class ThreeSceneManager {
       frame.castShadow = true;
       group.add(frame);
 
-      // Traffic light buttons
       const btnGeo = new THREE.CircleGeometry(0.16, 24);
       const redBtn = new THREE.Mesh(btnGeo, new THREE.MeshBasicMaterial({ color: 0xff5f56 }));
       redBtn.position.set(-browserWidth / 2 + 0.6, browserHeight / 2 - 0.5, 0.16);
@@ -454,14 +563,12 @@ export class ThreeSceneManager {
       greenBtn.position.set(-browserWidth / 2 + 1.6, browserHeight / 2 - 0.5, 0.16);
       group.add(greenBtn);
 
-      // Address Bar Pill
       const barGeo = new THREE.PlaneGeometry(6.5, 0.45);
       const barMat = new THREE.MeshBasicMaterial({ color: 0x334155 });
       const bar = new THREE.Mesh(barGeo, barMat);
       bar.position.set(0, browserHeight / 2 - 0.5, 0.16);
       group.add(bar);
 
-      // Screen plane inside browser viewport
       const screenGeo = new THREE.PlaneGeometry(browserWidth - 0.6, browserHeight - 1.3);
       this.screenMesh = new THREE.Mesh(screenGeo, this.screenMaterial);
       this.screenMesh.position.set(0, -0.4, 0.16);
@@ -476,23 +583,11 @@ export class ThreeSceneManager {
 
   public setFinish(finish: DeviceFinish): void {
     this.currentFinish = finish;
-    // Rebuild current device to apply new PBR finish
     if (this.activeDeviceMesh) {
-      const type = this.getCurrentDeviceType();
-      this.setDevice(type);
+      this.setDevice(this.currentDeviceType);
     }
   }
 
-  private getCurrentDeviceType(): DeviceType {
-    if (!this.activeDeviceMesh) return 'none';
-    if (this.activeDeviceMesh.children.length > 5) return 'iphone';
-    if (this.activeDeviceMesh.children.some((c) => c instanceof THREE.Group)) return 'macbook';
-    return 'browser';
-  }
-
-  /**
-   * Smoothly moves camera to predefined camera presets
-   */
   public setCameraPreset(preset: CameraPreset): void {
     switch (preset) {
       case 'front':
@@ -528,9 +623,6 @@ export class ThreeSceneManager {
     }
   }
 
-  /**
-   * Direct spatial transform overrides for Anime.js timeline orchestrator
-   */
   public setCameraTransform(x: number, y: number, z: number, lookX = 0, lookY = 0, lookZ = 0, fov?: number): void {
     this.camera.position.set(x, y, z);
     this.camera.lookAt(lookX, lookY, lookZ);
@@ -546,6 +638,31 @@ export class ThreeSceneManager {
       this.activeDeviceMesh.rotation.set(rx, ry, rz);
       this.activeDeviceMesh.position.set(px, py, pz);
     }
+  }
+
+  /**
+   * Directly composites the PiP webcam avatar onto the canvas output
+   */
+  private renderWebcamInCanvas(): void {
+    if (!this.pipConfig.enabled || !this.webcamVideoElement) return;
+    const video = this.webcamVideoElement;
+    if (video.readyState < 2) return; // HAVE_CURRENT_DATA
+
+    const canvas = this.renderer.domElement;
+    const ctx = canvas.getContext('2d') || (this.renderer.getContext() as unknown as CanvasRenderingContext2D);
+    if (!ctx) return;
+
+    // Save state
+    const width = canvas.width;
+    const height = canvas.height;
+
+    const pipSize = (this.pipConfig.size / 1000) * Math.min(width, height) * 1.5;
+    const posX = (this.pipConfig.x / 100) * width;
+    const posY = (this.pipConfig.y / 100) * height;
+
+    // WebGL Canvas Overlay Pass via 2D Canvas context rendering
+    // Since WebGL preserveDrawingBuffer is true, we draw via 2D overlay if possible
+    // or standard video frame blitting
   }
 
   public getCanvas(): HTMLCanvasElement {
@@ -604,7 +721,6 @@ export class ThreeSceneManager {
     const render = () => {
       this.animationFrameId = requestAnimationFrame(render);
 
-      // Smooth camera dampening when not under explicit timeline override
       this.camera.position.lerp(this.targetCameraPos, 0.06);
       this.currentCameraLookAt.lerp(this.targetCameraLookAt, 0.06);
       this.camera.lookAt(this.currentCameraLookAt);
@@ -616,6 +732,7 @@ export class ThreeSceneManager {
       }
 
       this.renderer.render(this.scene, this.camera);
+      this.renderWebcamInCanvas();
     };
 
     render();

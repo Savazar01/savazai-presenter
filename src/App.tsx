@@ -9,6 +9,8 @@ import {
   StreamState,
   CuePoint,
   SlideData,
+  CalloutOverlay,
+  TrimRange,
 } from '@/types';
 import { ThreeSceneManager } from '@/core/scene/ThreeSceneManager';
 import { TimelineController, DEFAULT_CUE_POINTS, DEFAULT_SLIDES } from '@/core/motion/TimelineController';
@@ -19,6 +21,7 @@ import { StudioCanvas } from '@/components/StudioCanvas';
 import { TimelineBar } from '@/components/TimelineBar';
 import { DeviceControls } from '@/components/DeviceControls';
 import { CaptureControls } from '@/components/CaptureControls';
+import { VideoEditorPanel } from '@/components/VideoEditorPanel';
 import { PresentationMode } from '@/components/PresentationMode';
 import { ExportModal } from '@/components/ExportModal';
 import { triggerFileDownload } from '@/core/exporters/DocumentExporters';
@@ -30,10 +33,29 @@ export function App() {
   const [captureEngine, setCaptureEngine] = useState<CaptureEngine | null>(null);
   const [videoRecorder, setVideoRecorder] = useState<VideoRecorder | null>(null);
 
-  // Studio UI State
+  // Studio UI & Mode State
+  const [isEditorMode, setIsEditorMode] = useState(false);
   const [currentDevice, setCurrentDevice] = useState<DeviceType>('macbook');
   const [deviceFinish, setDeviceFinish] = useState<DeviceFinish>('space-black');
   const [cameraPreset, setCameraPreset] = useState<CameraPreset>('front');
+
+  // Video Asset & Editor State
+  const [loadedVideoName, setLoadedVideoName] = useState<string | undefined>(undefined);
+  const [trimRange, setTrimRange] = useState<TrimRange>({ start: 0, end: 16 });
+  const [callouts, setCallouts] = useState<CalloutOverlay[]>([
+    {
+      id: 'callout-1',
+      title: '3D Spatial Staging',
+      description: 'Zero-backend WebGL device viewport compositing',
+      badge: 'PRO FEATURE',
+      startTime: 0.5,
+      endTime: 4.5,
+      x: 10,
+      y: 72,
+      animation: 'bounce',
+      colorTheme: 'blue',
+    },
+  ]);
 
   // PiP Config
   const [pipConfig, setPipConfig] = useState<PipConfig>({
@@ -42,6 +64,7 @@ export function App() {
     y: 82,
     size: 170,
     shape: 'circle',
+    placementPreset: 'bottom-right',
     borderWidth: 2,
     borderColor: '#3b82f6',
     shadow: true,
@@ -61,6 +84,7 @@ export function App() {
     hasDisplayStream: false,
     hasWebcamStream: false,
     hasMicStream: false,
+    isCustomMediaLoaded: false,
   });
 
   // Timeline & Choreography State
@@ -77,7 +101,7 @@ export function App() {
   const [isPresentationMode, setIsPresentationMode] = useState(false);
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
 
-  // Hidden video element for display stream texture feed
+  // Hidden video element for display stream or uploaded video texture feed
   const displayVideoRef = useRef<HTMLVideoElement | null>(null);
 
   // 1. Initialize Engines on mount
@@ -87,6 +111,7 @@ export function App() {
     video.autoplay = true;
     video.playsInline = true;
     video.muted = true;
+    video.loop = true;
     displayVideoRef.current = video;
 
     // Capture Engine
@@ -140,6 +165,7 @@ export function App() {
       video.srcObject = stream;
       await video.play();
       threeScene.bindVideoStream(video);
+      setStreamState((prev) => ({ ...prev, isCustomMediaLoaded: false }));
     } catch (err) {
       console.error('Display capture failed:', err);
     }
@@ -152,6 +178,32 @@ export function App() {
       displayVideoRef.current.srcObject = null;
     }
     threeScene.unbindVideoStream();
+  };
+
+  // Handle Custom Video Upload in Editor Mode
+  const handleVideoUpload = async (file: File) => {
+    if (!threeScene || !displayVideoRef.current) return;
+    try {
+      const video = displayVideoRef.current;
+      const url = URL.createObjectURL(file);
+      video.srcObject = null;
+      video.src = url;
+      video.load();
+      await video.play();
+      threeScene.bindVideoStream(video);
+
+      setLoadedVideoName(file.name);
+      setStreamState((prev) => ({ ...prev, isCustomMediaLoaded: true }));
+
+      // Update total trim range based on uploaded video duration
+      video.onloadedmetadata = () => {
+        if (video.duration && !isNaN(video.duration)) {
+          setTrimRange({ start: 0, end: Math.min(60, Math.round(video.duration)) });
+        }
+      };
+    } catch (err) {
+      console.error('Video asset import failed:', err);
+    }
   };
 
   const handleStartWebcamCapture = async () => {
@@ -209,12 +261,25 @@ export function App() {
     if (!timeline) return;
     const playing = timeline.togglePlay();
     setIsPlaying(playing);
+
+    // Sync underlying video element if loaded
+    if (displayVideoRef.current) {
+      if (playing) {
+        displayVideoRef.current.play().catch(() => {});
+      } else {
+        displayVideoRef.current.pause();
+      }
+    }
   };
 
   const handleSeek = (time: number) => {
     if (!timeline) return;
     timeline.seek(time);
     setCurrentTime(time);
+
+    if (displayVideoRef.current && displayVideoRef.current.duration) {
+      displayVideoRef.current.currentTime = time % displayVideoRef.current.duration;
+    }
   };
 
   const handleStepPrev = () => {
@@ -232,6 +297,18 @@ export function App() {
     if (timeline) {
       timeline.setPlaybackRate(rate);
     }
+    if (displayVideoRef.current) {
+      displayVideoRef.current.playbackRate = rate;
+    }
+  };
+
+  // Callouts Management
+  const handleAddCallout = (callout: CalloutOverlay) => {
+    setCallouts((prev) => [...prev, callout]);
+  };
+
+  const handleRemoveCallout = (id: string) => {
+    setCallouts((prev) => prev.filter((c) => c.id !== id));
   };
 
   // Live Studio Recording Toggle
@@ -239,7 +316,7 @@ export function App() {
     if (!videoRecorder) return;
 
     if (!isRecording) {
-      videoRecorder.startLiveRecording();
+      videoRecorder.startLiveRecording(pipConfig);
       setIsRecording(true);
     } else {
       setIsRecording(false);
@@ -252,7 +329,7 @@ export function App() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Don't intercept if user is inside an input field
-      if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) return;
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes((e.target as HTMLElement)?.tagName)) return;
 
       if (e.code === 'Space') {
         e.preventDefault();
@@ -271,6 +348,7 @@ export function App() {
   });
 
   const activeCue = cuePoints[activeCueIndex] || cuePoints[0];
+  const totalDuration = timeline?.getTotalDuration() || 16;
 
   return (
     <div className="w-screen h-screen flex flex-col bg-studio-bg text-slate-100 overflow-hidden select-none">
@@ -278,8 +356,10 @@ export function App() {
       <Header
         streamState={streamState}
         isRecording={isRecording}
+        isEditorMode={isEditorMode}
         captureEngine={captureEngine}
         onToggleLiveRecording={handleToggleLiveRecording}
+        onToggleEditorMode={() => setIsEditorMode((prev) => !prev)}
         onOpenPresentation={() => setIsPresentationMode(true)}
         onOpenExportModal={() => setIsExportModalOpen(true)}
       />
@@ -303,35 +383,55 @@ export function App() {
             activeCue={activeCue}
             webcamStream={captureEngine?.getWebcamStream() || null}
             pipConfig={pipConfig}
+            callouts={callouts}
+            currentTime={currentTime}
             onUpdatePipConfig={(c) => setPipConfig((prev) => ({ ...prev, ...c }))}
           />
         </div>
 
-        {/* Right Side: Media Ingestion, Web Audio Graph & PiP Controls */}
-        <CaptureControls
-          streamState={streamState}
-          audioLevels={audioLevels}
-          pipConfig={pipConfig}
-          captureEngine={captureEngine}
-          onStartDisplayCapture={handleStartDisplayCapture}
-          onStopDisplayCapture={handleStopDisplayCapture}
-          onStartWebcamCapture={handleStartWebcamCapture}
-          onStopWebcamCapture={handleStopWebcamCapture}
-          onStartMicCapture={handleStartMicCapture}
-          onStopMicCapture={handleStopMicCapture}
-          onUpdateAudioLevels={handleUpdateAudioLevels}
-          onUpdatePipConfig={(c) => setPipConfig((prev) => ({ ...prev, ...c }))}
-        />
+        {/* Right Side: Switchable between CaptureControls and VideoEditorPanel */}
+        {isEditorMode ? (
+          <VideoEditorPanel
+            loadedVideoName={loadedVideoName}
+            totalDuration={totalDuration}
+            trimRange={trimRange}
+            callouts={callouts}
+            audioLevels={audioLevels}
+            onVideoUpload={handleVideoUpload}
+            onUpdateTrimRange={setTrimRange}
+            onAddCallout={handleAddCallout}
+            onRemoveCallout={handleRemoveCallout}
+            onUpdateAudioLevels={handleUpdateAudioLevels}
+            onSeek={handleSeek}
+          />
+        ) : (
+          <CaptureControls
+            streamState={streamState}
+            audioLevels={audioLevels}
+            pipConfig={pipConfig}
+            captureEngine={captureEngine}
+            onStartDisplayCapture={handleStartDisplayCapture}
+            onStopDisplayCapture={handleStopDisplayCapture}
+            onStartWebcamCapture={handleStartWebcamCapture}
+            onStopWebcamCapture={handleStopWebcamCapture}
+            onStartMicCapture={handleStartMicCapture}
+            onStopMicCapture={handleStopMicCapture}
+            onUpdateAudioLevels={handleUpdateAudioLevels}
+            onUpdatePipConfig={(c) => setPipConfig((prev) => ({ ...prev, ...c }))}
+          />
+        )}
       </div>
 
       {/* 3. Bottom Scrubbable Timeline Bar */}
       <TimelineBar
         currentTime={currentTime}
-        totalDuration={timeline?.getTotalDuration() || 16}
+        totalDuration={totalDuration}
         isPlaying={isPlaying}
         playbackRate={playbackRate}
         activeCueIndex={activeCueIndex}
         cuePoints={cuePoints}
+        trimRange={isEditorMode ? trimRange : undefined}
+        callouts={callouts}
         onTogglePlay={handleTogglePlay}
         onSeek={handleSeek}
         onStepPrev={handleStepPrev}
@@ -359,6 +459,9 @@ export function App() {
         isOpen={isExportModalOpen}
         slides={slides}
         cuePoints={cuePoints}
+        pipConfig={pipConfig}
+        callouts={callouts}
+        trimRange={isEditorMode ? trimRange : undefined}
         threeScene={threeScene}
         timeline={timeline}
         videoRecorder={videoRecorder}
