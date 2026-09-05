@@ -1,7 +1,7 @@
 {
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\package.json": {
-    "mtime": 1788492912.7341979,
-    "ast_hash": "0799e63fee2bc77e4067a09778580b99",
+    "mtime": 1788576562.4646146,
+    "ast_hash": "fb2d0acd9e832f820f1aba91b539565c",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\postcss.config.js": {
@@ -30,8 +30,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\App.tsx": {
-    "mtime": 1788496922.4663858,
-    "ast_hash": "2684cda059eb6a8e64e75d558e4e837a",
+    "mtime": 1788610282.3955688,
+    "ast_hash": "27000df9830412bdc03c12ccddb0592c",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\main.tsx": {
@@ -45,23 +45,23 @@
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\CaptureControls.tsx": {
-    "mtime": 1788496831.5249188,
-    "ast_hash": "99ad4ac9eedfddab4f7c4a703bbfe474",
+    "mtime": 1788581897.451124,
+    "ast_hash": "794ecc3f87495f3e7a274b0a22455d2d",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\DeviceControls.tsx": {
-    "mtime": 1788495149.996296,
-    "ast_hash": "65b789177c9f801feb6529feae589ad5",
+    "mtime": 1788575580.4779572,
+    "ast_hash": "dd167e5ab9c60c82e2120d2c63ee7f4c",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\ExportModal.tsx": {
-    "mtime": 1788495216.5494187,
-    "ast_hash": "1f6a48d725305566f2a0c6916f87cedd",
+    "mtime": 1788581037.4756415,
+    "ast_hash": "6c5677efc4677944057e7183c753259c",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\Header.tsx": {
-    "mtime": 1788495177.1165833,
-    "ast_hash": "fa7eb6569c2b754c2b32369b20bfd9ff",
+    "mtime": 1788608984.617319,
+    "ast_hash": "14ce97639d078e6b57c8371f7137af95",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\PresentationMode.tsx": {
@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\StudioCanvas.tsx": {
-    "mtime": 1788496854.8101423,
-    "ast_hash": "e57a0ac303c8d8b27b3c904ddfc86362",
+    "mtime": 1788610276.096897,
+    "ast_hash": "dc98adf1f27311df482e813f19067b6b",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\TimelineBar.tsx": {
@@ -80,8 +80,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\core\\capture\\CaptureEngine.ts": {
-    "mtime": 1788493133.5885012,
-    "ast_hash": "4bb74a21867b9e5dd8516050e07dce54",
+    "mtime": 1788582705.9722638,
+    "ast_hash": "3575ef520802ab9dfcf903af2c1b1ab8",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\core\\exporters\\DocumentExporters.ts": {
@@ -90,8 +90,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\core\\exporters\\VideoRecorder.ts": {
-    "mtime": 1788496770.143448,
-    "ast_hash": "91a959fbc32967dcc3843596256a5d2d",
+    "mtime": 1788608950.977226,
+    "ast_hash": "b407294f22317373dda7b0579701ebf1",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\core\\motion\\TimelineController.ts": {
@@ -100,13 +100,13 @@
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\core\\scene\\ThreeSceneManager.ts": {
-    "mtime": 1788496757.078653,
-    "ast_hash": "045ac9266183d8c8db0cd1c66ebf5876",
+    "mtime": 1788608935.6968017,
+    "ast_hash": "72950fc6bca4650807eae573c9a0d11a",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\types\\index.ts": {
-    "mtime": 1788496786.17521,
-    "ast_hash": "c196d2ab8b1a3ceddc6735546870ba46",
+    "mtime": 1788605093.4536085,
+    "ast_hash": "c81d982990e1f749a9b41660b0e9b128",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\AGENTS.md": {
@@ -150,8 +150,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\VideoEditorPanel.tsx": {
-    "mtime": 1788496813.620158,
-    "ast_hash": "531f92603d12a5451d089eecbc223547",
+    "mtime": 1788574059.0664172,
+    "ast_hash": "411d58cc7ba0eb821f92814e50c465fc",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\004_studio_editor_enhancements.md": {
@@ -167,6 +167,131 @@
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\005_ui_ux_export_fixes.md": {
     "mtime": 1788528662.7265968,
     "ast_hash": "7b4c4be8dbea57c36a077e6cd482da64",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\RecordingBoothOverlay.tsx": {
+    "mtime": 1788582822.0204387,
+    "ast_hash": "d8254e75a2ca9aef0f40ebcc91bf04ee",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\core\\capture\\WebcamProcessor.ts": {
+    "mtime": 1788574003.367546,
+    "ast_hash": "fd04e4883005c7334df79fac4bf004e8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\core\\capture\\ProcessedWebcamPipeline.ts": {
+    "mtime": 1788582694.005545,
+    "ast_hash": "3fb83f55501f359a2744b94e22871209",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\006_recording_audio_webcam_refinements.md": {
+    "mtime": 1788574240.535737,
+    "ast_hash": "c96a9f3383d256a98991237a8b1b2349",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\007_compositor_ux_paradigm_fix.md": {
+    "mtime": 1788575712.3255656,
+    "ast_hash": "245c15e419be5e6c95ce695383635375",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\008_native_resolution_compositor_fix.md": {
+    "mtime": 1788576965.8500402,
+    "ast_hash": "ab5cff919fb2740b0a054a0a0fdb4c39",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\core\\capture\\DocumentPipManager.ts": {
+    "mtime": 1788582762.9390893,
+    "ast_hash": "a0bb8dbb1ae3125f8238ae9b7bbcdb13",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\009_loom_style_paradigm_and_segmentation.md": {
+    "mtime": 1788577658.7722073,
+    "ast_hash": "aedbf531123b719c1f52eb5de4f4465d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\010_pip_clean_recording_fix.md": {
+    "mtime": 1788578801.596275,
+    "ast_hash": "745db5e0e2139e4a7954f6291f531ddc",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\011_document_pip_and_office_background.md": {
+    "mtime": 1788579682.456436,
+    "ast_hash": "e596442855b9a78f8672d8c4844b3db7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\012_export_deadlock_and_pip_isolation.md": {
+    "mtime": 1788581148.0567188,
+    "ast_hash": "85b1c33229c5c2eef3b247968c2118c5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\013_true_multilayer_avatar_and_pip_fix.md": {
+    "mtime": 1788582044.1613238,
+    "ast_hash": "34a9ede4f9719a1cb746b2cb47bda869",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\setup\\MotionStudioRecordingPill.tsx": {
+    "mtime": 1788610261.6359336,
+    "ast_hash": "5cba6ddab04ae2ef677e8ea2b58361c9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\setup\\MotionStudioSetupModal.tsx": {
+    "mtime": 1788610305.958763,
+    "ast_hash": "60fb70bae95da5a3eddd964e7ba21620",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\studio\\LayersPanel.tsx": {
+    "mtime": 1788605144.3986082,
+    "ast_hash": "0206683929f8df802cbb3b13a186852a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\studio\\LeftToolRail.tsx": {
+    "mtime": 1788605122.5435889,
+    "ast_hash": "088d3b62f6050c68f03e9102ac45dd72",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\studio\\MultiTrackTimeline.tsx": {
+    "mtime": 1788605154.029964,
+    "ast_hash": "c72f407e06b2da2f559c5010e1675931",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\studio\\SecondaryOptionsPanel.tsx": {
+    "mtime": 1788605139.1164975,
+    "ast_hash": "3c39369ff5a44c0a8629b50e1abb877d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\014_restore_screen_capture_and_segmentation_fix.md": {
+    "mtime": 1788592343.648225,
+    "ast_hash": "7dcdecd16aff01304622faa56db662f8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\components\\ProjectModal.tsx": {
+    "mtime": 1788608970.3115118,
+    "ast_hash": "87779fc12de6c03c7d7f208fa1d2cddb",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\src\\core\\projects\\ProjectManager.ts": {
+    "mtime": 1788610176.0576398,
+    "ast_hash": "f5104ad7cd6f1e20b4a4a44b202d9106",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\015_motionstudio_complete_ui_ux_refactor.md": {
+    "mtime": 1788605558.513286,
+    "ast_hash": "67a69325a3ea30158f1a12fb1f48abff",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\016_studio_green_screen_and_project_manager.md": {
+    "mtime": 1788609145.0764327,
+    "ast_hash": "5ba19a092f49a369500de26669721995",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\017_ingestion_and_frameless_default_fix.md": {
+    "mtime": 1788610445.1128738,
+    "ast_hash": "5f0846339ff79266bc0993bc43c47735",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\018_project_hold_checkpoint.md": {
+    "mtime": 1788611007.817348,
+    "ast_hash": "59a75a4c2204930fd7537a6f252343fb",
     "semantic_hash": ""
   }
 }

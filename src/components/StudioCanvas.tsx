@@ -1,8 +1,17 @@
-// StudioCanvas — Viewport HUD Overlay, Kinetic Motion & PiP Webcam
+// StudioCanvas.tsx — MotionStudio Central Viewport & Multi-Surface Stage Compositor
 import React, { useEffect, useRef, useState } from 'react';
 import { ThreeSceneManager } from '@/core/scene/ThreeSceneManager';
-import { CuePoint, PipConfig, CalloutOverlay, StageMode } from '@/types';
-import { MousePointer, Move, Sparkles, AlertTriangle, Monitor, Laptop } from 'lucide-react';
+import {
+  CuePoint,
+  PipConfig,
+  CalloutOverlay,
+  StageMode,
+  WallpaperConfig,
+  MockupConfig,
+  MaskEffectType,
+} from '@/types';
+import { ProcessedWebcamPipeline } from '@/core/capture/ProcessedWebcamPipeline';
+import { MousePointer, Move, Laptop, Monitor } from 'lucide-react';
 
 interface StudioCanvasProps {
   threeScene: ThreeSceneManager | null;
@@ -13,9 +22,14 @@ interface StudioCanvasProps {
   hasDisplayStream?: boolean;
   callouts?: CalloutOverlay[];
   currentTime?: number;
+  wallpaperConfig?: WallpaperConfig;
+  mockupConfig?: MockupConfig;
+  maskEffect?: MaskEffectType;
   onUpdatePipConfig: (config: Partial<PipConfig>) => void;
   onToggleStageMode?: (mode: StageMode) => void;
   webcamVideoRef?: React.RefObject<HTMLVideoElement>;
+  webcamPipeline?: ProcessedWebcamPipeline | null;
+  displayVideoElement?: HTMLVideoElement | null;
 }
 
 export const StudioCanvas: React.FC<StudioCanvasProps> = ({
@@ -27,17 +41,56 @@ export const StudioCanvas: React.FC<StudioCanvasProps> = ({
   hasDisplayStream = false,
   callouts = [],
   currentTime = 0,
+  wallpaperConfig = {
+    type: 'wallpaper',
+    presetId: 'studio-dark',
+    color: '#0f172a',
+    gradient: 'linear-gradient(135deg, #0f172a 0%, #020617 50%, #082f49 100%)',
+    blur: 0,
+    padding: 32,
+    borderRadius: 16,
+    shadowDepth: 60,
+  },
+  mockupConfig = {
+    mode: '3d',
+    frame2D: 'macos-dark',
+    device3D: 'frameless',
+  },
+  maskEffect = 'none',
   onUpdatePipConfig,
   onToggleStageMode,
   webcamVideoRef: externalVideoRef,
+  webcamPipeline,
+  displayVideoElement,
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const internalVideoRef = useRef<HTMLVideoElement>(null);
+  const local2DVideoRef = useRef<HTMLVideoElement>(null);
+  const liveCanvasRef = useRef<HTMLCanvasElement>(null);
   const webcamVideoRef = externalVideoRef || internalVideoRef;
 
   // PiP Dragging State
   const [isDraggingPip, setIsDraggingPip] = useState(false);
   const dragStartPos = useRef({ mouseX: 0, mouseY: 0, startPipX: 0, startPipY: 0 });
+
+  // Sync 2D Video Display
+  useEffect(() => {
+    if (!local2DVideoRef.current || !displayVideoElement) return;
+    const targetEl = local2DVideoRef.current;
+
+    if (displayVideoElement.srcObject) {
+      if (targetEl.srcObject !== displayVideoElement.srcObject) {
+        targetEl.srcObject = displayVideoElement.srcObject;
+      }
+    } else if (displayVideoElement.src) {
+      if (targetEl.src !== displayVideoElement.src) {
+        targetEl.srcObject = null;
+        targetEl.src = displayVideoElement.src;
+      }
+    }
+
+    targetEl.play().catch(() => {});
+  }, [displayVideoElement, displayVideoElement?.src, displayVideoElement?.srcObject]);
 
   // Connect webcam stream to video element
   useEffect(() => {
@@ -90,6 +143,35 @@ export const StudioCanvas: React.FC<StudioCanvasProps> = ({
     };
   }, [isDraggingPip, onUpdatePipConfig]);
 
+  // Live Canvas Rendering Loop for Virtual Background
+  useEffect(() => {
+    let animId: number;
+    const renderLoop = () => {
+      if (
+        pipConfig.enabled &&
+        pipConfig.background &&
+        pipConfig.background.type !== 'none' &&
+        webcamPipeline &&
+        liveCanvasRef.current
+      ) {
+        const targetCtx = liveCanvasRef.current.getContext('2d');
+        const sourceCanvas = webcamPipeline.getCanvas();
+        if (targetCtx && sourceCanvas && sourceCanvas.width > 0) {
+          if (liveCanvasRef.current.width !== sourceCanvas.width) {
+            liveCanvasRef.current.width = sourceCanvas.width;
+            liveCanvasRef.current.height = sourceCanvas.height;
+          }
+          targetCtx.clearRect(0, 0, sourceCanvas.width, sourceCanvas.height);
+          targetCtx.drawImage(sourceCanvas, 0, 0);
+        }
+      }
+      animId = requestAnimationFrame(renderLoop);
+    };
+
+    animId = requestAnimationFrame(renderLoop);
+    return () => cancelAnimationFrame(animId);
+  }, [pipConfig, webcamPipeline]);
+
   // Active callouts
   const activeCallouts = callouts.filter(
     (c) => currentTime >= c.startTime && currentTime <= c.endTime
@@ -97,76 +179,99 @@ export const StudioCanvas: React.FC<StudioCanvasProps> = ({
 
   const getShapeClass = () => {
     if (pipConfig.shape === 'circle') return 'rounded-full';
+    if (pipConfig.shape === 'squircle') return 'rounded-[28%]';
     if (pipConfig.shape === 'rounded-rect') return 'rounded-3xl';
-    return 'rounded-lg';
+    return 'rounded-xl';
   };
+
+  // Mask CSS overlay filter
+  const getMaskStyle = (): React.CSSProperties => {
+    if (maskEffect === 'fade-top') {
+      return { maskImage: 'linear-gradient(to bottom, transparent, black 25%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 25%)' };
+    }
+    if (maskEffect === 'fade-bottom') {
+      return { maskImage: 'linear-gradient(to top, transparent, black 25%)', WebkitMaskImage: 'linear-gradient(to top, transparent, black 25%)' };
+    }
+    if (maskEffect === 'fade-sides') {
+      return { maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' };
+    }
+    if (maskEffect === 'vignette') {
+      return { maskImage: 'radial-gradient(circle, black 60%, transparent 100%)', WebkitMaskImage: 'radial-gradient(circle, black 60%, transparent 100%)' };
+    }
+    if (maskEffect === 'diagonal-45') {
+      return { maskImage: 'linear-gradient(45deg, black 70%, transparent 100%)', WebkitMaskImage: 'linear-gradient(45deg, black 70%, transparent 100%)' };
+    }
+    return {};
+  };
+
+  const is2D = mockupConfig.mode === '2d';
 
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 z-10 pointer-events-none overflow-hidden select-none"
+      style={{
+        background: wallpaperConfig.gradient || wallpaperConfig.color,
+      }}
+      className="absolute inset-0 z-10 overflow-hidden select-none flex items-center justify-center transition-colors duration-300"
     >
-      {/* Top Floating Controls Bar */}
-      <div className="absolute top-4 right-4 z-30 pointer-events-auto flex items-center space-x-2">
-        {onToggleStageMode && (
-          <div className="bg-slate-900/90 backdrop-blur-md p-1 rounded-xl border border-slate-700/80 flex items-center shadow-lg">
-            <button
-              onClick={() => onToggleStageMode('3d-stage')}
-              className={`flex items-center space-x-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
-                stageMode === '3d-stage'
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              <Laptop className="w-3.5 h-3.5" />
-              <span>3D Stage</span>
-            </button>
-            <button
-              onClick={() => onToggleStageMode('2d-direct')}
-              className={`flex items-center space-x-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
-                stageMode === '2d-direct'
-                  ? 'bg-indigo-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              <Monitor className="w-3.5 h-3.5" />
-              <span>2D Direct View</span>
-            </button>
-          </div>
-        )}
-      </div>
+      {/* Background Blur Overlay */}
+      {wallpaperConfig.blur > 0 && (
+        <div
+          style={{ backdropFilter: `blur(${wallpaperConfig.blur}px)` }}
+          className="absolute inset-0 z-0 pointer-events-none"
+        />
+      )}
 
-      {/* Top Center Anti-Tunnel Helper Banner */}
-      {hasDisplayStream && (
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 pointer-events-auto max-w-lg">
-          <div className="bg-amber-950/80 backdrop-blur-md border border-amber-500/50 text-amber-200 px-3.5 py-1.5 rounded-full text-[11px] font-medium flex items-center space-x-2 shadow-xl animate-fade-in">
-            <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0" />
-            <span>Avoid recursive mirror tunnels: Share an external window or tab.</span>
+      {/* 2D Direct View Mockup Staging */}
+      {is2D && (
+        <div
+          style={{
+            padding: `${wallpaperConfig.padding}px`,
+            ...getMaskStyle(),
+          }}
+          className="relative z-10 w-full h-full flex items-center justify-center transition-all duration-200"
+        >
+          <div
+            style={{
+              borderRadius: `${wallpaperConfig.borderRadius}px`,
+              boxShadow: `0 20px 50px rgba(0,0,0,${(wallpaperConfig.shadowDepth / 100) * 0.8})`,
+            }}
+            className="w-full max-w-5xl aspect-video bg-black/90 border border-slate-700/80 overflow-hidden flex flex-col transition-all duration-200"
+          >
+            {/* 2D Window Frame Titlebar */}
+            {mockupConfig.frame2D !== 'none' && mockupConfig.frame2D !== 'outline' && (
+              <div
+                className={`h-7 px-3 flex items-center justify-between border-b ${
+                  mockupConfig.frame2D === 'macos-light'
+                    ? 'bg-slate-200 border-slate-300 text-slate-700'
+                    : mockupConfig.frame2D === 'macos-glass'
+                    ? 'bg-slate-900/40 backdrop-blur-md border-white/10 text-white'
+                    : 'bg-slate-900/90 border-slate-800 text-slate-300'
+                }`}
+              >
+                <div className="flex items-center space-x-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+                </div>
+                <span className="text-[10px] font-mono opacity-60">MotionStudio Live Display</span>
+                <div className="w-8" />
+              </div>
+            )}
+
+            {/* Video Canvas Container */}
+            <div className="flex-1 bg-black flex items-center justify-center overflow-hidden">
+              <video
+                ref={local2DVideoRef}
+                autoPlay
+                playsInline
+                muted
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
         </div>
       )}
-
-      {/* 2D Motion Choreography Kinetic Text Overlay */}
-      <div className="absolute top-8 left-8 z-20 pointer-events-none max-w-xl transition-all duration-700 ease-out">
-        {activeCue.badgeText && (
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/40 text-blue-400 text-[11px] font-bold tracking-widest uppercase mb-3 backdrop-blur-md animate-pulse-subtle">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-            <span>{activeCue.badgeText}</span>
-          </div>
-        )}
-
-        {activeCue.headlineText && (
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-white tracking-tight drop-shadow-md leading-tight transition-all">
-            {activeCue.headlineText}
-          </h2>
-        )}
-
-        {activeCue.subText && (
-          <p className="text-sm lg:text-base text-slate-300 font-medium mt-2 drop-shadow-sm leading-relaxed max-w-md">
-            {activeCue.subText}
-          </p>
-        )}
-      </div>
 
       {/* Active Callouts Overlays in Viewport */}
       {activeCallouts.map((callout) => (
@@ -222,18 +327,28 @@ export const StudioCanvas: React.FC<StudioCanvasProps> = ({
             height: `${pipConfig.size}px`,
             transform: 'translate(-50%, -50%)',
           }}
-          className={`absolute z-40 pointer-events-auto cursor-grab active:cursor-grabbing overflow-hidden border-2 border-blue-400/80 shadow-[0_0_25px_rgba(59,130,246,0.5)] group transition-transform hover:scale-105 ${getShapeClass()} ${
+          className={`absolute z-40 pointer-events-auto cursor-grab active:cursor-grabbing overflow-hidden border-2 border-blue-400/80 shadow-[0_0_25px_rgba(59,130,246,0.5)] group transition-transform hover:scale-105 aspect-square ${getShapeClass()} ${
             isDraggingPip ? 'ring-4 ring-blue-500/50' : ''
           }`}
           title="Drag webcam to reposition on canvas"
         >
-          <video
-            ref={webcamVideoRef}
-            autoPlay
-            playsInline
-            muted
-            className="w-full h-full object-cover scale-x-[-1]"
-          />
+          {pipConfig.background && pipConfig.background.type !== 'none' ? (
+            <canvas
+              ref={liveCanvasRef}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <video
+              ref={webcamVideoRef}
+              autoPlay
+              playsInline
+              muted
+              style={{
+                transform: pipConfig.mirror !== false ? 'scaleX(-1)' : 'none',
+              }}
+              className="w-full h-full object-cover"
+            />
+          )}
 
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
             <Move className="w-5 h-5 text-white drop-shadow" />

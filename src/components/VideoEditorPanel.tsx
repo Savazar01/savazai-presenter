@@ -451,6 +451,7 @@ export const VideoEditorPanel: React.FC<VideoEditorPanelProps> = ({
                   { id: 'iphone', name: 'iPhone 16 Pro', icon: Smartphone },
                   { id: 'pixel-android', name: 'Google Pixel / Android', icon: Smartphone },
                   { id: 'browser', name: 'Glass Browser Frame', icon: Globe },
+                  { id: 'frameless', name: 'Frameless 16:9 Canvas', icon: Monitor },
                 ].map((d) => {
                   const Icon = d.icon;
                   const isSelected = currentDevice === d.id;

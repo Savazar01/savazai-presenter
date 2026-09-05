@@ -1,6 +1,6 @@
 // MotionStudio Core Type Definitions
 
-export type DeviceType = 'macbook' | 'iphone' | 'browser' | 'windows-desktop' | 'pixel-android' | 'none';
+export type DeviceType = 'macbook' | 'iphone' | 'browser' | 'windows-desktop' | 'pixel-android' | 'frameless' | 'none';
 
 export type StageMode = '3d-stage' | '2d-direct';
 
@@ -24,19 +24,95 @@ export interface Transform3D {
 }
 
 export type PipPlacementPreset = 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left' | 'center' | 'custom';
-export type PipShape = 'circle' | 'rounded-rect' | 'square';
+export type PipShape = 'circle' | 'squircle' | 'square' | 'rounded-rect';
+export type CornerPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+
+export type VirtualBgType =
+  | 'none'
+  | 'blur-low'
+  | 'blur-medium'
+  | 'blur-high'
+  | 'preset-office'
+  | 'preset-studio'
+  | 'preset-scenic'
+  | 'custom-image';
+
+export interface WebcamBackgroundConfig {
+  type: VirtualBgType;
+  blurAmount?: number;
+  customImageUrl?: string;
+}
 
 export interface PipConfig {
   enabled: boolean;
   x: number; // percentage (0-100)
   y: number; // percentage (0-100)
   size: number; // pixels
+  sizePercent?: number; // 10 - 40 (%)
   shape: PipShape;
   borderWidth: number;
   borderColor: string;
   shadow: boolean;
   placementPreset: PipPlacementPreset;
+  cornerPosition?: CornerPosition;
+  mirror?: boolean;
+  background?: WebcamBackgroundConfig;
 }
+
+export type ActiveToolTab =
+  | 'background'
+  | 'mockup'
+  | 'motion'
+  | 'zoom'
+  | 'video'
+  | 'elements'
+  | 'audio'
+  | 'record'
+  | 'upload'
+  | null;
+
+export type Frame2DType =
+  | 'none'
+  | 'outline'
+  | 'macos-light'
+  | 'macos-dark'
+  | 'macos-glass'
+  | 'brave'
+  | 'chrome';
+
+export interface WallpaperConfig {
+  type: 'wallpaper' | 'color' | 'gradient';
+  presetId: string;
+  customUrl?: string;
+  color: string;
+  gradient: string;
+  blur: number;
+  padding: number;
+  borderRadius: number;
+  shadowDepth: number;
+}
+
+export interface MockupConfig {
+  mode: '3d' | '2d';
+  frame2D: Frame2DType;
+  device3D: DeviceType;
+}
+
+export interface ZoomFragment {
+  id: string;
+  startTime: number;
+  endTime: number;
+  targetFocus: { x: number; y: number; scale: number };
+  ease: string;
+}
+
+export type MaskEffectType =
+  | 'none'
+  | 'fade-top'
+  | 'fade-bottom'
+  | 'fade-sides'
+  | 'vignette'
+  | 'diagonal-45';
 
 export interface CalloutOverlay {
   id: string;
@@ -103,6 +179,15 @@ export interface AudioLevels {
   masterVolume: number;
   displayMuted: boolean;
   micMuted: boolean;
+}
+
+export interface RecordingBoothState {
+  isRecording: boolean;
+  isCountingDown: boolean;
+  countdownNumber: number;
+  isPaused: boolean;
+  recordingDuration: number;
+  isBoothActive: boolean;
 }
 
 export interface StudioState {

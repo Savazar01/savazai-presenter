@@ -575,6 +575,30 @@ export class ThreeSceneManager {
       group.add(this.screenMesh);
 
       group.position.set(0, 0, 0);
+    } else if (type === 'frameless') {
+      // Clean Edge-to-Edge Frameless Screen Canvas
+      const screenWidth = 16.0;
+      const screenHeight = 9.0;
+
+      // Soft ambient backing card
+      const backingGeo = new THREE.BoxGeometry(screenWidth + 0.05, screenHeight + 0.05, 0.1);
+      const backingMat = new THREE.MeshStandardMaterial({
+        color: 0x090d16,
+        roughness: 0.2,
+        metalness: 0.8,
+      });
+      const backing = new THREE.Mesh(backingGeo, backingMat);
+      backing.position.set(0, 0, -0.05);
+      backing.castShadow = true;
+      group.add(backing);
+
+      // Edge-to-edge screen display plane
+      const screenGeo = new THREE.PlaneGeometry(screenWidth, screenHeight);
+      this.screenMesh = new THREE.Mesh(screenGeo, this.screenMaterial);
+      this.screenMesh.position.set(0, 0, 0.02);
+      group.add(this.screenMesh);
+
+      group.position.set(0, 0, 0);
     }
 
     this.activeDeviceMesh = group;
@@ -641,12 +665,12 @@ export class ThreeSceneManager {
   }
 
   public setStageMode(mode: '3d-stage' | '2d-direct'): void {
-    if (mode === '2d-direct') {
-      this.targetCameraPos.set(0, 0, 13.5);
+    if (mode === '2d-direct' || this.currentDeviceType === 'frameless') {
+      this.targetCameraPos.set(0, 0, 10.85);
       this.targetCameraLookAt.set(0, 0, 0);
       this.targetDeviceRot.set(0, 0, 0);
       if (this.camera) {
-        this.camera.position.set(0, 0, 13.5);
+        this.camera.position.set(0, 0, 10.85);
         this.camera.lookAt(0, 0, 0);
         this.camera.fov = 45;
         this.camera.updateProjectionMatrix();
@@ -732,6 +756,11 @@ export class ThreeSceneManager {
   }
 
   public renderDirect(): void {
+    this.renderer.render(this.scene, this.camera);
+  }
+
+  public forceRender(): void {
+    this.camera.lookAt(this.currentCameraLookAt);
     this.renderer.render(this.scene, this.camera);
   }
 

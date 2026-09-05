@@ -1,44 +1,70 @@
-// VideoRecorder — Frame-Accurate Canvas Compositor & MediaRecorder Engine
-import { ExportProgress, PipConfig, CalloutOverlay, TrimRange } from '@/types';
+// VideoRecorder — Native Resolution Compositor & MediaRecorder Engine
+import { ExportProgress, PipConfig, CalloutOverlay, TrimRange, DeviceType, StageMode } from '@/types';
 import { ThreeSceneManager } from '../scene/ThreeSceneManager';
 import { TimelineController } from '../motion/TimelineController';
 import { CaptureEngine } from '../capture/CaptureEngine';
+import { ProcessedWebcamPipeline } from '../capture/ProcessedWebcamPipeline';
 
 export class VideoRecorder {
   private mediaRecorder: MediaRecorder | null = null;
   private recordedChunks: Blob[] = [];
   private isRecording = false;
+  private isPaused = false;
 
   private threeScene: ThreeSceneManager;
   private timeline: TimelineController;
   private captureEngine: CaptureEngine;
-  private webcamVideoElement: HTMLVideoElement | null = null;
+  private webcamPipeline: ProcessedWebcamPipeline;
+  private displayVideoElement: HTMLVideoElement | null = null;
+  private mixedAudioStream: MediaStream | null = null;
 
-  // Dedicated offscreen compositor canvas
+  private currentDevice: DeviceType = 'frameless';
+  private stageMode: StageMode = '3d-stage';
+
+  // Dedicated offscreen compositor canvas (1080p 60fps)
   private compositeCanvas: HTMLCanvasElement;
   private compositeCtx: CanvasRenderingContext2D | null;
 
-  constructor(threeScene: ThreeSceneManager, timeline: TimelineController, captureEngine: CaptureEngine) {
+  constructor(
+    threeScene: ThreeSceneManager,
+    timeline: TimelineController,
+    captureEngine: CaptureEngine,
+    webcamPipeline: ProcessedWebcamPipeline
+  ) {
     this.threeScene = threeScene;
     this.timeline = timeline;
     this.captureEngine = captureEngine;
+    this.webcamPipeline = webcamPipeline;
 
     this.compositeCanvas = document.createElement('canvas');
     this.compositeCanvas.width = 1920;
     this.compositeCanvas.height = 1080;
-    this.compositeCtx = this.compositeCanvas.getContext('2d');
+    this.compositeCtx = this.compositeCanvas.getContext('2d', { alpha: false });
   }
 
-  public setWebcamElement(video: HTMLVideoElement | null): void {
-    this.webcamVideoElement = video;
+  public setDisplayVideoElement(video: HTMLVideoElement | null): void {
+    this.displayVideoElement = video;
+  }
+
+  public setStagingConfig(device: DeviceType, mode: StageMode): void {
+    this.currentDevice = device;
+    this.stageMode = mode;
+  }
+
+  public setWebcamPipeline(pipeline: ProcessedWebcamPipeline): void {
+    this.webcamPipeline = pipeline;
   }
 
   public getIsRecording(): boolean {
     return this.isRecording;
   }
 
+  public getIsPaused(): boolean {
+    return this.isPaused;
+  }
+
   /**
-   * Composites 3D WebGL scene + PiP webcam avatar + Active callouts into a unified 2D frame
+   * Composites Screen Ingestion (Native Edge-to-Edge or 3D Stage) + PiP Webcam Avatar + Callouts
    */
   public renderCompositeFrame(
     pipConfig: PipConfig,
@@ -50,64 +76,69 @@ export class VideoRecorder {
     const cw = this.compositeCanvas.width;
     const ch = this.compositeCanvas.height;
 
-    ctx.clearRect(0, 0, cw, ch);
+    // 0. Guaranteed Opaque Background Fill (Zero Green/Black Buffer Glitches)
+    ctx.fillStyle = '#05070c';
+    ctx.fillRect(0, 0, cw, ch);
 
-    // 1. Draw 3D Spatial Canvas
-    const webglCanvas = this.threeScene.getCanvas();
-    ctx.drawImage(webglCanvas, 0, 0, cw, ch);
+    // 1. Draw Screen Capture
+    const displayVideo = this.displayVideoElement;
+    const hasLiveDisplay =
+      displayVideo &&
+      displayVideo.readyState >= 2 &&
+      displayVideo.videoWidth > 0 &&
+      displayVideo.videoHeight > 0 &&
+      !displayVideo.paused;
 
-    // 2. Draw Composited PiP Webcam
-    if (pipConfig.enabled && this.webcamVideoElement && this.webcamVideoElement.readyState >= 2) {
-      const video = this.webcamVideoElement;
+    if (this.currentDevice === 'frameless' || this.stageMode === '2d-direct') {
+      if (hasLiveDisplay && displayVideo) {
+        // Direct Native Resolution Edge-to-Edge Fill (Zero Letterboxing)
+        const vw = displayVideo.videoWidth;
+        const vh = displayVideo.videoHeight;
+        const videoAspect = vw / vh;
+        const canvasAspect = cw / ch;
+
+        let dw = cw;
+        let dh = ch;
+        let dx = 0;
+        let dy = 0;
+
+        if (Math.abs(videoAspect - canvasAspect) < 0.05) {
+          // Exactly matches 16:9 -> Draw 100% full screen
+          ctx.drawImage(displayVideo, 0, 0, vw, vh, 0, 0, cw, ch);
+        } else if (videoAspect > canvasAspect) {
+          // Ultrawide or wider -> Scale to width and center vertically
+          dh = cw / videoAspect;
+          dy = (ch - dh) / 2;
+          ctx.drawImage(displayVideo, 0, 0, vw, vh, 0, dy, cw, dh);
+        } else {
+          // 16:10 or taller -> Scale to height and center horizontally
+          dw = ch * videoAspect;
+          dx = (cw - dw) / 2;
+          ctx.drawImage(displayVideo, 0, 0, vw, vh, dx, 0, dw, ch);
+        }
+      } else {
+        this.threeScene.forceRender();
+        const webglCanvas = this.threeScene.getCanvas();
+        if (webglCanvas) {
+          ctx.drawImage(webglCanvas, 0, 0, cw, ch);
+        }
+      }
+    } else {
+      // 3D Staged Device Chassis (MacBook, PC, iPhone, Pixel, Browser)
+      this.threeScene.forceRender();
+      const webglCanvas = this.threeScene.getCanvas();
+      if (webglCanvas) {
+        ctx.drawImage(webglCanvas, 0, 0, cw, ch);
+      }
+    }
+
+    // 2. Guaranteed Stamped PiP Webcam Avatar (Real Camera Pixels)
+    if (pipConfig.enabled) {
       const size = (pipConfig.size / 1000) * ch * 1.5;
       const x = (pipConfig.x / 100) * cw;
       const y = (pipConfig.y / 100) * ch;
 
-      ctx.save();
-      ctx.beginPath();
-
-      if (pipConfig.shape === 'circle') {
-        ctx.arc(x, y, size / 2, 0, Math.PI * 2);
-      } else if (pipConfig.shape === 'rounded-rect') {
-        ctx.roundRect(x - size / 2, y - size / 2, size, size, size * 0.25);
-      } else {
-        ctx.rect(x - size / 2, y - size / 2, size, size);
-      }
-      ctx.closePath();
-
-      // Shadow
-      if (pipConfig.shadow) {
-        ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
-        ctx.shadowBlur = 20;
-        ctx.shadowOffsetX = 0;
-        ctx.shadowOffsetY = 8;
-      }
-
-      ctx.clip();
-
-      // Draw mirrored webcam video
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.scale(-1, 1);
-      ctx.drawImage(video, -size / 2, -size / 2, size, size);
-      ctx.restore();
-
-      ctx.restore();
-
-      // Draw Border Stroke
-      ctx.save();
-      ctx.beginPath();
-      if (pipConfig.shape === 'circle') {
-        ctx.arc(x, y, size / 2, 0, Math.PI * 2);
-      } else if (pipConfig.shape === 'rounded-rect') {
-        ctx.roundRect(x - size / 2, y - size / 2, size, size, size * 0.25);
-      } else {
-        ctx.rect(x - size / 2, y - size / 2, size, size);
-      }
-      ctx.lineWidth = pipConfig.borderWidth * 2;
-      ctx.strokeStyle = pipConfig.borderColor;
-      ctx.stroke();
-      ctx.restore();
+      this.webcamPipeline.renderAvatarToContext(ctx, x, y, size, pipConfig);
     }
 
     // 3. Draw Active Callout Overlays
@@ -122,20 +153,17 @@ export class VideoRecorder {
       ctx.save();
       ctx.translate(cx, cy);
 
-      // Glassmorphic Card Background
-      ctx.fillStyle = 'rgba(16, 20, 29, 0.9)';
-      ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-      ctx.shadowBlur = 16;
+      ctx.fillStyle = 'rgba(16, 20, 29, 0.92)';
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.55)';
+      ctx.shadowBlur = 18;
       ctx.beginPath();
       ctx.roundRect(0, 0, 320, 110, 16);
       ctx.fill();
 
-      // Border
       ctx.strokeStyle = callout.colorTheme === 'emerald' ? '#10b981' : '#3b82f6';
       ctx.lineWidth = 2;
       ctx.stroke();
 
-      // Badge
       if (callout.badge) {
         ctx.fillStyle = callout.colorTheme === 'emerald' ? 'rgba(16, 185, 129, 0.25)' : 'rgba(59, 130, 246, 0.25)';
         ctx.beginPath();
@@ -147,12 +175,10 @@ export class VideoRecorder {
         ctx.fillText(callout.badge.toUpperCase(), 24, 30);
       }
 
-      // Title
       ctx.fillStyle = '#ffffff';
       ctx.font = 'bold 18px "Plus Jakarta Sans", sans-serif';
       ctx.fillText(callout.title, 16, callout.badge ? 65 : 42);
 
-      // Description
       if (callout.description) {
         ctx.fillStyle = '#94a3b8';
         ctx.font = '13px "Plus Jakarta Sans", sans-serif';
@@ -169,24 +195,28 @@ export class VideoRecorder {
   public startLiveRecording(pipConfig: PipConfig, mimeType = 'video/webm;codecs=vp9,opus'): void {
     if (this.isRecording) return;
     this.recordedChunks = [];
+    this.isPaused = false;
 
     // Drive composite frames at 60 FPS
     const fps = 60;
     const stream = this.compositeCanvas.captureStream(fps);
 
-    const mixedAudio = this.captureEngine.getMixedAudioStream();
+    this.mixedAudioStream = this.captureEngine.getMixedAudioStream();
     const combinedStream = new MediaStream();
 
     stream.getVideoTracks().forEach((track) => combinedStream.addTrack(track));
-    if (mixedAudio) {
-      mixedAudio.getAudioTracks().forEach((track) => combinedStream.addTrack(track));
+    if (this.mixedAudioStream) {
+      this.mixedAudioStream.getAudioTracks().forEach((track) => {
+        track.enabled = true;
+        combinedStream.addTrack(track);
+      });
     }
 
     const supportedType = this.getSupportedMimeType(mimeType);
 
     this.mediaRecorder = new MediaRecorder(combinedStream, {
       mimeType: supportedType,
-      videoBitsPerSecond: 18_000_000,
+      videoBitsPerSecond: 20_000_000,
     });
 
     this.mediaRecorder.ondataavailable = (event) => {
@@ -198,7 +228,9 @@ export class VideoRecorder {
     // Frame pump loop
     const framePump = () => {
       if (!this.isRecording) return;
-      this.renderCompositeFrame(pipConfig, [], this.timeline.getCurrentTime());
+      if (!this.isPaused) {
+        this.renderCompositeFrame(pipConfig, [], this.timeline.getCurrentTime());
+      }
       requestAnimationFrame(framePump);
     };
 
@@ -207,9 +239,26 @@ export class VideoRecorder {
     requestAnimationFrame(framePump);
   }
 
-  /**
-   * Stops live recording and returns the final video Blob
-   */
+  public pauseLiveRecording(): void {
+    if (this.mediaRecorder && this.mediaRecorder.state === 'recording') {
+      this.mediaRecorder.pause();
+      this.isPaused = true;
+      if (this.mixedAudioStream) {
+        this.mixedAudioStream.getAudioTracks().forEach((t) => (t.enabled = false));
+      }
+    }
+  }
+
+  public resumeLiveRecording(): void {
+    if (this.mediaRecorder && this.mediaRecorder.state === 'paused') {
+      this.mediaRecorder.resume();
+      this.isPaused = false;
+      if (this.mixedAudioStream) {
+        this.mixedAudioStream.getAudioTracks().forEach((t) => (t.enabled = true));
+      }
+    }
+  }
+
   public async stopLiveRecording(): Promise<Blob> {
     return new Promise((resolve, reject) => {
       if (!this.mediaRecorder || !this.isRecording) {
@@ -221,6 +270,7 @@ export class VideoRecorder {
         const mimeType = this.mediaRecorder?.mimeType || 'video/webm';
         const blob = new Blob(this.recordedChunks, { type: mimeType });
         this.isRecording = false;
+        this.isPaused = false;
         this.recordedChunks = [];
         resolve(blob);
       };
@@ -229,17 +279,26 @@ export class VideoRecorder {
     });
   }
 
-  /**
-   * Deterministic offline render pump: Steps through the timeline frame by frame (60 FPS)
-   * Rendering 3D canvas + PiP webcam + Callouts synchronously with zero dropped frames.
-   */
+  public togglePauseLiveRecording(): boolean {
+    if (!this.mediaRecorder) return false;
+    if (this.mediaRecorder.state === 'recording') {
+      this.pauseLiveRecording();
+      return true; // now paused
+    } else if (this.mediaRecorder.state === 'paused') {
+      this.resumeLiveRecording();
+      return false; // now recording
+    }
+    return false;
+  }
+
   public async exportTimelineVideo(
     pipConfig: PipConfig,
     callouts: CalloutOverlay[] = [],
     trimRange?: TrimRange,
     fps = 60,
     mimeType = 'video/webm;codecs=vp9',
-    onProgress?: (progress: ExportProgress) => void
+    onProgress?: (progress: ExportProgress) => void,
+    abortSignal?: AbortSignal
   ): Promise<Blob> {
     onProgress?.({
       stage: 'preparing',
@@ -273,6 +332,15 @@ export class VideoRecorder {
       const originalTime = this.timeline.getCurrentTime();
 
       for (let frame = 0; frame <= totalFrames; frame++) {
+        if (abortSignal?.aborted) {
+          try {
+            recorder.stop();
+          } catch (_) {}
+          stream.getTracks().forEach((t) => t.stop());
+          this.timeline.seek(originalTime);
+          throw new Error('Export cancelled by user');
+        }
+
         const time = startTime + frame * frameInterval;
         this.timeline.seek(time);
         this.threeScene.renderDirect();
@@ -297,7 +365,11 @@ export class VideoRecorder {
       });
 
       return new Promise((resolve) => {
-        recorder.onstop = () => {
+        let isResolved = false;
+        const finalize = () => {
+          if (isResolved) return;
+          isResolved = true;
+          stream.getTracks().forEach((t) => t.stop());
           const finalBlob = new Blob(chunks, { type: supportedType || 'video/webm' });
           onProgress?.({
             stage: 'complete',
@@ -307,9 +379,18 @@ export class VideoRecorder {
           resolve(finalBlob);
         };
 
-        recorder.stop();
+        recorder.onstop = () => finalize();
+        try {
+          recorder.stop();
+        } catch (_) {
+          finalize();
+        }
+
+        // Guaranteed safety timeout (2500ms): never freeze indefinitely at 95%
+        setTimeout(() => finalize(), 2500);
       });
     } catch (err) {
+      stream.getTracks().forEach((t) => t.stop());
       console.error('Offline video export failure:', err);
       try {
         recorder.stop();
@@ -317,7 +398,7 @@ export class VideoRecorder {
       onProgress?.({
         stage: 'error',
         progress: 0,
-        message: `Video export error: ${err instanceof Error ? err.message : 'Render pipeline error'}`,
+        message: err instanceof Error ? err.message : 'Render pipeline error',
       });
       throw err;
     }

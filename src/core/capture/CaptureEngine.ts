@@ -1,4 +1,4 @@
-// CaptureEngine — Media Streams & Web Audio Dual-Channel Mixer
+// CaptureEngine — Media Streams & Studio-Grade Web Audio Dual-Channel Mixer
 import { StreamState, AudioLevels } from '@/types';
 
 export class CaptureEngine {
@@ -10,10 +10,13 @@ export class CaptureEngine {
   private audioContext: AudioContext | null = null;
   private displaySourceNode: MediaStreamAudioSourceNode | null = null;
   private micSourceNode: MediaStreamAudioSourceNode | null = null;
+  private micHighpassFilter: BiquadFilterNode | null = null;
+  private micCompressor: DynamicsCompressorNode | null = null;
   private displayGainNode: GainNode | null = null;
   private micGainNode: GainNode | null = null;
   private masterGainNode: GainNode | null = null;
-  private analyserNode: AnalyserNode | null = null;
+  private micAnalyserNode: AnalyserNode | null = null;
+  private masterAnalyserNode: AnalyserNode | null = null;
   private destinationNode: MediaStreamAudioDestinationNode | null = null;
 
   private onStreamChangeCallback?: (state: StreamState) => void;
@@ -23,7 +26,7 @@ export class CaptureEngine {
   }
 
   /**
-   * Initializes the Web Audio mixing graph
+   * Initializes the Studio-Grade Web Audio mixing graph
    */
   private initAudioContext(): AudioContext {
     if (!this.audioContext || this.audioContext.state === 'closed') {
@@ -39,11 +42,11 @@ export class CaptureEngine {
       this.masterGainNode.gain.value = 1.0;
     }
 
-    if (!this.analyserNode) {
-      this.analyserNode = this.audioContext.createAnalyser();
-      this.analyserNode.fftSize = 256;
-      this.analyserNode.smoothingTimeConstant = 0.8;
-      this.masterGainNode.connect(this.analyserNode);
+    if (!this.masterAnalyserNode) {
+      this.masterAnalyserNode = this.audioContext.createAnalyser();
+      this.masterAnalyserNode.fftSize = 256;
+      this.masterAnalyserNode.smoothingTimeConstant = 0.8;
+      this.masterGainNode.connect(this.masterAnalyserNode);
     }
 
     if (!this.destinationNode) {
@@ -71,18 +74,20 @@ export class CaptureEngine {
         };
 
     try {
-      const stream = await navigator.mediaDevices.getDisplayMedia({
-        video: videoConstraints,
-        audio: {
-          echoCancellation: false,
-          noiseSuppression: false,
-          autoGainControl: false,
+      const constraints: DisplayMediaStreamOptions = {
+        video: {
+          displaySurface: 'monitor',
+          width: { ideal: prefer4K ? 3840 : 1920, max: 3840 },
+          height: { ideal: prefer4K ? 2160 : 1080, max: 2160 },
+          frameRate: { ideal: 60, max: 60 },
         },
-      });
+        audio: true,
+      };
+
+      const stream = await navigator.mediaDevices.getDisplayMedia(constraints);
 
       this.displayStream = stream;
 
-      // Handle stream end event (e.g. user clicked browser stop share button)
       const videoTrack = stream.getVideoTracks()[0];
       if (videoTrack) {
         videoTrack.addEventListener('ended', () => {
@@ -90,7 +95,6 @@ export class CaptureEngine {
         });
       }
 
-      // Mix display audio if present
       const audioTracks = stream.getAudioTracks();
       if (audioTracks.length > 0) {
         this.connectDisplayAudio(new MediaStream([audioTracks[0]]));
@@ -104,9 +108,6 @@ export class CaptureEngine {
     }
   }
 
-  /**
-   * Stops display capture and releases tracks
-   */
   public stopDisplayCapture(): void {
     if (this.displayStream) {
       this.displayStream.getTracks().forEach((track) => track.stop());
@@ -121,9 +122,6 @@ export class CaptureEngine {
     this.notifyState();
   }
 
-  /**
-   * Starts webcam video capture (getUserMedia)
-   */
   public async startWebcamCapture(deviceId?: string): Promise<MediaStream> {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
@@ -152,9 +150,6 @@ export class CaptureEngine {
     }
   }
 
-  /**
-   * Stops webcam capture
-   */
   public stopWebcamCapture(): void {
     if (this.webcamStream) {
       this.webcamStream.getTracks().forEach((track) => track.stop());
@@ -163,9 +158,6 @@ export class CaptureEngine {
     this.notifyState();
   }
 
-  /**
-   * Starts microphone audio capture
-   */
   public async startMicrophoneCapture(deviceId?: string): Promise<MediaStream> {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
@@ -195,9 +187,6 @@ export class CaptureEngine {
     }
   }
 
-  /**
-   * Stops microphone capture
-   */
   public stopMicrophoneCapture(): void {
     if (this.micStream) {
       this.micStream.getTracks().forEach((track) => track.stop());
@@ -227,58 +216,108 @@ export class CaptureEngine {
     this.displaySourceNode.connect(this.displayGainNode);
   }
 
+  /**
+   * Builds the DSP chain: Mic Source -> 80Hz Highpass -> Dynamics Compressor -> Mic Gain -> Master & Analyser
+   */
   private connectMicAudio(stream: MediaStream): void {
     const ctx = this.initAudioContext();
+
+    if (!this.micHighpassFilter) {
+      this.micHighpassFilter = ctx.createBiquadFilter();
+      this.micHighpassFilter.type = 'highpass';
+      this.micHighpassFilter.frequency.value = 80; // Cut low rumble and plosives
+      this.micHighpassFilter.Q.value = 0.707;
+    }
+
+    if (!this.micCompressor) {
+      this.micCompressor = ctx.createDynamicsCompressor();
+      this.micCompressor.threshold.value = -24; // dB
+      this.micCompressor.knee.value = 30; // dB
+      this.micCompressor.ratio.value = 12;
+      this.micCompressor.attack.value = 0.003; // 3ms
+      this.micCompressor.release.value = 0.25; // 250ms
+    }
+
     if (!this.micGainNode) {
       this.micGainNode = ctx.createGain();
-      this.micGainNode.connect(this.masterGainNode!);
     }
+
+    if (!this.micAnalyserNode) {
+      this.micAnalyserNode = ctx.createAnalyser();
+      this.micAnalyserNode.fftSize = 256;
+      this.micAnalyserNode.smoothingTimeConstant = 0.5;
+    }
+
     if (this.micSourceNode) {
       try {
         this.micSourceNode.disconnect();
       } catch (_) {}
     }
+
+    // Connect DSP Chain
     this.micSourceNode = ctx.createMediaStreamSource(stream);
-    this.micSourceNode.connect(this.micGainNode);
+    this.micSourceNode.connect(this.micHighpassFilter);
+    this.micHighpassFilter.connect(this.micCompressor);
+    this.micCompressor.connect(this.micGainNode);
+
+    // Split to master gain and mic-specific analyser for VU meter
+    this.micGainNode.connect(this.masterGainNode!);
+    this.micGainNode.connect(this.micAnalyserNode);
   }
 
+  /**
+   * Sets audio volumes with smooth click-free logarithmic interpolation
+   */
   public setAudioLevels(levels: AudioLevels): void {
-    if (this.displayGainNode) {
-      this.displayGainNode.gain.value = levels.displayMuted ? 0 : levels.displayVolume;
+    const ctx = this.audioContext;
+    const now = ctx ? ctx.currentTime : 0;
+    const rampTime = 0.05; // 50ms smooth transition
+
+    if (this.displayGainNode && ctx) {
+      const target = levels.displayMuted ? 0 : levels.displayVolume;
+      this.displayGainNode.gain.setTargetAtTime(target, now, rampTime);
     }
-    if (this.micGainNode) {
-      this.micGainNode.gain.value = levels.micMuted ? 0 : levels.micVolume;
+    if (this.micGainNode && ctx) {
+      const target = levels.micMuted ? 0 : levels.micVolume;
+      this.micGainNode.gain.setTargetAtTime(target, now, rampTime);
     }
-    if (this.masterGainNode) {
-      this.masterGainNode.gain.value = levels.masterVolume;
+    if (this.masterGainNode && ctx) {
+      this.masterGainNode.gain.setTargetAtTime(levels.masterVolume, now, rampTime);
     }
   }
 
   /**
-   * Get real-time audio visualizer frequency data (0-255)
+   * Calculates normalized real-time Microphone VU Level (0.0 to 1.0)
    */
+  public getMicVULevel(): number {
+    if (!this.micAnalyserNode) return 0;
+    const data = new Uint8Array(this.micAnalyserNode.frequencyBinCount);
+    this.micAnalyserNode.getByteFrequencyData(data);
+
+    let sum = 0;
+    for (let i = 0; i < data.length; i++) {
+      sum += data[i];
+    }
+    const avg = sum / data.length;
+    return Math.min(1, Math.max(0, avg / 128));
+  }
+
   public getFrequencyData(array: Uint8Array<ArrayBuffer>): void {
-    if (this.analyserNode) {
-      this.analyserNode.getByteFrequencyData(array);
+    if (this.masterAnalyserNode) {
+      this.masterAnalyserNode.getByteFrequencyData(array);
     } else {
       array.fill(0);
     }
   }
 
-  /**
-   * Get real-time audio waveform time-domain data (0-255)
-   */
   public getTimeDomainData(array: Uint8Array<ArrayBuffer>): void {
-    if (this.analyserNode) {
-      this.analyserNode.getByteTimeDomainData(array);
+    if (this.masterAnalyserNode) {
+      this.masterAnalyserNode.getByteTimeDomainData(array);
     } else {
       array.fill(128);
     }
   }
 
-  /**
-   * Returns mixed audio destination stream for recording pipeline
-   */
   public getMixedAudioStream(): MediaStream | null {
     return this.destinationNode ? this.destinationNode.stream : null;
   }

@@ -1,5 +1,5 @@
 // ExportModal — Multi-Surface Publishing Hub (Video, PDF, EPUB, JSON)
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   X,
   Video,
@@ -49,19 +49,46 @@ export const ExportModal: React.FC<ExportModalProps> = ({
     progress: 0,
     message: '',
   });
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   if (!isOpen) return null;
 
   const isExporting = progress.stage !== 'idle' && progress.stage !== 'complete' && progress.stage !== 'error';
 
+  const handleCancelExport = () => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+      abortControllerRef.current = null;
+    }
+    setProgress({
+      stage: 'idle',
+      progress: 0,
+      message: '',
+    });
+    if (!isExporting) {
+      onClose();
+    }
+  };
+
   const handleExport = async () => {
     if (!threeScene || !timeline) return;
+
+    const abortController = new AbortController();
+    abortControllerRef.current = abortController;
 
     try {
       if (activeTab === 'video-webm' || activeTab === 'video-mp4') {
         if (!videoRecorder) return;
         const mime = activeTab === 'video-mp4' ? 'video/mp4' : 'video/webm;codecs=vp9';
-        const blob = await videoRecorder.exportTimelineVideo(pipConfig, callouts, trimRange, 60, mime, setProgress);
+        const blob = await videoRecorder.exportTimelineVideo(
+          pipConfig,
+          callouts,
+          trimRange,
+          60,
+          mime,
+          setProgress,
+          abortController.signal
+        );
         const ext = activeTab === 'video-mp4' ? 'mp4' : 'webm';
         triggerFileDownload(blob, `MotionStudio_Showcase_${Date.now()}.${ext}`);
       } else if (activeTab === 'pdf-deck') {
@@ -85,12 +112,23 @@ export const ExportModal: React.FC<ExportModalProps> = ({
         setProgress({ stage: 'complete', progress: 100, message: 'JSON backup generated successfully!' });
       }
     } catch (error) {
+      if (abortController.signal.aborted) {
+        console.log('Export cleanly aborted by user');
+        setProgress({
+          stage: 'idle',
+          progress: 0,
+          message: '',
+        });
+        return;
+      }
       console.error('Export failed:', error);
       setProgress({
         stage: 'error',
         progress: 0,
         message: error instanceof Error ? error.message : 'Unknown export failure occurred',
       });
+    } finally {
+      abortControllerRef.current = null;
     }
   };
 
@@ -110,9 +148,9 @@ export const ExportModal: React.FC<ExportModalProps> = ({
           </div>
 
           <button
-            disabled={isExporting}
-            onClick={onClose}
-            className="p-1.5 rounded-xl glass-button text-slate-400 hover:text-white disabled:opacity-40"
+            onClick={isExporting ? handleCancelExport : onClose}
+            className="p-1.5 rounded-xl glass-button text-slate-400 hover:text-white"
+            title={isExporting ? 'Cancel Export' : 'Close'}
           >
             <X className="w-5 h-5" />
           </button>
@@ -267,11 +305,12 @@ export const ExportModal: React.FC<ExportModalProps> = ({
         {/* Footer Actions */}
         <div className="px-6 py-4 bg-slate-900/70 border-t border-slate-800 flex items-center justify-end space-x-3">
           <button
-            disabled={isExporting}
-            onClick={onClose}
-            className="px-4 py-2 rounded-xl glass-button text-xs font-semibold text-slate-300 hover:text-white disabled:opacity-40"
+            onClick={isExporting ? handleCancelExport : onClose}
+            className={`px-4 py-2 rounded-xl glass-button text-xs font-semibold ${
+              isExporting ? 'text-rose-400 border-rose-500/40 hover:bg-rose-500/10' : 'text-slate-300 hover:text-white'
+            }`}
           >
-            Cancel
+            {isExporting ? 'Cancel Export' : 'Cancel'}
           </button>
 
           <button

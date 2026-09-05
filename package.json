@@ -10,6 +10,7 @@
     "serve": "sirv dist --host 0.0.0.0 --port 9090 --single --cors"
   },
   "dependencies": {
+    "@mediapipe/selfie_segmentation": "^0.1.1675465747",
     "animejs": "^3.2.2",
     "clsx": "^2.1.1",
     "html2canvas-pro": "^1.5.8",
