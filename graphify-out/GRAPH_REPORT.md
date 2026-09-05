@@ -1,16 +1,16 @@
 # Graph Report - Savazai-presenter  (2026-09-05)
 
 ## Corpus Check
-- 60 files · ~42,310 words
+- 61 files · ~42,239 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 515 nodes · 888 edges · 39 communities (37 shown, 2 thin omitted)
+- 526 nodes · 900 edges · 39 communities (37 shown, 2 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `602a9da4`
+- Built from commit: `2ef452e0`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -67,31 +67,31 @@
 ## Surprising Connections (you probably didn't know these)
 - `AudioVisualizerProps` --references--> `CaptureEngine`  [EXTRACTED]
   src/components/AudioVisualizer.tsx → src/core/capture/CaptureEngine.ts
-- `CaptureControlsProps` --references--> `AudioLevels`  [EXTRACTED]
-  src/components/CaptureControls.tsx → src/types/index.ts
-- `CaptureControlsProps` --references--> `PipConfig`  [EXTRACTED]
-  src/components/CaptureControls.tsx → src/types/index.ts
+- `CaptureControlsProps` --references--> `CaptureEngine`  [EXTRACTED]
+  src/components/CaptureControls.tsx → src/core/capture/CaptureEngine.ts
 - `CaptureControlsProps` --references--> `ProcessedWebcamPipeline`  [EXTRACTED]
   src/components/CaptureControls.tsx → src/core/capture/ProcessedWebcamPipeline.ts
-- `CaptureControlsProps` --references--> `VirtualBgType`  [EXTRACTED]
-  src/components/CaptureControls.tsx → src/types/index.ts
+- `ExportModalProps` --references--> `SlideData`  [EXTRACTED]
+  src/components/ExportModal.tsx → src/types/index.ts
+- `ExportModalProps` --references--> `ThreeSceneManager`  [EXTRACTED]
+  src/components/ExportModal.tsx → src/core/scene/ThreeSceneManager.ts
 
 ## Communities (39 total, 2 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.11
-Nodes (45): CaptureControls(), DeviceControls(), DeviceControlsProps, ExportModalProps, StudioCanvas(), StudioCanvasProps, TimelineBar(), TimelineBarProps (+37 more)
+Cohesion: 0.10
+Nodes (45): AudioVisualizer(), CaptureControls(), CaptureControlsProps, ExportModalProps, Header(), HeaderProps, ProjectModal(), ProjectModalProps (+37 more)
 
-### Community 1 - "Community 1"
-Cohesion: 0.12
-Nodes (7): CaptureEngine, AudioVisualizer(), AudioVisualizerProps, CaptureControlsProps, Header(), HeaderProps, StreamState
+### Community 2 - "Community 2"
+Cohesion: 0.09
+Nodes (10): DeviceControls(), DeviceControlsProps, VideoEditorPanel(), VideoEditorPanelProps, DEVICE_FINISHES, ThreeSceneManager, CameraPreset, DeviceFinish (+2 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.09
 Nodes (21): compilerOptions, allowImportingTsExtensions, baseUrl, isolatedModules, jsx, lib, module, moduleResolution (+13 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.11
+Cohesion: 0.10
 Nodes (14): ExportModal(), PresentationMode(), PresentationModeProps, escapeXml(), exportDeckToPdf(), exportToEpub(), triggerFileDownload(), DEFAULT_CUE_POINTS (+6 more)
 
 ### Community 5 - "Community 5"
@@ -107,8 +107,8 @@ Cohesion: 0.13
 Nodes (14): 1. Project Overview & Identity, 2. Mandatory Rules & Governance, 3.1 Shadcn UI & Component Architecture, 3.2 Playwright & E2E Testing Verification, 3.3 Graphify Knowledge & State Structuring, 3.4 Cloudflare Security & Defensive Client-Side Patterns, 3. Technology Stack & Ecosystem Skills, 4. Multi-Surface Publishing Specifications (+6 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.10
-Nodes (4): WebcamProcessor, VideoRecorder, StageMode, WebcamBackgroundConfig
+Cohesion: 0.07
+Nodes (5): ProcessedWebcamPipeline, WebcamProcessor, VideoRecorder, StageMode, WebcamBackgroundConfig
 
 ### Community 9 - "Community 9"
 Cohesion: 0.20
@@ -145,6 +145,10 @@ Nodes (4): 005 - MotionStudio Production & UX Remediation Walkthrough, 1. Execut
 ### Community 20 - "Community 20"
 Cohesion: 0.40
 Nodes (4): 1. Objectives & Overview, 2. File Deliverables & Key Changes, 3. Protocol Verification Results, DevPlan 008: Native Resolution Dynamic Aspect-Ratio, True Live Recording Switcher & Working Virtual Background Pipeline
+
+### Community 21 - "Community 21"
+Cohesion: 0.40
+Nodes (4): 020 — Savazar Ecosystem Branding Refactor & Remote Freeze, 1. Executive Summary, 2. Terminology & Branding Alignment, 3. Pre-Push Validation Protocol
 
 ### Community 22 - "Community 22"
 Cohesion: 0.40
@@ -186,10 +190,6 @@ Nodes (8): 014: Restore Entire Screen Capture, Zero-Click Document PiP Activatio
 Cohesion: 0.25
 Nodes (7): 015: MotionStudio Complete UI/UX Suite Refactor, Setup Modal & Multi-Track Studio, 1. Pre-Recording Setup Modal (`src/components/setup/MotionStudioSetupModal.tsx`), 2. Streamlined Recording Transport Pill (`src/components/setup/MotionStudioRecordingPill.tsx`), 3. MotionStudio Multi-Track Studio Suite, Key Architecture & Features Delivered, Objective, Verification & Deployment Summary
 
-### Community 32 - "Community 32"
-Cohesion: 0.25
-Nodes (4): ProjectModal(), ProjectModalProps, MotionStudioProjectSummary, ProjectManager
-
 ### Community 33 - "Community 33"
 Cohesion: 0.20
 Nodes (9): 016: MotionStudio Green Screen Fix, Dual-Bar Cleanup, In-Memory Studio Ingestion, Video Upload & IndexedDB Project Management, 1. WebGL & Video Recorder (`ThreeSceneManager.ts`, `VideoRecorder.ts`), 2. Streamlined Controller (`MotionStudioRecordingPill.tsx`), 3. In-Memory Studio Ingestion (`App.tsx`), 4. Video & Photo Upload Engine (`App.tsx`, `LeftToolRail.tsx`), 5. Local-First Project Management (`ProjectManager.ts`, `ProjectModal.tsx`, `Header.tsx`), Architectural Changes, Objective (+1 more)
@@ -203,19 +203,19 @@ Cohesion: 0.22
 Nodes (8): 018 — Project Hold Checkpoint & Repository State Ledger, 1. Project Overview & Operational Status, 2.1 Core Graphics, Canvas & Audio Engine, 2.2 UI & Timeline Architecture, 2.3 Multi-Surface Publishing, 2. Current Architectural Status, 3. Known Open Issues Ledger (For Future Remediation), 4. Verification & Sync Record
 
 ### Community 36 - "Community 36"
-Cohesion: 0.11
-Nodes (18): 🎙️ 1. Interactive Capture Setup, 🎨 2. Studio Editor Suite, 🎞️ 3. Multi-Track Timeline & Ingestion, 💾 4. Local-First Project Management, 📦 5. Multi-Surface Publishing Exporters, code:bash (# Build and start container in detached mode), code:bash (# 1. Install dependencies), code:text (├── src/) (+10 more)
+Cohesion: 0.09
+Nodes (23): 🎙️ 1. Interactive Capture Setup, 1. Run Containerized on Port 9090 (Recommended), 2. Run Locally for Development, 🎨 2. Studio Editor Suite, 🎞️ 3. Multi-Track Timeline & Ingestion, 💾 4. Local-First Project Management, 📦 5. Multi-Surface Publishing Exporters, code:bash (# Build and start container in detached mode) (+15 more)
 
 ### Community 37 - "Community 37"
 Cohesion: 0.12
-Nodes (15): 1. Architectural Philosophy & Constraints, 2. High-Level System Architecture, 3.1 ThreeSceneManager (WebGL 3D Staging Engine), 3.2 ProcessedWebcamPipeline & Segmentation, 3.3 CaptureEngine & Web Audio Mixer, 3.4 VideoRecorder (Deterministic & Live Exporter), 3.5 TimelineController (Kinematics & Cue Sequencing), 3.6 ProjectManager (IndexedDB Local Store) (+7 more)
+Nodes (16): 1. Architectural Philosophy & Constraints, 1. Architectural Philosophy & Principles, 2. High-Level System Architecture, 3.1 ThreeSceneManager (WebGL 3D Staging Engine), 3.2 ProcessedWebcamPipeline & Segmentation, 3.3 CaptureEngine & Web Audio Mixer, 3.4 VideoRecorder (Deterministic & Live Exporter), 3.5 TimelineController (Kinematics & Cue Sequencing) (+8 more)
 
 ### Community 38 - "Community 38"
 Cohesion: 0.40
 Nodes (4): 019 — Production Documentation & Repository Hold Freeze, 1. Executive Summary, 2. Deliverables Added, 3. Pre-Push Verification Record
 
 ## Knowledge Gaps
-- **193 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+188 more)
+- **197 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+192 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -223,16 +223,16 @@ Nodes (4): 019 — Production Documentation & Repository Hold Freeze, 1. Executi
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `ThreeSceneManager` connect `Community 2` to `Community 0`, `Community 8`, `Community 4`?**
-  _High betweenness centrality (0.043) - this node is a cross-community bridge._
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
 - **Why does `CaptureEngine` connect `Community 1` to `Community 0`, `Community 24`, `Community 8`?**
-  _High betweenness centrality (0.038) - this node is a cross-community bridge._
+  _High betweenness centrality (0.036) - this node is a cross-community bridge._
 - **Why does `TimelineController` connect `Community 4` to `Community 0`, `Community 8`, `Community 2`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
+  _High betweenness centrality (0.031) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `version` to the rest of the system?**
-  _193 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _197 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.10913461538461539 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.11954022988505747 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1422924901185771 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.10052910052910052 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08974358974358974 - nodes in this community are weakly interconnected._

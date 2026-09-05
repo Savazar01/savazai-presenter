@@ -1,10 +1,11 @@
 # MotionStudio Architecture Blueprint
+> **Part of the SavazAI Presentation Suite by Savazar**
 
-This document details the software architecture, compositing pipelines, state management, and multi-surface export systems of **MotionStudio (Savazai-Presenter)**.
+This document details the software architecture, spatial compositing pipelines, state coordination, and multi-surface export subsystems of **MotionStudio (Savazai-Presenter)**.
 
 ---
 
-## 1. Architectural Philosophy & Constraints
+## 1. Architectural Philosophy & Principles
 
 - **100% Client-Side Execution**: Zero backend server dependencies. Video encoding, 3D WebGL rendering, neural selfie segmentation, Web Audio graph routing, PDF generation, and EPUB3 container serialization execute entirely inside the client browser.
 - **Port Mandate**: All local development and production containers bind strictly to **Port 9090** (`0.0.0.0:9090`).
@@ -71,7 +72,7 @@ graph TD
   - `MicrophoneStream -> MediaStreamAudioSourceNode -> MicGainNode -> MasterGainNode -> MediaStreamAudioDestinationNode`
   - `DisplayStream -> MediaStreamAudioSourceNode -> DisplayGainNode -> MasterGainNode`
   - Real-time `AnalyserNode` computes RMS / VU power levels for pre-recording audio calibration.
-  - Prioritizes physical audio hardware over virtual utility drivers (`AI Noise-cancelling`, `Steam Streaming Microphone`).
+  - Prioritizes physical audio hardware over virtual utility drivers.
 
 ### 3.4 VideoRecorder (Deterministic & Live Exporter)
 - **Location**: `src/core/exporters/VideoRecorder.ts`

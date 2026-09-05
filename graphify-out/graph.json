@@ -666,7 +666,7 @@
       "source_file": "src/components/AudioVisualizer.tsx",
       "source_location": "L1",
       "id": "src_components_audiovisualizer_tsx",
-      "community": 1,
+      "community": 0,
       "norm_label": "audiovisualizer.tsx"
     },
     {
@@ -684,7 +684,7 @@
       "source_file": "src/components/AudioVisualizer.tsx",
       "source_location": "L13",
       "id": "components_audiovisualizer_audiovisualizer",
-      "community": 1,
+      "community": 0,
       "norm_label": "audiovisualizer()"
     },
     {
@@ -702,7 +702,7 @@
       "source_file": "src/components/CaptureControls.tsx",
       "source_location": "L29",
       "id": "components_capturecontrols_capturecontrolsprops",
-      "community": 1,
+      "community": 0,
       "norm_label": "capturecontrolsprops"
     },
     {
@@ -720,7 +720,7 @@
       "source_file": "src/components/DeviceControls.tsx",
       "source_location": "L1",
       "id": "src_components_devicecontrols_tsx",
-      "community": 0,
+      "community": 2,
       "norm_label": "devicecontrols.tsx"
     },
     {
@@ -729,7 +729,7 @@
       "source_file": "src/components/DeviceControls.tsx",
       "source_location": "L16",
       "id": "components_devicecontrols_devicecontrolsprops",
-      "community": 0,
+      "community": 2,
       "norm_label": "devicecontrolsprops"
     },
     {
@@ -738,7 +738,7 @@
       "source_file": "src/components/DeviceControls.tsx",
       "source_location": "L25",
       "id": "components_devicecontrols_devicecontrols",
-      "community": 0,
+      "community": 2,
       "norm_label": "devicecontrols()"
     },
     {
@@ -774,7 +774,7 @@
       "source_file": "src/components/Header.tsx",
       "source_location": "L1",
       "id": "src_components_header_tsx",
-      "community": 1,
+      "community": 0,
       "norm_label": "header.tsx"
     },
     {
@@ -783,7 +783,7 @@
       "source_file": "src/components/Header.tsx",
       "source_location": "L20",
       "id": "components_header_headerprops",
-      "community": 1,
+      "community": 0,
       "norm_label": "headerprops"
     },
     {
@@ -792,7 +792,7 @@
       "source_file": "src/components/Header.tsx",
       "source_location": "L32",
       "id": "components_header_header",
-      "community": 1,
+      "community": 0,
       "norm_label": "header()"
     },
     {
@@ -828,7 +828,7 @@
       "source_file": "src/components/ProjectModal.tsx",
       "source_location": "L1",
       "id": "src_components_projectmodal_tsx",
-      "community": 32,
+      "community": 0,
       "norm_label": "projectmodal.tsx"
     },
     {
@@ -837,7 +837,7 @@
       "source_file": "src/components/ProjectModal.tsx",
       "source_location": "L16",
       "id": "components_projectmodal_projectmodalprops",
-      "community": 32,
+      "community": 0,
       "norm_label": "projectmodalprops"
     },
     {
@@ -846,7 +846,7 @@
       "source_file": "src/components/ProjectModal.tsx",
       "source_location": "L24",
       "id": "components_projectmodal_projectmodal",
-      "community": 32,
+      "community": 0,
       "norm_label": "projectmodal()"
     },
     {
@@ -936,7 +936,7 @@
       "source_file": "src/components/VideoEditorPanel.tsx",
       "source_location": "L1",
       "id": "src_components_videoeditorpanel_tsx",
-      "community": 0,
+      "community": 2,
       "norm_label": "videoeditorpanel.tsx"
     },
     {
@@ -945,7 +945,7 @@
       "source_file": "src/components/VideoEditorPanel.tsx",
       "source_location": "L24",
       "id": "components_videoeditorpanel_videoeditorpanelprops",
-      "community": 0,
+      "community": 2,
       "norm_label": "videoeditorpanelprops"
     },
     {
@@ -954,7 +954,7 @@
       "source_file": "src/components/VideoEditorPanel.tsx",
       "source_location": "L44",
       "id": "components_videoeditorpanel_videoeditorpanel",
-      "community": 0,
+      "community": 2,
       "norm_label": "videoeditorpanel()"
     },
     {
@@ -1440,7 +1440,7 @@
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L5",
       "id": "capture_processedwebcampipeline_processedwebcampipeline",
-      "community": 21,
+      "community": 8,
       "norm_label": "processedwebcampipeline"
     },
     {
@@ -1449,7 +1449,7 @@
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L40",
       "id": "capture_processedwebcampipeline_processedwebcampipeline_constructor",
-      "community": 21,
+      "community": 8,
       "norm_label": ".constructor()"
     },
     {
@@ -1458,7 +1458,7 @@
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L75",
       "id": "capture_processedwebcampipeline_processedwebcampipeline_initbackgroundtextures",
-      "community": 21,
+      "community": 8,
       "norm_label": ".initbackgroundtextures()"
     },
     {
@@ -1467,7 +1467,7 @@
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L229",
       "id": "capture_processedwebcampipeline_processedwebcampipeline_initsegmentation",
-      "community": 21,
+      "community": 8,
       "norm_label": ".initsegmentation()"
     },
     {
@@ -1476,7 +1476,7 @@
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L269",
       "id": "capture_processedwebcampipeline_processedwebcampipeline_setmediastream",
-      "community": 21,
+      "community": 8,
       "norm_label": ".setmediastream()"
     },
     {
@@ -1485,7 +1485,7 @@
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L288",
       "id": "capture_processedwebcampipeline_processedwebcampipeline_setvideosource",
-      "community": 21,
+      "community": 8,
       "norm_label": ".setvideosource()"
     },
     {
@@ -1494,7 +1494,7 @@
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L295",
       "id": "capture_processedwebcampipeline_processedwebcampipeline_setcustombackgroundimage",
-      "community": 21,
+      "community": 8,
       "norm_label": ".setcustombackgroundimage()"
     },
     {
@@ -1503,7 +1503,7 @@
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L308",
       "id": "capture_processedwebcampipeline_processedwebcampipeline_getcanvas",
-      "community": 21,
+      "community": 8,
       "norm_label": ".getcanvas()"
     },
     {
@@ -1512,7 +1512,7 @@
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L312",
       "id": "capture_processedwebcampipeline_processedwebcampipeline_startprocessing",
-      "community": 21,
+      "community": 8,
       "norm_label": ".startprocessing()"
     },
     {
@@ -1521,7 +1521,7 @@
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L325",
       "id": "capture_processedwebcampipeline_processedwebcampipeline_stopprocessing",
-      "community": 21,
+      "community": 8,
       "norm_label": ".stopprocessing()"
     },
     {
@@ -1530,7 +1530,7 @@
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L336",
       "id": "capture_processedwebcampipeline_processedwebcampipeline_processframe",
-      "community": 21,
+      "community": 8,
       "norm_label": ".processframe()"
     },
     {
@@ -1539,7 +1539,7 @@
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L455",
       "id": "capture_processedwebcampipeline_processedwebcampipeline_renderavatartocontext",
-      "community": 21,
+      "community": 8,
       "norm_label": ".renderavatartocontext()"
     },
     {
@@ -1548,7 +1548,7 @@
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L529",
       "id": "capture_processedwebcampipeline_processedwebcampipeline_dispose",
-      "community": 21,
+      "community": 8,
       "norm_label": ".dispose()"
     },
     {
@@ -1701,7 +1701,7 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L1",
       "id": "src_core_exporters_videorecorder_ts",
-      "community": 0,
+      "community": 8,
       "norm_label": "videorecorder.ts"
     },
     {
@@ -1746,7 +1746,7 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L54",
       "id": "exporters_videorecorder_videorecorder_setwebcampipeline",
-      "community": 21,
+      "community": 8,
       "norm_label": ".setwebcampipeline()"
     },
     {
@@ -1773,7 +1773,7 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L69",
       "id": "exporters_videorecorder_videorecorder_rendercompositeframe",
-      "community": 8,
+      "community": 0,
       "norm_label": ".rendercompositeframe()"
     },
     {
@@ -1827,7 +1827,7 @@
       "source_file": "src/core/exporters/VideoRecorder.ts",
       "source_location": "L294",
       "id": "exporters_videorecorder_videorecorder_exporttimelinevideo",
-      "community": 8,
+      "community": 0,
       "norm_label": ".exporttimelinevideo()"
     },
     {
@@ -1908,7 +1908,7 @@
       "source_file": "src/core/motion/TimelineController.ts",
       "source_location": "L226",
       "id": "motion_timelinecontroller_timelinecontroller_getcuepoints",
-      "community": 0,
+      "community": 4,
       "norm_label": ".getcuepoints()"
     },
     {
@@ -2106,7 +2106,7 @@
       "source_file": "src/core/projects/ProjectManager.ts",
       "source_location": "L36",
       "id": "projects_projectmanager_motionstudioprojectsummary",
-      "community": 32,
+      "community": 0,
       "norm_label": "motionstudioprojectsummary"
     },
     {
@@ -2178,7 +2178,7 @@
       "source_file": "src/core/scene/ThreeSceneManager.ts",
       "source_location": "L1",
       "id": "src_core_scene_threescenemanager_ts",
-      "community": 0,
+      "community": 2,
       "norm_label": "threescenemanager.ts"
     },
     {
@@ -2187,7 +2187,7 @@
       "source_file": "src/core/scene/ThreeSceneManager.ts",
       "source_location": "L5",
       "id": "scene_threescenemanager_device_finishes",
-      "community": 0,
+      "community": 2,
       "norm_label": "device_finishes"
     },
     {
@@ -2430,7 +2430,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L3",
       "id": "types_index_devicetype",
-      "community": 0,
+      "community": 2,
       "norm_label": "devicetype"
     },
     {
@@ -2448,7 +2448,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L7",
       "id": "types_index_devicefinish",
-      "community": 0,
+      "community": 2,
       "norm_label": "devicefinish"
     },
     {
@@ -2457,7 +2457,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L9",
       "id": "types_index_devicefinishconfig",
-      "community": 0,
+      "community": 2,
       "norm_label": "devicefinishconfig"
     },
     {
@@ -2466,7 +2466,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L18",
       "id": "types_index_camerapreset",
-      "community": 0,
+      "community": 2,
       "norm_label": "camerapreset"
     },
     {
@@ -2511,7 +2511,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L30",
       "id": "types_index_virtualbgtype",
-      "community": 21,
+      "community": 0,
       "norm_label": "virtualbgtype"
     },
     {
@@ -2628,7 +2628,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L161",
       "id": "types_index_streamstate",
-      "community": 1,
+      "community": 0,
       "norm_label": "streamstate"
     },
     {
@@ -2830,19 +2830,19 @@
       "norm_label": "motionstudio architecture blueprint"
     },
     {
-      "label": "1. Architectural Philosophy & Constraints",
+      "label": "1. Architectural Philosophy & Principles",
       "file_type": "document",
       "source_file": "ARCHITECTURE.md",
-      "source_location": "L7",
-      "id": "savazai_presenter_architecture_1_architectural_philosophy_constraints",
+      "source_location": "L8",
+      "id": "savazai_presenter_architecture_1_architectural_philosophy_principles",
       "community": 37,
-      "norm_label": "1. architectural philosophy & constraints"
+      "norm_label": "1. architectural philosophy & principles"
     },
     {
       "label": "2. High-Level System Architecture",
       "file_type": "document",
       "source_file": "ARCHITECTURE.md",
-      "source_location": "L15",
+      "source_location": "L16",
       "id": "savazai_presenter_architecture_2_high_level_system_architecture",
       "community": 37,
       "norm_label": "2. high-level system architecture"
@@ -2851,7 +2851,7 @@
       "label": "code:mermaid (graph TD)",
       "file_type": "document",
       "source_file": "ARCHITECTURE.md",
-      "source_location": "L17",
+      "source_location": "L18",
       "id": "savazai_presenter_architecture_codeblock_1",
       "community": 37,
       "norm_label": "code:mermaid (graph td)"
@@ -2860,7 +2860,7 @@
       "label": "3. Subsystem Breakdown",
       "file_type": "document",
       "source_file": "ARCHITECTURE.md",
-      "source_location": "L51",
+      "source_location": "L52",
       "id": "savazai_presenter_architecture_3_subsystem_breakdown",
       "community": 37,
       "norm_label": "3. subsystem breakdown"
@@ -2869,7 +2869,7 @@
       "label": "3.1 ThreeSceneManager (WebGL 3D Staging Engine)",
       "file_type": "document",
       "source_file": "ARCHITECTURE.md",
-      "source_location": "L53",
+      "source_location": "L54",
       "id": "savazai_presenter_architecture_3_1_threescenemanager_webgl_3d_staging_engine",
       "community": 37,
       "norm_label": "3.1 threescenemanager (webgl 3d staging engine)"
@@ -2878,7 +2878,7 @@
       "label": "3.2 ProcessedWebcamPipeline & Segmentation",
       "file_type": "document",
       "source_file": "ARCHITECTURE.md",
-      "source_location": "L61",
+      "source_location": "L62",
       "id": "savazai_presenter_architecture_3_2_processedwebcampipeline_segmentation",
       "community": 37,
       "norm_label": "3.2 processedwebcampipeline & segmentation"
@@ -2887,7 +2887,7 @@
       "label": "3.3 CaptureEngine & Web Audio Mixer",
       "file_type": "document",
       "source_file": "ARCHITECTURE.md",
-      "source_location": "L68",
+      "source_location": "L69",
       "id": "savazai_presenter_architecture_3_3_captureengine_web_audio_mixer",
       "community": 37,
       "norm_label": "3.3 captureengine & web audio mixer"
@@ -2896,7 +2896,7 @@
       "label": "3.4 VideoRecorder (Deterministic & Live Exporter)",
       "file_type": "document",
       "source_file": "ARCHITECTURE.md",
-      "source_location": "L76",
+      "source_location": "L77",
       "id": "savazai_presenter_architecture_3_4_videorecorder_deterministic_live_exporter",
       "community": 37,
       "norm_label": "3.4 videorecorder (deterministic & live exporter)"
@@ -2905,7 +2905,7 @@
       "label": "3.5 TimelineController (Kinematics & Cue Sequencing)",
       "file_type": "document",
       "source_file": "ARCHITECTURE.md",
-      "source_location": "L82",
+      "source_location": "L83",
       "id": "savazai_presenter_architecture_3_5_timelinecontroller_kinematics_cue_sequencing",
       "community": 37,
       "norm_label": "3.5 timelinecontroller (kinematics & cue sequencing)"
@@ -2914,7 +2914,7 @@
       "label": "3.6 ProjectManager (IndexedDB Local Store)",
       "file_type": "document",
       "source_file": "ARCHITECTURE.md",
-      "source_location": "L89",
+      "source_location": "L90",
       "id": "savazai_presenter_architecture_3_6_projectmanager_indexeddb_local_store",
       "community": 37,
       "norm_label": "3.6 projectmanager (indexeddb local store)"
@@ -2923,7 +2923,7 @@
       "label": "4. Document Picture-in-Picture (PiP) Flow",
       "file_type": "document",
       "source_file": "ARCHITECTURE.md",
-      "source_location": "L100",
+      "source_location": "L101",
       "id": "savazai_presenter_architecture_4_document_picture_in_picture_pip_flow",
       "community": 37,
       "norm_label": "4. document picture-in-picture (pip) flow"
@@ -2932,7 +2932,7 @@
       "label": "code:mermaid (sequenceDiagram)",
       "file_type": "document",
       "source_file": "ARCHITECTURE.md",
-      "source_location": "L102",
+      "source_location": "L103",
       "id": "savazai_presenter_architecture_codeblock_2",
       "community": 37,
       "norm_label": "code:mermaid (sequencediagram)"
@@ -2941,7 +2941,7 @@
       "label": "5. Security, Sandboxing & Headers",
       "file_type": "document",
       "source_file": "ARCHITECTURE.md",
-      "source_location": "L125",
+      "source_location": "L126",
       "id": "savazai_presenter_architecture_5_security_sandboxing_headers",
       "community": 37,
       "norm_label": "5. security, sandboxing & headers"
@@ -2950,7 +2950,7 @@
       "label": "code:http (Cross-Origin-Opener-Policy: same-origin)",
       "file_type": "document",
       "source_file": "ARCHITECTURE.md",
-      "source_location": "L129",
+      "source_location": "L130",
       "id": "savazai_presenter_architecture_codeblock_3",
       "community": 37,
       "norm_label": "code:http (cross-origin-opener-policy: same-origin)"
@@ -3028,157 +3028,112 @@
       "norm_label": "motionstudio"
     },
     {
-      "label": "\ud83c\udf1f Overview",
+      "label": "Overview",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L14",
       "id": "savazai_presenter_readme_overview",
       "community": 36,
-      "norm_label": "\ud83c\udf1f overview"
+      "norm_label": "overview"
     },
     {
-      "label": "\ud83d\ude80 Key Features",
+      "label": "Key Capabilities",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L22",
-      "id": "savazai_presenter_readme_key_features",
+      "id": "savazai_presenter_readme_key_capabilities",
       "community": 36,
-      "norm_label": "\ud83d\ude80 key features"
+      "norm_label": "key capabilities"
     },
     {
-      "label": "\ud83c\udf99\ufe0f 1. Interactive Capture Setup",
+      "label": "Tech Stack",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L24",
-      "id": "savazai_presenter_readme_1_interactive_capture_setup",
+      "source_location": "L34",
+      "id": "savazai_presenter_readme_tech_stack",
       "community": 36,
-      "norm_label": "\ud83c\udf99\ufe0f 1. interactive capture setup"
+      "norm_label": "tech stack"
     },
     {
-      "label": "\ud83c\udfa8 2. Studio Editor Suite",
+      "label": "Quickstart & Local Deployment",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L31",
-      "id": "savazai_presenter_readme_2_studio_editor_suite",
+      "source_location": "L46",
+      "id": "savazai_presenter_readme_quickstart_local_deployment",
       "community": 36,
-      "norm_label": "\ud83c\udfa8 2. studio editor suite"
+      "norm_label": "quickstart & local deployment"
     },
     {
-      "label": "\ud83c\udf9e\ufe0f 3. Multi-Track Timeline & Ingestion",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L43",
-      "id": "savazai_presenter_readme_3_multi_track_timeline_ingestion",
-      "community": 36,
-      "norm_label": "\ud83c\udf9e\ufe0f 3. multi-track timeline & ingestion"
-    },
-    {
-      "label": "\ud83d\udcbe 4. Local-First Project Management",
+      "label": "1. Run Containerized on Port 9090 (Recommended)",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L48",
-      "id": "savazai_presenter_readme_4_local_first_project_management",
+      "id": "savazai_presenter_readme_1_run_containerized_on_port_9090_recommended",
       "community": 36,
-      "norm_label": "\ud83d\udcbe 4. local-first project management"
-    },
-    {
-      "label": "\ud83d\udce6 5. Multi-Surface Publishing Exporters",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L52",
-      "id": "savazai_presenter_readme_5_multi_surface_publishing_exporters",
-      "community": 36,
-      "norm_label": "\ud83d\udce6 5. multi-surface publishing exporters"
-    },
-    {
-      "label": "\ud83d\udee0\ufe0f Technology Stack",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L60",
-      "id": "savazai_presenter_readme_technology_stack",
-      "community": 36,
-      "norm_label": "\ud83d\udee0\ufe0f technology stack"
-    },
-    {
-      "label": "\u26a1 Quickstart & Development",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L74",
-      "id": "savazai_presenter_readme_quickstart_development",
-      "community": 36,
-      "norm_label": "\u26a1 quickstart & development"
-    },
-    {
-      "label": "Running with Docker (Recommended)",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L76",
-      "id": "savazai_presenter_readme_running_with_docker_recommended",
-      "community": 36,
-      "norm_label": "running with docker (recommended)"
+      "norm_label": "1. run containerized on port 9090 (recommended)"
     },
     {
       "label": "code:bash (# Build and start container in detached mode)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L79",
+      "source_location": "L49",
       "id": "savazai_presenter_readme_codeblock_1",
       "community": 36,
       "norm_label": "code:bash (# build and start container in detached mode)"
     },
     {
-      "label": "Running Natively",
+      "label": "2. Run Locally for Development",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L87",
-      "id": "savazai_presenter_readme_running_natively",
+      "source_location": "L57",
+      "id": "savazai_presenter_readme_2_run_locally_for_development",
       "community": 36,
-      "norm_label": "running natively"
+      "norm_label": "2. run locally for development"
     },
     {
-      "label": "code:bash (# 1. Install dependencies)",
+      "label": "code:bash (# Install dependencies)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L90",
+      "source_location": "L58",
       "id": "savazai_presenter_readme_codeblock_2",
       "community": 36,
-      "norm_label": "code:bash (# 1. install dependencies)"
+      "norm_label": "code:bash (# install dependencies)"
     },
     {
-      "label": "\ud83d\udcc1 Repository Structure",
+      "label": "Repository Structure",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L106",
+      "source_location": "L77",
       "id": "savazai_presenter_readme_repository_structure",
       "community": 36,
-      "norm_label": "\ud83d\udcc1 repository structure"
+      "norm_label": "repository structure"
     },
     {
       "label": "code:text (\u251c\u2500\u2500 src/)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L108",
+      "source_location": "L79",
       "id": "savazai_presenter_readme_codeblock_3",
       "community": 36,
       "norm_label": "code:text (\u251c\u2500\u2500 src/)"
     },
     {
-      "label": "\ud83d\udd12 Security & Privacy",
+      "label": "Security & Privacy",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L132",
+      "source_location": "L103",
       "id": "savazai_presenter_readme_security_privacy",
       "community": 36,
-      "norm_label": "\ud83d\udd12 security & privacy"
+      "norm_label": "security & privacy"
     },
     {
-      "label": "\ud83d\udcc4 License",
+      "label": "License",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L139",
+      "source_location": "L110",
       "id": "savazai_presenter_readme_license",
       "community": 36,
-      "norm_label": "\ud83d\udcc4 license"
+      "norm_label": "license"
     },
     {
       "label": "001_initial_prompt_motionstudio.md",
@@ -4558,11 +4513,155 @@
       "norm_label": "3. pre-push verification record"
     },
     {
+      "label": "020_savazar_ecosystem_branding_and_freeze.md",
+      "file_type": "document",
+      "source_file": "DevPlans/020_savazar_ecosystem_branding_and_freeze.md",
+      "source_location": "L1",
+      "id": "devplans_020_savazar_ecosystem_branding_and_freeze_md",
+      "community": 21,
+      "norm_label": "020_savazar_ecosystem_branding_and_freeze.md"
+    },
+    {
+      "label": "020 \u2014 Savazar Ecosystem Branding Refactor & Remote Freeze",
+      "file_type": "document",
+      "source_file": "DevPlans/020_savazar_ecosystem_branding_and_freeze.md",
+      "source_location": "L1",
+      "id": "devplans_020_savazar_ecosystem_branding_and_freeze_020_savazar_ecosystem_branding_refactor_remote_freeze",
+      "community": 21,
+      "norm_label": "020 \u2014 savazar ecosystem branding refactor & remote freeze"
+    },
+    {
+      "label": "1. Executive Summary",
+      "file_type": "document",
+      "source_file": "DevPlans/020_savazar_ecosystem_branding_and_freeze.md",
+      "source_location": "L3",
+      "id": "devplans_020_savazar_ecosystem_branding_and_freeze_1_executive_summary",
+      "community": 21,
+      "norm_label": "1. executive summary"
+    },
+    {
+      "label": "2. Terminology & Branding Alignment",
+      "file_type": "document",
+      "source_file": "DevPlans/020_savazar_ecosystem_branding_and_freeze.md",
+      "source_location": "L8",
+      "id": "devplans_020_savazar_ecosystem_branding_and_freeze_2_terminology_branding_alignment",
+      "community": 21,
+      "norm_label": "2. terminology & branding alignment"
+    },
+    {
+      "label": "3. Pre-Push Validation Protocol",
+      "file_type": "document",
+      "source_file": "DevPlans/020_savazar_ecosystem_branding_and_freeze.md",
+      "source_location": "L15",
+      "id": "devplans_020_savazar_ecosystem_branding_and_freeze_3_pre_push_validation_protocol",
+      "community": 21,
+      "norm_label": "3. pre-push validation protocol"
+    },
+    {
+      "label": "1. Architectural Philosophy & Constraints",
+      "file_type": "document",
+      "source_file": "ARCHITECTURE.md",
+      "source_location": "L7",
+      "community": 37,
+      "norm_label": "1. architectural philosophy & constraints",
+      "id": "savazai_presenter_architecture_1_architectural_philosophy_constraints"
+    },
+    {
+      "label": "\ud83d\ude80 Key Features",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L22",
+      "community": 36,
+      "norm_label": "\ud83d\ude80 key features",
+      "id": "savazai_presenter_readme_key_features"
+    },
+    {
+      "label": "\ud83c\udf99\ufe0f 1. Interactive Capture Setup",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L24",
+      "community": 36,
+      "norm_label": "\ud83c\udf99\ufe0f 1. interactive capture setup",
+      "id": "savazai_presenter_readme_1_interactive_capture_setup"
+    },
+    {
+      "label": "\ud83c\udfa8 2. Studio Editor Suite",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L31",
+      "community": 36,
+      "norm_label": "\ud83c\udfa8 2. studio editor suite",
+      "id": "savazai_presenter_readme_2_studio_editor_suite"
+    },
+    {
+      "label": "\ud83c\udf9e\ufe0f 3. Multi-Track Timeline & Ingestion",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L43",
+      "community": 36,
+      "norm_label": "\ud83c\udf9e\ufe0f 3. multi-track timeline & ingestion",
+      "id": "savazai_presenter_readme_3_multi_track_timeline_ingestion"
+    },
+    {
+      "label": "\ud83d\udcbe 4. Local-First Project Management",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L48",
+      "community": 36,
+      "norm_label": "\ud83d\udcbe 4. local-first project management",
+      "id": "savazai_presenter_readme_4_local_first_project_management"
+    },
+    {
+      "label": "\ud83d\udce6 5. Multi-Surface Publishing Exporters",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L52",
+      "community": 36,
+      "norm_label": "\ud83d\udce6 5. multi-surface publishing exporters",
+      "id": "savazai_presenter_readme_5_multi_surface_publishing_exporters"
+    },
+    {
+      "label": "\ud83d\udee0\ufe0f Technology Stack",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L60",
+      "community": 36,
+      "norm_label": "\ud83d\udee0\ufe0f technology stack",
+      "id": "savazai_presenter_readme_technology_stack"
+    },
+    {
+      "label": "\u26a1 Quickstart & Development",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L74",
+      "community": 36,
+      "norm_label": "\u26a1 quickstart & development",
+      "id": "savazai_presenter_readme_quickstart_development"
+    },
+    {
+      "label": "Running with Docker (Recommended)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L76",
+      "community": 36,
+      "norm_label": "running with docker (recommended)",
+      "id": "savazai_presenter_readme_running_with_docker_recommended"
+    },
+    {
+      "label": "Running Natively",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L87",
+      "community": 36,
+      "norm_label": "running natively",
+      "id": "savazai_presenter_readme_running_natively"
+    },
+    {
       "label": ".startContinuousProcessing()",
       "file_type": "code",
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L45",
-      "community": 21,
+      "community": 8,
       "norm_label": ".startcontinuousprocessing()",
       "id": "capture_processedwebcampipeline_processedwebcampipeline_startcontinuousprocessing"
     },
@@ -4571,7 +4670,7 @@
       "file_type": "code",
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L58",
-      "community": 21,
+      "community": 8,
       "norm_label": ".stopcontinuousprocessing()",
       "id": "capture_processedwebcampipeline_processedwebcampipeline_stopcontinuousprocessing"
     },
@@ -4580,7 +4679,7 @@
       "file_type": "code",
       "source_file": "src/core/capture/ProcessedWebcamPipeline.ts",
       "source_location": "L69",
-      "community": 21,
+      "community": 8,
       "norm_label": ".processinternalframe()",
       "id": "capture_processedwebcampipeline_processedwebcampipeline_processinternalframe"
     },
@@ -12239,18 +12338,18 @@
       "source_file": "ARCHITECTURE.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "architecture_md",
-      "target": "savazai_presenter_architecture_motionstudio_architecture_blueprint",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_architecture_motionstudio_architecture_blueprint"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARCHITECTURE.md",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "source": "savazai_presenter_architecture_motionstudio_architecture_blueprint",
-      "target": "savazai_presenter_architecture_1_architectural_philosophy_constraints",
+      "target": "savazai_presenter_architecture_1_architectural_philosophy_principles",
       "confidence_score": 1.0
     },
     {
@@ -12259,9 +12358,9 @@
       "source_file": "ARCHITECTURE.md",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_architecture_motionstudio_architecture_blueprint",
-      "target": "savazai_presenter_architecture_2_high_level_system_architecture",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_architecture_2_high_level_system_architecture"
     },
     {
       "relation": "contains",
@@ -12269,9 +12368,9 @@
       "source_file": "ARCHITECTURE.md",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_architecture_motionstudio_architecture_blueprint",
-      "target": "savazai_presenter_architecture_3_subsystem_breakdown",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_architecture_3_subsystem_breakdown"
     },
     {
       "relation": "contains",
@@ -12279,9 +12378,9 @@
       "source_file": "ARCHITECTURE.md",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_architecture_motionstudio_architecture_blueprint",
-      "target": "savazai_presenter_architecture_4_document_picture_in_picture_pip_flow",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_architecture_4_document_picture_in_picture_pip_flow"
     },
     {
       "relation": "contains",
@@ -12289,9 +12388,19 @@
       "source_file": "ARCHITECTURE.md",
       "source_location": "L125",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_architecture_motionstudio_architecture_blueprint",
-      "target": "savazai_presenter_architecture_5_security_sandboxing_headers",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_architecture_5_security_sandboxing_headers"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ARCHITECTURE.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "savazai_presenter_architecture_motionstudio_architecture_blueprint",
+      "target": "savazai_presenter_architecture_1_architectural_philosophy_constraints"
     },
     {
       "relation": "contains",
@@ -12299,9 +12408,9 @@
       "source_file": "ARCHITECTURE.md",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_architecture_2_high_level_system_architecture",
-      "target": "savazai_presenter_architecture_codeblock_1",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_architecture_codeblock_1"
     },
     {
       "relation": "contains",
@@ -12309,9 +12418,9 @@
       "source_file": "ARCHITECTURE.md",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_architecture_3_subsystem_breakdown",
-      "target": "savazai_presenter_architecture_3_1_threescenemanager_webgl_3d_staging_engine",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_architecture_3_1_threescenemanager_webgl_3d_staging_engine"
     },
     {
       "relation": "contains",
@@ -12319,9 +12428,9 @@
       "source_file": "ARCHITECTURE.md",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_architecture_3_subsystem_breakdown",
-      "target": "savazai_presenter_architecture_3_2_processedwebcampipeline_segmentation",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_architecture_3_2_processedwebcampipeline_segmentation"
     },
     {
       "relation": "contains",
@@ -12329,9 +12438,9 @@
       "source_file": "ARCHITECTURE.md",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_architecture_3_subsystem_breakdown",
-      "target": "savazai_presenter_architecture_3_3_captureengine_web_audio_mixer",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_architecture_3_3_captureengine_web_audio_mixer"
     },
     {
       "relation": "contains",
@@ -12339,9 +12448,9 @@
       "source_file": "ARCHITECTURE.md",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_architecture_3_subsystem_breakdown",
-      "target": "savazai_presenter_architecture_3_4_videorecorder_deterministic_live_exporter",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_architecture_3_4_videorecorder_deterministic_live_exporter"
     },
     {
       "relation": "contains",
@@ -12349,9 +12458,9 @@
       "source_file": "ARCHITECTURE.md",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_architecture_3_subsystem_breakdown",
-      "target": "savazai_presenter_architecture_3_5_timelinecontroller_kinematics_cue_sequencing",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_architecture_3_5_timelinecontroller_kinematics_cue_sequencing"
     },
     {
       "relation": "contains",
@@ -12359,9 +12468,9 @@
       "source_file": "ARCHITECTURE.md",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_architecture_3_subsystem_breakdown",
-      "target": "savazai_presenter_architecture_3_6_projectmanager_indexeddb_local_store",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_architecture_3_6_projectmanager_indexeddb_local_store"
     },
     {
       "relation": "contains",
@@ -12369,9 +12478,9 @@
       "source_file": "ARCHITECTURE.md",
       "source_location": "L102",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_architecture_4_document_picture_in_picture_pip_flow",
-      "target": "savazai_presenter_architecture_codeblock_2",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_architecture_codeblock_2"
     },
     {
       "relation": "contains",
@@ -12379,9 +12488,9 @@
       "source_file": "ARCHITECTURE.md",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_architecture_5_security_sandboxing_headers",
-      "target": "savazai_presenter_architecture_codeblock_3",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_architecture_codeblock_3"
     },
     {
       "relation": "contains",
@@ -12449,9 +12558,9 @@
       "source_file": "README.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_md",
-      "target": "savazai_presenter_readme_motionstudio",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_readme_motionstudio"
     },
     {
       "relation": "contains",
@@ -12459,9 +12568,9 @@
       "source_file": "README.md",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_readme_motionstudio",
-      "target": "savazai_presenter_readme_overview",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_readme_overview"
     },
     {
       "relation": "contains",
@@ -12470,27 +12579,27 @@
       "source_location": "L22",
       "weight": 1.0,
       "source": "savazai_presenter_readme_motionstudio",
-      "target": "savazai_presenter_readme_key_features",
+      "target": "savazai_presenter_readme_key_capabilities",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L60",
+      "source_location": "L34",
       "weight": 1.0,
       "source": "savazai_presenter_readme_motionstudio",
-      "target": "savazai_presenter_readme_technology_stack",
+      "target": "savazai_presenter_readme_tech_stack",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L74",
+      "source_location": "L46",
       "weight": 1.0,
       "source": "savazai_presenter_readme_motionstudio",
-      "target": "savazai_presenter_readme_quickstart_development",
+      "target": "savazai_presenter_readme_quickstart_local_deployment",
       "confidence_score": 1.0
     },
     {
@@ -12499,9 +12608,9 @@
       "source_file": "README.md",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_readme_motionstudio",
-      "target": "savazai_presenter_readme_repository_structure",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_readme_repository_structure"
     },
     {
       "relation": "contains",
@@ -12509,9 +12618,9 @@
       "source_file": "README.md",
       "source_location": "L132",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_readme_motionstudio",
-      "target": "savazai_presenter_readme_security_privacy",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_readme_security_privacy"
     },
     {
       "relation": "contains",
@@ -12519,39 +12628,39 @@
       "source_file": "README.md",
       "source_location": "L139",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_readme_motionstudio",
-      "target": "savazai_presenter_readme_license",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_readme_license"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L24",
+      "source_location": "L22",
       "weight": 1.0,
-      "source": "savazai_presenter_readme_key_features",
-      "target": "savazai_presenter_readme_1_interactive_capture_setup",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "savazai_presenter_readme_motionstudio",
+      "target": "savazai_presenter_readme_key_features"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L31",
+      "source_location": "L60",
       "weight": 1.0,
-      "source": "savazai_presenter_readme_key_features",
-      "target": "savazai_presenter_readme_2_studio_editor_suite",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "savazai_presenter_readme_motionstudio",
+      "target": "savazai_presenter_readme_technology_stack"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L43",
+      "source_location": "L74",
       "weight": 1.0,
-      "source": "savazai_presenter_readme_key_features",
-      "target": "savazai_presenter_readme_3_multi_track_timeline_ingestion",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "savazai_presenter_readme_motionstudio",
+      "target": "savazai_presenter_readme_quickstart_development"
     },
     {
       "relation": "contains",
@@ -12559,38 +12668,28 @@
       "source_file": "README.md",
       "source_location": "L48",
       "weight": 1.0,
-      "source": "savazai_presenter_readme_key_features",
-      "target": "savazai_presenter_readme_4_local_first_project_management",
+      "source": "savazai_presenter_readme_quickstart_local_deployment",
+      "target": "savazai_presenter_readme_1_run_containerized_on_port_9090_recommended",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L52",
+      "source_location": "L57",
       "weight": 1.0,
-      "source": "savazai_presenter_readme_key_features",
-      "target": "savazai_presenter_readme_5_multi_surface_publishing_exporters",
+      "source": "savazai_presenter_readme_quickstart_local_deployment",
+      "target": "savazai_presenter_readme_2_run_locally_for_development",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L76",
+      "source_location": "L49",
       "weight": 1.0,
-      "source": "savazai_presenter_readme_quickstart_development",
-      "target": "savazai_presenter_readme_running_with_docker_recommended",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L87",
-      "weight": 1.0,
-      "source": "savazai_presenter_readme_quickstart_development",
-      "target": "savazai_presenter_readme_running_natively",
+      "source": "savazai_presenter_readme_1_run_containerized_on_port_9090_recommended",
+      "target": "savazai_presenter_readme_codeblock_1",
       "confidence_score": 1.0
     },
     {
@@ -12599,8 +12698,18 @@
       "source_file": "README.md",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_readme_running_with_docker_recommended",
-      "target": "savazai_presenter_readme_codeblock_1",
+      "target": "savazai_presenter_readme_codeblock_1"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "savazai_presenter_readme_2_run_locally_for_development",
+      "target": "savazai_presenter_readme_codeblock_2",
       "confidence_score": 1.0
     },
     {
@@ -12609,9 +12718,9 @@
       "source_file": "README.md",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_readme_running_natively",
-      "target": "savazai_presenter_readme_codeblock_2",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_readme_codeblock_2"
     },
     {
       "relation": "contains",
@@ -12619,9 +12728,9 @@
       "source_file": "README.md",
       "source_location": "L108",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "savazai_presenter_readme_repository_structure",
-      "target": "savazai_presenter_readme_codeblock_3",
-      "confidence_score": 1.0
+      "target": "savazai_presenter_readme_codeblock_3"
     },
     {
       "relation": "contains",
@@ -13919,9 +14028,9 @@
       "source_file": "DevPlans/019_production_docs_and_freeze.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_019_production_docs_and_freeze_md",
-      "target": "devplans_019_production_docs_and_freeze_019_production_documentation_repository_hold_freeze",
-      "confidence_score": 1.0
+      "target": "devplans_019_production_docs_and_freeze_019_production_documentation_repository_hold_freeze"
     },
     {
       "relation": "contains",
@@ -13929,9 +14038,9 @@
       "source_file": "DevPlans/019_production_docs_and_freeze.md",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_019_production_docs_and_freeze_019_production_documentation_repository_hold_freeze",
-      "target": "devplans_019_production_docs_and_freeze_1_executive_summary",
-      "confidence_score": 1.0
+      "target": "devplans_019_production_docs_and_freeze_1_executive_summary"
     },
     {
       "relation": "contains",
@@ -13939,9 +14048,9 @@
       "source_file": "DevPlans/019_production_docs_and_freeze.md",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_019_production_docs_and_freeze_019_production_documentation_repository_hold_freeze",
-      "target": "devplans_019_production_docs_and_freeze_2_deliverables_added",
-      "confidence_score": 1.0
+      "target": "devplans_019_production_docs_and_freeze_2_deliverables_added"
     },
     {
       "relation": "contains",
@@ -13949,11 +14058,121 @@
       "source_file": "DevPlans/019_production_docs_and_freeze.md",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "devplans_019_production_docs_and_freeze_019_production_documentation_repository_hold_freeze",
-      "target": "devplans_019_production_docs_and_freeze_3_pre_push_verification_record",
+      "target": "devplans_019_production_docs_and_freeze_3_pre_push_verification_record"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DevPlans/020_savazar_ecosystem_branding_and_freeze.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "devplans_020_savazar_ecosystem_branding_and_freeze_md",
+      "target": "devplans_020_savazar_ecosystem_branding_and_freeze_020_savazar_ecosystem_branding_refactor_remote_freeze",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DevPlans/020_savazar_ecosystem_branding_and_freeze.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "devplans_020_savazar_ecosystem_branding_and_freeze_020_savazar_ecosystem_branding_refactor_remote_freeze",
+      "target": "devplans_020_savazar_ecosystem_branding_and_freeze_1_executive_summary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DevPlans/020_savazar_ecosystem_branding_and_freeze.md",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "devplans_020_savazar_ecosystem_branding_and_freeze_020_savazar_ecosystem_branding_refactor_remote_freeze",
+      "target": "devplans_020_savazar_ecosystem_branding_and_freeze_2_terminology_branding_alignment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DevPlans/020_savazar_ecosystem_branding_and_freeze.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "devplans_020_savazar_ecosystem_branding_and_freeze_020_savazar_ecosystem_branding_refactor_remote_freeze",
+      "target": "devplans_020_savazar_ecosystem_branding_and_freeze_3_pre_push_validation_protocol",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "savazai_presenter_readme_key_features",
+      "target": "savazai_presenter_readme_1_interactive_capture_setup"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "savazai_presenter_readme_key_features",
+      "target": "savazai_presenter_readme_2_studio_editor_suite"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "savazai_presenter_readme_key_features",
+      "target": "savazai_presenter_readme_3_multi_track_timeline_ingestion"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "savazai_presenter_readme_key_features",
+      "target": "savazai_presenter_readme_4_local_first_project_management"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "savazai_presenter_readme_key_features",
+      "target": "savazai_presenter_readme_5_multi_surface_publishing_exporters"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "savazai_presenter_readme_quickstart_development",
+      "target": "savazai_presenter_readme_running_with_docker_recommended"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L87",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "savazai_presenter_readme_quickstart_development",
+      "target": "savazai_presenter_readme_running_natively"
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "602a9da48909d35862bf5b5e6a993e376d323eef"
+  "built_at_commit": "2ef452e0db8e3dcfa1692f852677d50cdbf4f8a7"
 }

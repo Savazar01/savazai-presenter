@@ -295,18 +295,23 @@
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\ARCHITECTURE.md": {
-    "mtime": 1788611277.5770957,
-    "ast_hash": "4f6f09f4e2ff0d42a1266a6f67a5601d",
+    "mtime": 1788611622.551796,
+    "ast_hash": "e305a342b012e8068c66fb32a3adcedc",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\README.md": {
-    "mtime": 1788611269.4542298,
-    "ast_hash": "2c09a120d49cea682e6e4f9357dec13a",
+    "mtime": 1788611616.9836893,
+    "ast_hash": "ef7f47bdf618dd4bc8c923fc1bb4f605",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\019_production_docs_and_freeze.md": {
     "mtime": 1788611281.2488964,
     "ast_hash": "244e15b2bc93b41775bd99fe1471ad6f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\020_savazar_ecosystem_branding_and_freeze.md": {
+    "mtime": 1788611626.0222156,
+    "ast_hash": "db8fd5c39f220128327065559c5b6466",
     "semantic_hash": ""
   }
 }
