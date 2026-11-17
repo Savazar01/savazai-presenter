@@ -17,6 +17,8 @@
 
 Everything runs 100% locally in the browser with zero cloud dependencies and zero data egress, providing maximum performance, security, and data privacy.
 
+> **Security Governance**: Audited and hardened using the official [`cloudflare/security-audit-skill`](https://github.com/cloudflare/security-audit-skill) (`.agents/skills/cloudflare-security-audit/SKILL.md`). Run `npm run security:audit` before every commit or deployment.
+
 ---
 
 ## Key Capabilities

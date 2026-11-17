@@ -45,7 +45,9 @@ No deletion or overwrite of historical plan files is allowed.
 - Structure state predictably: Centralized state engine managing capture streams, 3D device transforms, timeline cues, audio nodes, and export jobs.
 - Clear unidirectional data flow from State Coordinator -> ThreeSceneManager / TimelineController -> Studio Viewport.
 
-### 3.4 Cloudflare Security & Defensive Client-Side Patterns
+### 3.4 Official Cloudflare Security Audit & Quality Gates (`cloudflare/security-audit-skill`)
+- **Official Security Audit Skill**: All security reviews, pre-deployment checks, and pull-request audits MUST use the official Cloudflare Security Audit Skill at `.agents/skills/cloudflare-security-audit/SKILL.md` (`https://github.com/cloudflare/security-audit-skill`). Third-party community forks are strictly prohibited.
+- **Mandatory Pre-Release Quality Gates**: Run `npm run security:audit`, `npx tsc --noEmit`, `npm run build`, and `graphify update .` before every commit/push, and store audit results in `/devplans/WALKTHROUGH_*.md`.
 - Sanitize any imported JSON / SVG content against XSS before DOM insertion.
 - Enforce strict Content Security Policies in exported EPUB3 and HTML presentation bundles.
 - Validate binary payloads (MediaRecorder chunks, JSZip buffers, jsPDF buffers) before triggering file downloads.

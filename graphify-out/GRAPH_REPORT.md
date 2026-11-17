@@ -1,16 +1,16 @@
-# Graph Report - Savazai-presenter  (2026-09-05)
+# Graph Report - Savazai-presenter  (2026-11-17)
 
 ## Corpus Check
-- 61 files · ~42,239 words
+- 82 files · ~69,077 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 526 nodes · 900 edges · 39 communities (37 shown, 2 thin omitted)
+- 744 nodes · 1098 edges · 60 communities (55 shown, 5 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2ef452e0`
+- Built from commit: `b4b56e13`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -51,6 +51,27 @@
 - [[_COMMUNITY_Community 36|Community 36]]
 - [[_COMMUNITY_Community 37|Community 37]]
 - [[_COMMUNITY_Community 38|Community 38]]
+- [[_COMMUNITY_Community 39|Community 39]]
+- [[_COMMUNITY_Community 40|Community 40]]
+- [[_COMMUNITY_Community 41|Community 41]]
+- [[_COMMUNITY_Community 42|Community 42]]
+- [[_COMMUNITY_Community 43|Community 43]]
+- [[_COMMUNITY_Community 44|Community 44]]
+- [[_COMMUNITY_Community 45|Community 45]]
+- [[_COMMUNITY_Community 46|Community 46]]
+- [[_COMMUNITY_Community 47|Community 47]]
+- [[_COMMUNITY_Community 48|Community 48]]
+- [[_COMMUNITY_Community 49|Community 49]]
+- [[_COMMUNITY_Community 50|Community 50]]
+- [[_COMMUNITY_Community 51|Community 51]]
+- [[_COMMUNITY_Community 52|Community 52]]
+- [[_COMMUNITY_Community 53|Community 53]]
+- [[_COMMUNITY_Community 54|Community 54]]
+- [[_COMMUNITY_Community 55|Community 55]]
+- [[_COMMUNITY_Community 56|Community 56]]
+- [[_COMMUNITY_Community 57|Community 57]]
+- [[_COMMUNITY_Community 58|Community 58]]
+- [[_COMMUNITY_Community 59|Community 59]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `ThreeSceneManager` - 44 edges
@@ -76,15 +97,11 @@
 - `ExportModalProps` --references--> `ThreeSceneManager`  [EXTRACTED]
   src/components/ExportModal.tsx → src/core/scene/ThreeSceneManager.ts
 
-## Communities (39 total, 2 thin omitted)
+## Communities (60 total, 5 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.10
-Nodes (45): AudioVisualizer(), CaptureControls(), CaptureControlsProps, ExportModalProps, Header(), HeaderProps, ProjectModal(), ProjectModalProps (+37 more)
-
-### Community 2 - "Community 2"
-Cohesion: 0.09
-Nodes (10): DeviceControls(), DeviceControlsProps, VideoEditorPanel(), VideoEditorPanelProps, DEVICE_FINISHES, ThreeSceneManager, CameraPreset, DeviceFinish (+2 more)
+Nodes (52): AudioVisualizer(), CaptureControls(), CaptureControlsProps, DeviceControls(), DeviceControlsProps, ExportModalProps, Header(), HeaderProps (+44 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.09
@@ -95,20 +112,20 @@ Cohesion: 0.10
 Nodes (14): ExportModal(), PresentationMode(), PresentationModeProps, escapeXml(), exportDeckToPdf(), exportToEpub(), triggerFileDownload(), DEFAULT_CUE_POINTS (+6 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.06
-Nodes (35): dependencies, animejs, clsx, html2canvas-pro, jspdf, jszip, lucide-react, @mediapipe/selfie_segmentation (+27 more)
+Cohesion: 0.05
+Nodes (36): dependencies, animejs, clsx, html2canvas-pro, jspdf, jszip, lucide-react, @mediapipe/selfie_segmentation (+28 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.12
 Nodes (15): 003 - Walkthrough & Verification: MotionStudio Visual Showcase Platform, 1. System Overview & Verification Results, 2. Key Modules & Delivered Architecture, 3. Detailed Feature Breakdown, 4. How to Run & Verify, code:block1 (├── AGENTS.md                                # Autonomous en), code:bash (npm install), code:bash (docker compose up --build) (+7 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.13
-Nodes (14): 1. Project Overview & Identity, 2. Mandatory Rules & Governance, 3.1 Shadcn UI & Component Architecture, 3.2 Playwright & E2E Testing Verification, 3.3 Graphify Knowledge & State Structuring, 3.4 Cloudflare Security & Defensive Client-Side Patterns, 3. Technology Stack & Ecosystem Skills, 4. Multi-Surface Publishing Specifications (+6 more)
+Cohesion: 0.12
+Nodes (15): 1. Project Overview & Identity, 2. Mandatory Rules & Governance, 3.1 Shadcn UI & Component Architecture, 3.2 Playwright & E2E Testing Verification, 3.3 Graphify Knowledge & State Structuring, 3.4 Cloudflare Security & Defensive Client-Side Patterns, 3.4 Official Cloudflare Security Audit & Quality Gates (`cloudflare/security-audit-skill`), 3. Technology Stack & Ecosystem Skills (+7 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.07
-Nodes (5): ProcessedWebcamPipeline, WebcamProcessor, VideoRecorder, StageMode, WebcamBackgroundConfig
+Nodes (4): ProcessedWebcamPipeline, WebcamProcessor, VideoRecorder, WebcamBackgroundConfig
 
 ### Community 9 - "Community 9"
 Cohesion: 0.20
@@ -190,6 +207,10 @@ Nodes (8): 014: Restore Entire Screen Capture, Zero-Click Document PiP Activatio
 Cohesion: 0.25
 Nodes (7): 015: MotionStudio Complete UI/UX Suite Refactor, Setup Modal & Multi-Track Studio, 1. Pre-Recording Setup Modal (`src/components/setup/MotionStudioSetupModal.tsx`), 2. Streamlined Recording Transport Pill (`src/components/setup/MotionStudioRecordingPill.tsx`), 3. MotionStudio Multi-Track Studio Suite, Key Architecture & Features Delivered, Objective, Verification & Deployment Summary
 
+### Community 32 - "Community 32"
+Cohesion: 0.25
+Nodes (4): ProjectModal(), ProjectModalProps, MotionStudioProjectSummary, ProjectManager
+
 ### Community 33 - "Community 33"
 Cohesion: 0.20
 Nodes (9): 016: MotionStudio Green Screen Fix, Dual-Bar Cleanup, In-Memory Studio Ingestion, Video Upload & IndexedDB Project Management, 1. WebGL & Video Recorder (`ThreeSceneManager.ts`, `VideoRecorder.ts`), 2. Streamlined Controller (`MotionStudioRecordingPill.tsx`), 3. In-Memory Studio Ingestion (`App.tsx`), 4. Video & Photo Upload Engine (`App.tsx`, `LeftToolRail.tsx`), 5. Local-First Project Management (`ProjectManager.ts`, `ProjectModal.tsx`, `Header.tsx`), Architectural Changes, Objective (+1 more)
@@ -214,25 +235,97 @@ Nodes (16): 1. Architectural Philosophy & Constraints, 1. Architectural Philosop
 Cohesion: 0.40
 Nodes (4): 019 — Production Documentation & Repository Hold Freeze, 1. Executive Summary, 2. Deliverables Added, 3. Pre-Push Verification Record
 
+### Community 39 - "Community 39"
+Cohesion: 0.11
+Nodes (18): Anti-patterns, Core principles, Cost budget, Coverage and prior runs, Full audit planning, Full audit setup, Full audit workflow, Operating modes (+10 more)
+
+### Community 40 - "Community 40"
+Cohesion: 0.12
+Nodes (14): bannedCode, bannedSources, codeFiles, content, dockerfile, failures, lower, probeLive() (+6 more)
+
+### Community 41 - "Community 41"
+Cohesion: 0.12
+Nodes (15): code:text (## Defensive vulnerability-finding method), code:text (Artifact promotion procedure (trusted parent-side code only)), code:text (## Candidate gate), code:json ({), code:json ({), Core hunting method — include in every hunter prompt, Core validation rules — include in every hunter prompt, Coverage-critic waves (+7 more)
+
+### Community 42 - "Community 42"
+Cohesion: 0.15
+Nodes (12): Candidate-verifier prompt, code:text (You did not write this candidate. Try to refute it from repo), code:text (Artifact promotion procedure (trusted parent-side code only)), code:sh (node <skill-dir>/validate-findings.cjs <output-dir>/findings), `FINDINGS-DETAIL.md`, `NEEDS-VALIDATION.md`, Phase 3: Independently validate every candidate, Phase 4: Write and validate `findings.json` (+4 more)
+
+### Community 43 - "Community 43"
+Cohesion: 0.17
+Nodes (11): Client-Side and Browser Hunting, code:block1 (- A client-side candidate needs a controllable source and an), Core discipline (include in every agent prompt for this domain), Cross-origin messaging and network attack classes (subagent_type: `general`), Cross-site information leak classes (subagent_type: `general`), DOM and object-state attack classes (subagent_type: `general`), Service-worker and browser-storage attack classes (subagent_type: `general`), UI-redress and navigation attack classes (subagent_type: `general`) (+3 more)
+
+### Community 44 - "Community 44"
+Cohesion: 0.17
+Nodes (11): Cloud and Deployment Hunting, code:block1 (- Do not infer a live exposure from a manifest alone. Establ), Configuration and secret lifecycle attack classes (subagent_type: `general`), Container and orchestration attack classes (subagent_type: `general`), Core discipline (include in every agent prompt for this domain), Ingress, network, and control-plane attack classes (subagent_type: `general`), Managed storage, events, and edge attack classes (subagent_type: `general`), Universal moves (apply across the above) (+3 more)
+
+### Community 45 - "Community 45"
+Cohesion: 0.17
+Nodes (11): Application-state and device-lifecycle attack classes (subagent_type: `general`), code:block1 (- Establish the realistic local or remote-content attacker: ), Core discipline (include in every agent prompt for this domain), Deep-link, callback, and navigation attack classes (subagent_type: `general`), Desktop, Mobile, and Local IPC Hunting, Local IPC and exported-component attack classes (subagent_type: `general`), Privileged-helper and local-file attack classes (subagent_type: `general`), Universal moves (apply across the above) (+3 more)
+
+### Community 46 - "Community 46"
+Cohesion: 0.17
+Nodes (11): Binary loading and runtime attack classes (subagent_type: `general`), Bounds, integer, and representation attack classes (subagent_type: `general`), code:block1 (- Re-derive every bound and lifetime from attacker-controlle), Core discipline (include in every agent prompt for this domain), FFI and ABI attack classes (subagent_type: `general`), Kernel and privileged-interface attack classes (subagent_type: `general`), Lifetime, type, and concurrency attack classes (subagent_type: `general`), Memory Safety, Binary, and Kernel Hunting (+3 more)
+
+### Community 47 - "Community 47"
+Cohesion: 0.17
+Nodes (11): API-key and mTLS attack classes (subagent_type: `general`), Browser-session attack classes (subagent_type: `general`), code:block1 (- Framing and cache findings require two interpretations of ), Core discipline (include in every agent prompt for this domain), Federated-identity attack classes (subagent_type: `general`), HTTP framing and cache attack classes (subagent_type: `general`), HTTP-Protocol and Authentication Hunting, MFA, passkey, and account-transition attack classes (subagent_type: `general`) (+3 more)
+
+### Community 48 - "Community 48"
+Cohesion: 0.18
+Nodes (10): AI, LLM, and Agent Hunting, code:block1 (- Prompt injection alone is not a finding. Require a code-le), Context, retrieval, and memory attack classes (subagent_type: `general`), Core discipline (include in every agent prompt for this domain), MCP and sub-agent trust classes (subagent_type: `general`), Output and disclosure attack classes (subagent_type: `general`), Tool and action attack classes (subagent_type: `general`), Universal moves (apply across the above) (+2 more)
+
+### Community 49 - "Community 49"
+Cohesion: 0.18
+Nodes (10): code:block1 (- A tenant or owner field on a record is not isolation. Find), Core discipline (include in every agent prompt for this domain), Data Isolation and Lifecycle Hunting, Deletion, revocation, and lifecycle attack classes (subagent_type: `general`), Derived-data and disclosure attack classes (subagent_type: `general`), Export, backup, restore, and migration attack classes (subagent_type: `general`), Tenant and object-isolation attack classes (subagent_type: `general`), Universal moves (apply across the above) (+2 more)
+
+### Community 50 - "Community 50"
+Cohesion: 0.18
+Nodes (10): Broker and queue isolation attack classes (subagent_type: `general`), code:block1 (- "Internal" is not authentication. Name the peer identity a), Core discipline (include in every agent prompt for this domain), Framing, schema, and interpretation attack classes (subagent_type: `general`), Protocols, RPC, and Messaging Hunting, Replay, ordering, and transaction attack classes (subagent_type: `general`), RPC identity and authorization attack classes (subagent_type: `general`), Universal moves (apply across the above) (+2 more)
+
+### Community 51 - "Community 51"
+Cohesion: 0.18
+Nodes (10): Architecture summary and companion selection, code:text (Read the target at <target>. Do not use network access. Retu), code:text (Read all source that establishes identity, authorization, is), code:text (Inventory every source-visible place external or lower-trust), code:text (Read tests, build definitions, manifests, packaging, and mai), code:json ({), Deterministic coverage ledger, Phase 1: Map the source and plan coverage (+2 more)
+
+### Community 52 - "Community 52"
+Cohesion: 0.18
+Nodes (10): code:block1 (- Require an input-to-cost path, a missing effective bound, ), Computational amplification attack classes (subagent_type: `general`), Core discipline (include in every agent prompt for this domain), Failure and recovery attack classes (subagent_type: `general`), Quota and scheduling attack classes (subagent_type: `general`), Resource accumulation attack classes (subagent_type: `general`), Resource Exhaustion and Availability Hunting, Universal moves (apply across the above) (+2 more)
+
+### Community 53 - "Community 53"
+Cohesion: 0.20
+Nodes (9): CI and automation attack classes (subagent_type: `general`), code:block1 (- A mutable or known-vulnerable dependency is not a finding ), Core discipline (include in every agent prompt for this domain), Dependency and build-input attack classes (subagent_type: `general`), Release and update attack classes (subagent_type: `general`), Supply Chain and Release Hunting, Universal moves (apply across the above), Validation rules (apply before reporting ANY finding here) (+1 more)
+
+### Community 54 - "Community 54"
+Cohesion: 0.29
+Nodes (5): CSP_POLICY, __dirname, distDir, MIME_TYPES, server
+
+### Community 55 - "Community 55"
+Cohesion: 0.40
+Nodes (4): $comment, items, oneOf, type
+
+### Community 56 - "Community 56"
+Cohesion: 0.40
+Nodes (4): 1. Skill & Governance Standardization, 2. Official Security Audit Findings & Remediation Summary, 3. Sign-Off, Walkthrough: Official `cloudflare/security-audit-skill` Standardization — Savazai-presenter (MotionStudio)
+
 ## Knowledge Gaps
-- **197 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+192 more)
+- **344 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+339 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `ThreeSceneManager` connect `Community 2` to `Community 0`, `Community 8`, `Community 4`?**
-  _High betweenness centrality (0.041) - this node is a cross-community bridge._
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
 - **Why does `CaptureEngine` connect `Community 1` to `Community 0`, `Community 24`, `Community 8`?**
-  _High betweenness centrality (0.036) - this node is a cross-community bridge._
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
 - **Why does `TimelineController` connect `Community 4` to `Community 0`, `Community 8`, `Community 2`?**
-  _High betweenness centrality (0.031) - this node is a cross-community bridge._
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `version` to the rest of the system?**
-  _197 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _344 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.1 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0958904109589041 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.1422924901185771 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.08974358974358974 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10541310541310542 - nodes in this community are weakly interconnected._

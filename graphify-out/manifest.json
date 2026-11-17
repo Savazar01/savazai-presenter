@@ -1,7 +1,7 @@
 {
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\package.json": {
-    "mtime": 1788576562.4646146,
-    "ast_hash": "fb2d0acd9e832f820f1aba91b539565c",
+    "mtime": 1794909541.1958709,
+    "ast_hash": "685fa370020a26c26dff3ed070170495",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\postcss.config.js": {
@@ -110,8 +110,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\AGENTS.md": {
-    "mtime": 1788493798.520075,
-    "ast_hash": "ff14ab2becc49dc339c35eb4db220cb1",
+    "mtime": 1794909486.4253354,
+    "ast_hash": "f7fd24d6cab984e695eff2944f77ee8e",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\CLAUDE.md": {
@@ -300,8 +300,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\README.md": {
-    "mtime": 1788611616.9836893,
-    "ast_hash": "ef7f47bdf618dd4bc8c923fc1bb4f605",
+    "mtime": 1794909488.4977982,
+    "ast_hash": "d64c513e38eda2b55c8c118198190e64",
     "semantic_hash": ""
   },
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\019_production_docs_and_freeze.md": {
@@ -312,6 +312,111 @@
   "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\020_savazar_ecosystem_branding_and_freeze.md": {
     "mtime": 1788611626.0222156,
     "ast_hash": "db8fd5c39f220128327065559c5b6466",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\server.mjs": {
+    "mtime": 1794909474.697442,
+    "ast_hash": "a571cdfcf6ba65105ce4d0e52f1d6099",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\report-schema.json": {
+    "mtime": 1794908349.230687,
+    "ast_hash": "e705ada366ad4025f55f943c95d9f590",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\scripts\\run-security-audit.mjs": {
+    "mtime": 1794909504.2961543,
+    "ast_hash": "bbd3c96d364922eb9f8bc9d3b2964e0a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\AI-AND-LLM.md": {
+    "mtime": 1794908349.2242124,
+    "ast_hash": "c5abfaece0f58d5d5058fa07b29791ad",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\ATTACK-CLASSES.md": {
+    "mtime": 1794908349.225293,
+    "ast_hash": "b33b760ff50ffdc0eda5d928f80fb107",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\CLIENT-SIDE.md": {
+    "mtime": 1794908349.225293,
+    "ast_hash": "f535193f9c655e348e5b904f7f67d34e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\CLOUD-AND-DEPLOYMENT.md": {
+    "mtime": 1794908349.225293,
+    "ast_hash": "3396934a06bfa86a84596e661f875300",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\DATA-ISOLATION-AND-LIFECYCLE.md": {
+    "mtime": 1794908349.225293,
+    "ast_hash": "33d0561cb12415d388a6449d90d2ff3f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\DESKTOP-MOBILE-AND-LOCAL-IPC.md": {
+    "mtime": 1794908349.225293,
+    "ast_hash": "f0d96ab77876c447d64ba1cef6f3da5e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\HUNTING.md": {
+    "mtime": 1794908349.225293,
+    "ast_hash": "5cb64bcc2971ceb4a7f955ffd741d25f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\MEMORY-SAFETY-AND-BINARY.md": {
+    "mtime": 1794908349.225293,
+    "ast_hash": "8d3d5783e9710a299c2c1cbef8ca7463",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\PROTOCOLS-RPC-AND-MESSAGING.md": {
+    "mtime": 1794908349.2302952,
+    "ast_hash": "5137eb203d4b236a081210bb77b21131",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\RECONNAISSANCE.md": {
+    "mtime": 1794908349.230687,
+    "ast_hash": "95ea170b99be883a9f704bfee29b9443",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\RESOURCE-EXHAUSTION-AND-AVAILABILITY.md": {
+    "mtime": 1794908349.230687,
+    "ast_hash": "92a3e104467a5fc71a6ba34bf97828ef",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\SKILL.md": {
+    "mtime": 1794908349.230687,
+    "ast_hash": "cec212c92a709bfffce1cbb1daca0df1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\SUPPLY-CHAIN-AND-RELEASE.md": {
+    "mtime": 1794908349.230687,
+    "ast_hash": "ea6e73711ef3d3acc1201633a172d4b0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\VALIDATION-AND-REPORTING.md": {
+    "mtime": 1794908349.230687,
+    "ast_hash": "df9bbf7f5058f0f7eaba098b4ce830a2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\.agents\\skills\\cloudflare-security-audit\\WEB-PROTOCOL-AND-AUTH.md": {
+    "mtime": 1794908349.230687,
+    "ast_hash": "53943d99f2a3484ce8f37de2be783f8b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\PLAN_OFFICIAL_CLOUDFLARE_SECURITY_AUDIT_STANDARDIZATION.md": {
+    "mtime": 1794909509.087192,
+    "ast_hash": "76169aad90f23df046cd71b0884b693e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\PROMPT_OFFICIAL_CLOUDFLARE_SECURITY_AUDIT_STANDARDIZATION.md": {
+    "mtime": 1794909506.7557063,
+    "ast_hash": "a25017fc5c9a95be48a0649e46cb0fd3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\AVASA\\Downloads\\OpenC\\Savazai-presenter\\DevPlans\\WALKTHROUGH_OFFICIAL_CLOUDFLARE_SECURITY_AUDIT_STANDARDIZATION.md": {
+    "mtime": 1794909513.2916787,
+    "ast_hash": "3fb3e6c2f357c811bf0315a31c7de2dd",
     "semantic_hash": ""
   }
 }
